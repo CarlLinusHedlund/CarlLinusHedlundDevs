@@ -1,3 +1,20 @@
+@font-face {
+    font-family: 'Rubik', sans-serif;
+    src: url(https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap);
+}
+@font-face {
+    font-family: 'Roboto Serif', serif;
+    src: url('https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wght@8..144,500&display=swap');
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.btn {
+    @apply py-3 px-4 border-primaryCoral border-2 rounded-[15px]
+}
+
+.inner {
+    @apply max-w-7xl mx-auto
+}
