@@ -11,10 +11,39 @@
 @tailwind components;
 @tailwind utilities;
 
-.btn {
-    @apply py-3 px-4 border-primaryCoral border-2 rounded-[15px]
-}
 
-.inner {
-    @apply max-w-7xl mx-auto
+@layer components {
+    .btn {
+        @apply py-3 px-4 border-primaryCoral border-2 rounded-[15px]
+    }
+    
+    .inner {
+        @apply max-w-7xl mx-auto
+    }
+
+    .h1-heading {
+        @apply text-text2xl
+    }
+
+    .sub-heading {
+        @apply text-textXL
+    }
+
+    .base-heading {
+        @apply text-textLG
+    }
+
+    .m-text {
+        @apply text-textBASE
+    }
+
+    .s-text {
+        @apply text-textSM    
+    }
+
+    .xs-text {
+        @apply text-textXS
+    }
+
+
 }

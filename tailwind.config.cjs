@@ -19,10 +19,10 @@ module.exports = {
     fontSize: {
       textXS: '12px',
       textSM: '16px',
-      textBASE: '',
-      textLG: '',
-      textXL: '',
-      text2xl: ''
+      textBASE: '20px',
+      textLG: '30px',
+      textXL: '55px',
+      text2xl: '75px'
     },
 
   },
