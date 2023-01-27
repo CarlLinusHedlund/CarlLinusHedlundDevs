@@ -1,18 +1,27 @@
-import './index.css';
 import React from 'react';
+import './index.css';
+import Menu from "./components/header/Nav";
+import Logo from "./components/header/Logo"
+import Dropdown from './components/header/MenuDropdown'
+import Herosection from './components/main/herobanner'
+
 
 function App() {
   return (
-    <div className="bg-primaryDark h-screen">
-      <div className="header px-8 md:px-0 md:py-10 fixed top-0 left-0 w-full flex flex-row justify-between h-[90px] border-b border-[#2c2c2c] md:h-screen md:w-[110px] md:flex-col-reverse md:border-r">
-        <div className="text-primaryWhite flex justify-center items-center">
-          Logo
-        </div>
-        <div className="menu flex justify-center items-center">
-          <div id="menu-btn" className="bg-primaryWhite h-0.5 w-[25px] relative rounded-lg after:w-[20px] after:h-0.5 after:absolute after:rounded-lg after:top-2 after:bg-white before:w-[30PX] before:h-0.5 before:bg-white before:rounded-lg before:absolute before:bottom-2" />
+    <div className="flex flex-col md:flex-row w-screen">
+      <div id='header' className="bg-primaryDark z-20 px-8 md:px-0 md:py-12 sticky top-0 bottom-0 w-full h-[90px] border-b border-[#2c2c2c] md:h-screen md:w-[110px] md:border-r md:border-b-0">
+        <div className='w-full h-full flex flex-row justify-between md:flex-col-reverse'>
+          <Logo/>
+          <Menu/>
         </div>
       </div>
+      <Dropdown/>
+      <div id='main' className='w-full h-full flex flex-col'>
+        <Herosection/>
+      </div>
+      
     </div>
   );
 }
+
 export default App;

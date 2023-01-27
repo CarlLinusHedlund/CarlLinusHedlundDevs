@@ -11,6 +11,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 @layer components {
   .btn {
     @apply py-3 px-4 border-primaryCoral border-2 rounded-[15px];
