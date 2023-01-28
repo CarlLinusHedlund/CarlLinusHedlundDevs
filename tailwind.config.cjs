@@ -23,6 +23,9 @@ module.exports = {
         textXL: '55px',
         text2xl: '75px'
       },
+      screens: {
+        'xs': '450px' 
+      }
     },
     
 

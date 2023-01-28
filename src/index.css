@@ -11,8 +11,19 @@
 @tailwind components;
 @tailwind utilities;
 
+body::-webkit-scrollbar{
+  display: none;
+}
 
 @layer components {
+  .fixedWidth {
+    width: calc(100% - 110px);
+  }
+
+  .fixedHeight {
+    height: calc(100%);
+  }
+
   .btn {
     @apply py-3 px-4 border-primaryCoral border-2 rounded-[15px];
   }
