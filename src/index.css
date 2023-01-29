@@ -16,6 +16,10 @@ body::-webkit-scrollbar{
 }
 
 @layer components {
+  .burgerActive {
+    @apply after:opacity-0 before:w-[35px] before:h-0.5 before:rotate-45 duration-700
+  }
+
   .fixedWidth {
     width: calc(100% - 110px);
   }
