@@ -1,7 +1,7 @@
-import React from 'react';
-import './index.css';
-import Herosection from './components/main/herobanner';
-import Header from './components/header/Header';
+import React from 'react'
+import './index.css'
+import Herosection from './components/main/herobanner'
+import Header from './components/header/Header'
 
 function App() {
   return (
@@ -10,9 +10,8 @@ function App() {
       <div id="main" className="w-full md:fixedWidth h-full flex flex-col">
         <Herosection />
       </div>
-
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
