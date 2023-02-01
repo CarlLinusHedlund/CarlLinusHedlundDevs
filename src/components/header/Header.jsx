@@ -1,5 +1,8 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useRef, useState } from 'react';
+import MediaLinks from './MediaLinks';
+import { Link } from 'react-router-dom';
+
 
 function Header() {
   const burgerRef = useRef();
@@ -33,6 +36,7 @@ function Header() {
     setIsMenuClicked(!isMenuClicked);
   };
 
+
   return (
     <div
       id="header"
@@ -50,70 +54,49 @@ function Header() {
           <div
             ref={burgerRef}
             className="relative h-[2.5px] w-7 rounded-lg bg-primaryWhite duration-500 before:absolute before:bottom-2 before:left-0 before:h-[2.5px] before:w-7 before:rounded-lg before:bg-white before:duration-500 after:absolute after:top-2 after:left-0 after:h-[2.5px] after:w-6 after:rounded-lg after:bg-white after:duration-500"
-          />
+          >
+          </div>
         </button>
       </div>
       <div
         ref={navRef}
         className="md:fixedWidth fixed top-0 right-0 z-10 mt-[90px] hidden h-full w-full flex-col justify-between gap-20 overflow-y-scroll bg-primaryDark text-[#cacaca] opacity-0 duration-700 md:mt-0"
       >
-        <ul className="mt-14 flex flex-col gap-2 xs:gap-7 pl-[30px] md:pl-[80px]">
-          <li
-            className={navListClass}
-            style={{ '--large-navigation-item-index': 1 }}
-          >
-            HOME
-          </li>
-          <li
-            className={navListClass}
-            style={{ '--large-navigation-item-index': 2 }}
-          >
-            GET IN TOUCH
-          </li>
-          <li
-            className={navListClass}
-            style={{ '--large-navigation-item-index': 3 }}
-          >
-            PROJECTS
-          </li>
-          <li
-            className={navListClass}
-            style={{ '--large-navigation-item-index': 4 }}
-          >
-            ABOUT ME
-          </li>
+        <ul className="mt-14 flex flex-col gap-2 md:gap-10 xs:gap-7 pl-[30px] md:pl-[80px]">
+          <Link to={'/'} onClick={updateMenu}>
+            <li
+              className={navListClass}
+              style={{ '--large-navigation-item-index': 1 }}
+            >
+              HOME
+            </li>
+          </Link>         
+          <Link to={'/contact'} onClick={updateMenu}>
+            <li
+              className={navListClass}
+              style={{ '--large-navigation-item-index': 2 }}
+            >
+              GET IN TOUCH
+            </li>
+          </Link>
+          <Link to={'/projects'} onClick={updateMenu}>
+            <li
+              className={navListClass}
+              style={{ '--large-navigation-item-index': 3 }}
+            >
+              PROJECTS
+            </li>
+          </Link>
+          <Link to={'/about'} onClick={updateMenu}>
+            <li
+              className={navListClass}
+              style={{ '--large-navigation-item-index': 4 }}
+            >
+              ABOUT ME
+            </li>
+          </Link>
         </ul>
-        <div className="mb-[90px] flex flex-col gap-2 pl-[30px] pb-3 md:pb-12 md:mb-0 md:pl-[80px]">
-          <div className=''>
-            <h3 className="text-textSM uppercase font-bold">Where to find me?</h3>
-          </div>
-          <div className="flex flex-col gap-2">
-            <a target="_blank" rel="noreferrer" className="flex-gap flex items-center gap-2 rounded-lg w-fit py-1 px-2 hover:bg-gray-200 hover:bg-opacity-10 hover:scale-105 duration-300 min-w-[143px]" href="https://github.com/CarlLinusHedlund">
-              <img
-                className="h-3 w-3"
-                src="../public/github.svg"
-                alt="github link"
-              />
-              <p className="text-textXS">CarlLinusHedlund</p>
-            </a>
-            <a target="_blank" rel="noreferrer" className="flex-gap flex items-center gap-2 rounded-lg w-fit py-1 px-2 hover:bg-gray-200 hover:bg-opacity-10 hover:scale-105 duration-300 min-w-[143px]" href="https://www.linkedin.com/in/carl-linus-hedlund-60534321a/">
-              <img
-                className="h-3 w-3"
-                src="../public/linkdin.svg"
-                alt="linkdin link"
-              />
-              <p className="text-textXS">Carl Linus Hedlund</p>
-            </a>
-            <a target="_blank" rel="noreferrer" className="flex-gap flex items-center gap-2 rounded-lg w-fit py-1 px-2 hover:bg-gray-200 hover:bg-opacity-10 hover:scale-105 duration-300 min-w-[143px]" href="https://twitter.com/boi_carly">
-              <img
-                className="h-3 w-3"
-                src="../public/twitter.svg"
-                alt="twitter link"
-              />
-              <p className="text-textXS">@XCarlyBoi</p>
-            </a>
-          </div>
-        </div>
+        <MediaLinks />
       </div>
     </div>
   );

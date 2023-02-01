@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Herosection() {
+function HomePage() {
   return (
     <>
       <section className="h-screen w-full bg-primaryDark" />
@@ -9,4 +9,4 @@ function Herosection() {
   )
 }
 
-export default Herosection
+export default HomePage;

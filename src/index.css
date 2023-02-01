@@ -27,7 +27,7 @@ body::-webkit-scrollbar {
 
 @keyframes transform {
   from {
-    transform: translateY(10px);
+    transform: translateY(15px);
   }
   to {
     transform: translateY(0px);
