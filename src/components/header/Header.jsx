@@ -21,11 +21,13 @@ function Header() {
       burgerRef.current.classList.add('after:opacity-0');
       navRef.current.classList.add('flex');
       navRef.current.classList.remove('hidden');
+      burgerRef.current.classList.add('burgerActive');
       setTimeout(overlayStart, 300);
     } else {
       setNavListClass('navList navFade opacity-0');
       burgerRef.current.classList.remove('after:opacity-0');
       navRef.current.classList.add('opacity-0');
+      burgerRef.current.classList.remove('burgerActive');
       setTimeout(overlayRemove, 500);
     }
     setIsMenuClicked(!isMenuClicked);
@@ -43,15 +45,15 @@ function Header() {
         <button type="button" onClick={updateMenu} className="flex justify-center items-center h-10 duration-800">
           <div
             ref={burgerRef}
-            className="duration-500 bg-primaryWhite h-0.5 w-[35px] after:duration-500 relative rounded-lg after:w-[30px] after:h-0.5 after:absolute after:rounded-lg after:top-2.5 after:left-0 after:bg-white before:w-[40px] before:h-0.5 before:bg-white before:rounded-lg before:absolute before:bottom-2.5 before:left-0 before:duration-500"
+            className="duration-500 bg-primaryWhite h-[2.5px] w-7 after:duration-500 relative rounded-lg after:w-6 after:h-[2.5px] after:absolute after:rounded-lg after:top-2 after:left-0 after:bg-white before:w-7 before:h-[2.5px] before:bg-white before:rounded-lg before:absolute before:bottom-2 before:left-0 before:duration-500"
           />
         </button>
       </div>
       <div
         ref={navRef}
-        className="opacity-0 w-full md:fixedWidth h-full mt-[50px] md:mt-0 z-10 fixed top-0 right-0 bg-primaryDark duration-700 text-[#cacaca] flex-col justify-between hidden"
+        className="opacity-0 w-full md:fixedWidth h-full mt-[90px] md:mt-[50px] md:mt-0 z-10 fixed top-0 right-0 bg-primaryDark duration-700 text-[#cacaca] flex-col justify-between hidden"
       >
-        <ul className="pl-[30px] md:pl-[80px] mt-[100px] flex flex-col gap-4">
+        <ul className="pl-[30px] md:pl-[80px] mt-[40px] flex flex-col gap-4">
           <li className={navListClass} style={{ '--large-navigation-item-index': 1 }}>HOME</li>
           <li className={navListClass} style={{ '--large-navigation-item-index': 2 }}>GET IN TOUCH</li>
           <li className={navListClass} style={{ '--large-navigation-item-index': 3 }}>PROJECTS</li>
