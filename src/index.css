@@ -16,6 +16,24 @@ body::-webkit-scrollbar {
   display: none;
 }
 
+@keyframes fade {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes transform {
+  from {transform: translateY(20px);}
+  to {transform: translateY(0px);}
+}
+
+.navFade {
+  animation: fade 1s ease-in-out calc(var(--large-navigation-item-index)*.18s) forwards, transform 1s ease-in-out calc(var(--large-navigation-item-index)*.18s) forwards;
+}
+
+.navList {
+  @apply cursor-pointer font-rubik text-textLG xs:text-textXL font-extrabold capitalize hover:text-white w-fit opacity-0 hover:translate-x-2 duration-1000 translate-y-0;
+}
+
 @layer components {
   .burgerActive {
     @apply after: opacity-0 before:w-[35px] before:h-0.5 before:rotate-45 duration-500;
