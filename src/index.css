@@ -17,26 +17,37 @@ body::-webkit-scrollbar {
 }
 
 @keyframes fade {
-  from {opacity: 0;}
-  to {opacity: 1;}
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes transform {
-  from {transform: translateY(20px);}
-  to {transform: translateY(0px);}
+  from {
+    transform: translateY(20px);
+  }
+  to {
+    transform: translateY(0px);
+  }
 }
 
 @layer components {
   .burgerActive {
-    @apply rotate-45 after:opacity-0 before:w-5 before:h-0.5 before:-rotate-90 duration-500 before:bottom-auto before:top-0;
+    @apply rotate-45 duration-500 before:bottom-auto before:top-0 before:h-0.5 before:w-5 before:-rotate-90 after:opacity-0;
   }
 
   .navFade {
-    animation: fade 1s ease-in-out calc(var(--large-navigation-item-index)*.18s) forwards, transform 1s ease-in-out calc(var(--large-navigation-item-index)*.18s) forwards;
+    animation: fade 1s ease-in-out
+        calc(var(--large-navigation-item-index) * 0.18s) forwards,
+      transform 1s ease-in-out calc(var(--large-navigation-item-index) * 0.18s)
+        forwards;
   }
-  
+
   .navList {
-    @apply cursor-pointer font-rubik text-textLG xs:text-textXL font-extrabold capitalize hover:text-white w-fit opacity-0 hover:scale-110 duration-1000 translate-y-0;
+    @apply w-fit translate-y-0 cursor-pointer font-rubik text-textLG font-extrabold capitalize opacity-0 duration-1000 hover:scale-110 hover:text-white xs:text-textXL;
   }
 
   .fixedWidth {
@@ -48,11 +59,11 @@ body::-webkit-scrollbar {
   }
 
   .btn {
-    @apply py-3 px-4 border-primaryCoral border-2 rounded-[15px];
+    @apply rounded-[15px] border-2 border-primaryCoral py-3 px-4;
   }
 
   .inner {
-    @apply max-w-7xl mx-auto;
+    @apply mx-auto max-w-7xl;
   }
 
   .h1-heading {

@@ -5,9 +5,9 @@ import Header from './components/header/Header'
 
 function App() {
   return (
-    <div className="flex flex-col md:flex-row w-screen m-0">
+    <div className="m-0 flex w-screen flex-col md:flex-row">
       <Header />
-      <div id="main" className="w-full md:fixedWidth h-full flex flex-col">
+      <div id="main" className="md:fixedWidth flex h-full w-full flex-col">
         <Herosection />
       </div>
     </div>

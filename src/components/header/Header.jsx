@@ -36,34 +36,82 @@ function Header() {
   return (
     <div
       id="header"
-      className="bg-primaryDark z-20 px-8 md:px-0 md:py-12 sticky top-0 bottom-0 w-full h-[90px] border-b border-[#2c2c2c] md:h-screen md:w-[110px] md:border-r md:border-b-0"
+      className="sticky top-0 bottom-0 z-20 h-[90px] w-full border-b border-[#2c2c2c] bg-primaryDark px-8 md:h-screen md:w-[110px] md:border-r md:border-b-0 md:px-0 md:py-12"
     >
-      <div className="w-full h-full flex flex-row justify-between items-center md:flex-col-reverse">
-        <div className="text-primaryWhite flex justify-center items-center">
-          Logo
+      <div className="flex h-full w-full flex-row items-center justify-between md:flex-col-reverse">
+        <div className="flex items-center justify-center text-primaryWhite">
+          <img src="../public/logo.svg" alt="logo" />
         </div>
-        <button type="button" onClick={updateMenu} className="flex justify-center items-center h-10 duration-800">
+        <button
+          type="button"
+          onClick={updateMenu}
+          className="duration-800 flex h-10 items-center justify-center"
+        >
           <div
             ref={burgerRef}
-            className="duration-500 bg-primaryWhite h-[2.5px] w-7 after:duration-500 relative rounded-lg after:w-6 after:h-[2.5px] after:absolute after:rounded-lg after:top-2 after:left-0 after:bg-white before:w-7 before:h-[2.5px] before:bg-white before:rounded-lg before:absolute before:bottom-2 before:left-0 before:duration-500"
+            className="relative h-[2.5px] w-7 rounded-lg bg-primaryWhite duration-500 before:absolute before:bottom-2 before:left-0 before:h-[2.5px] before:w-7 before:rounded-lg before:bg-white before:duration-500 after:absolute after:top-2 after:left-0 after:h-[2.5px] after:w-6 after:rounded-lg after:bg-white after:duration-500"
           />
         </button>
       </div>
       <div
         ref={navRef}
-        className="opacity-0 w-full md:fixedWidth h-full mt-[90px] md:mt-[50px] md:mt-0 z-10 fixed top-0 right-0 bg-primaryDark duration-700 text-[#cacaca] flex-col justify-between hidden"
+        className="md:fixedWidth fixed top-0 right-0 z-10 mt-[90px] hidden h-full w-full flex-col justify-between gap-3 overflow-scroll bg-primaryDark text-[#cacaca] opacity-0 duration-700 md:mt-0"
       >
-        <ul className="pl-[30px] md:pl-[80px] mt-[40px] flex flex-col gap-4">
-          <li className={navListClass} style={{ '--large-navigation-item-index': 1 }}>HOME</li>
-          <li className={navListClass} style={{ '--large-navigation-item-index': 2 }}>GET IN TOUCH</li>
-          <li className={navListClass} style={{ '--large-navigation-item-index': 3 }}>PROJECTS</li>
-          <li className={navListClass} style={{ '--large-navigation-item-index': 4 }}>ABOUT ME</li>
+        <ul className="mt-[30px] flex flex-col pl-[30px] md:pl-[80px]">
+          <li
+            className={navListClass}
+            style={{ '--large-navigation-item-index': 1 }}
+          >
+            HOME
+          </li>
+          <li
+            className={navListClass}
+            style={{ '--large-navigation-item-index': 2 }}
+          >
+            GET IN TOUCH
+          </li>
+          <li
+            className={navListClass}
+            style={{ '--large-navigation-item-index': 3 }}
+          >
+            PROJECTS
+          </li>
+          <li
+            className={navListClass}
+            style={{ '--large-navigation-item-index': 4 }}
+          >
+            ABOUT ME
+          </li>
         </ul>
-        <div className="pl-[30px] md:pl-[80px] mb-20">
-          <div className="flex flex-row gap-10">
-            <div className="">Link</div>
-            <div className="">Link</div>
-            <div className="">Link</div>
+        <div className="mb-[90px] flex flex-col gap-4 pl-[30px] pb-3 md:pb-12 md:mb-0 md:pl-[80px]">
+          <div className=''>
+            <h3 className="text-textSM uppercase">Where to find me?</h3>
+          </div>
+          <div className="flex flex-col gap-3">
+            <a className="flex-gap flex items-center gap-2" href="www.facebook.com">
+              <img
+                className="h-3 w-3"
+                src="../public/github.svg"
+                alt="github link"
+              />
+              <p className="text-textXS">github</p>
+            </a>
+            <a className="flex flex-row items-center gap-2" href="#">
+              <img
+                className="h-3 w-3"
+                src="../public/linkdin.svg"
+                alt="linkdin link"
+              />
+              <p className="text-textXS">linkdIn</p>
+            </a>
+            <a className="flex flex-row items-center gap-2" href="#">
+              <img
+                className="h-3 w-3"
+                src="../public/twitter.svg"
+                alt="twitter link"
+              />
+              <p className="text-textXS">twitter</p>
+            </a>
           </div>
         </div>
       </div>
