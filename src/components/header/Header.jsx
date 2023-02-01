@@ -55,7 +55,7 @@ function Header() {
       </div>
       <div
         ref={navRef}
-        className="md:fixedWidth fixed top-0 right-0 z-10 mt-[90px] hidden h-full w-full flex-col justify-between gap-3 overflow-scroll bg-primaryDark text-[#cacaca] opacity-0 duration-700 md:mt-0"
+        className="md:fixedWidth fixed top-0 right-0 z-10 mt-[90px] hidden h-full w-full flex-col justify-between gap-20 overflow-y-scroll bg-primaryDark text-[#cacaca] opacity-0 duration-700 md:mt-0"
       >
         <ul className="mt-14 flex flex-col gap-2 xs:gap-7 pl-[30px] md:pl-[80px]">
           <li
@@ -87,7 +87,7 @@ function Header() {
           <div className=''>
             <h3 className="text-textSM uppercase font-bold">Where to find me?</h3>
           </div>
-          <div className="flex sm:flex-col gap-2">
+          <div className="flex flex-col gap-2">
             <a target="_blank" rel="noreferrer" className="flex-gap flex items-center gap-2 rounded-lg w-fit py-1 px-2 hover:bg-gray-200 hover:bg-opacity-10 hover:scale-105 duration-300 min-w-[143px]" href="https://github.com/CarlLinusHedlund">
               <img
                 className="h-3 w-3"
