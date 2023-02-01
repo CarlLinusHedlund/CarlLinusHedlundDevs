@@ -57,7 +57,7 @@ function Header() {
         ref={navRef}
         className="md:fixedWidth fixed top-0 right-0 z-10 mt-[90px] hidden h-full w-full flex-col justify-between gap-3 overflow-scroll bg-primaryDark text-[#cacaca] opacity-0 duration-700 md:mt-0"
       >
-        <ul className="mt-[30px] flex flex-col pl-[30px] md:pl-[80px]">
+        <ul className="mt-14 flex flex-col gap-2 xs:gap-7 pl-[30px] md:pl-[80px]">
           <li
             className={navListClass}
             style={{ '--large-navigation-item-index': 1 }}
@@ -83,34 +83,34 @@ function Header() {
             ABOUT ME
           </li>
         </ul>
-        <div className="mb-[90px] flex flex-col gap-4 pl-[30px] pb-3 md:pb-12 md:mb-0 md:pl-[80px]">
+        <div className="mb-[90px] flex flex-col gap-2 pl-[30px] pb-3 md:pb-12 md:mb-0 md:pl-[80px]">
           <div className=''>
-            <h3 className="text-textSM uppercase">Where to find me?</h3>
+            <h3 className="text-textSM uppercase font-bold">Where to find me?</h3>
           </div>
-          <div className="flex flex-col gap-3">
-            <a className="flex-gap flex items-center gap-2" href="www.facebook.com">
+          <div className="flex sm:flex-col gap-2">
+            <a target="_blank" rel="noreferrer" className="flex-gap flex items-center gap-2 rounded-lg w-fit py-1 px-2 hover:bg-gray-200 hover:bg-opacity-10 hover:scale-105 duration-300 min-w-[143px]" href="https://github.com/CarlLinusHedlund">
               <img
                 className="h-3 w-3"
                 src="../public/github.svg"
                 alt="github link"
               />
-              <p className="text-textXS">github</p>
+              <p className="text-textXS">CarlLinusHedlund</p>
             </a>
-            <a className="flex flex-row items-center gap-2" href="#">
+            <a target="_blank" rel="noreferrer" className="flex-gap flex items-center gap-2 rounded-lg w-fit py-1 px-2 hover:bg-gray-200 hover:bg-opacity-10 hover:scale-105 duration-300 min-w-[143px]" href="https://www.linkedin.com/in/carl-linus-hedlund-60534321a/">
               <img
                 className="h-3 w-3"
                 src="../public/linkdin.svg"
                 alt="linkdin link"
               />
-              <p className="text-textXS">linkdIn</p>
+              <p className="text-textXS">Carl Linus Hedlund</p>
             </a>
-            <a className="flex flex-row items-center gap-2" href="#">
+            <a target="_blank" rel="noreferrer" className="flex-gap flex items-center gap-2 rounded-lg w-fit py-1 px-2 hover:bg-gray-200 hover:bg-opacity-10 hover:scale-105 duration-300 min-w-[143px]" href="https://twitter.com/boi_carly">
               <img
                 className="h-3 w-3"
                 src="../public/twitter.svg"
                 alt="twitter link"
               />
-              <p className="text-textXS">twitter</p>
+              <p className="text-textXS">@XCarlyBoi</p>
             </a>
           </div>
         </div>
