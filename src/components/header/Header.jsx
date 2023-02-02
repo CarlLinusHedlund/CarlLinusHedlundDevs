@@ -45,7 +45,7 @@ function Header() {
     >
       <div className="flex h-full w-full flex-row items-center justify-between md:flex-col-reverse">
         <div className="flex items-center justify-center text-primaryWhite">
-          <img src="../public/logo.svg" alt="logo" />
+          <img src="../logo.svg" alt="logo" />
         </div>
         <button
           type="button"
