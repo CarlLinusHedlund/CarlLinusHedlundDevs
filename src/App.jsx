@@ -15,14 +15,12 @@ function App() {
       <div className="m-0 flex w-screen flex-col md:flex-row">
         <Header />
         <div id="main" className="md:fixedWidth flex h-full w-full flex-col">
-        
           <Routes>
             <Route path="/" element={<HomePage/>} exact />
             <Route path="/about" element={<AboutPage/>} />
             <Route path="/projects" element={<ProjectPage/>} />
             <Route path="/contact" element={<ContactPage/>} />
            </Routes>
-          
         </div>
       </div>
       </BrowserRouter>

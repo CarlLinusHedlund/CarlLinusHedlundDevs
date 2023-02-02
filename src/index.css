@@ -47,7 +47,7 @@ body::-webkit-scrollbar {
   }
 
   .navList {
-    @apply w-fit translate-y-0 cursor-pointer font-rubik text-4xl font-extrabold capitalize opacity-0 duration-1000 hover:scale-110 hover:text-white xs:text-textXL;
+    @apply w-fit translate-y-0 cursor-pointer font-rubik text-4xl font-black capitalize opacity-0 duration-1000 hover:text-primaryCoral xs:text-textXL;
   }
 
   .fixedWidth {

@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useRef, useState } from 'react';
 import MediaLinks from './MediaLinks';
-import { Link } from 'react-router-dom';
+import { Link, redirect } from 'react-router-dom';
 
 
 function Header() {
@@ -36,7 +36,7 @@ function Header() {
     setIsMenuClicked(!isMenuClicked);
   };
 
-
+  
   return (
     <div
       id="header"
@@ -71,7 +71,7 @@ function Header() {
               HOME
             </li>
           </Link>         
-          <Link to={'/contact'} onClick={updateMenu}>
+          <Link to={'/contact'} onClick={updateMenu} >
             <li
               className={navListClass}
               style={{ '--large-navigation-item-index': 2 }}
@@ -79,7 +79,7 @@ function Header() {
               GET IN TOUCH
             </li>
           </Link>
-          <Link to={'/projects'} onClick={updateMenu}>
+          <Link to={'/projects'} onClick={updateMenu} >
             <li
               className={navListClass}
               style={{ '--large-navigation-item-index': 3 }}
@@ -87,7 +87,7 @@ function Header() {
               PROJECTS
             </li>
           </Link>
-          <Link to={'/about'} onClick={updateMenu}>
+          <Link to={'/about'} onClick={updateMenu} >
             <li
               className={navListClass}
               style={{ '--large-navigation-item-index': 4 }}
