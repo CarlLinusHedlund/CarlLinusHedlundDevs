@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Rubik', sans-serif;
-  src: url(https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap);
+  src: url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap');
 }
 
 @font-face {
@@ -47,7 +47,7 @@ body::-webkit-scrollbar {
   }
 
   .navList {
-    @apply w-fit translate-y-0 cursor-pointer font-rubik text-4xl font-semibold capitalize opacity-0 duration-1000 hover:text-primaryCoral xs:text-textXL;
+    @apply w-fit translate-y-0 cursor-pointer font-rubik text-4xl font-black capitalize opacity-0 duration-1000 hover:text-primaryCoral xs:text-textXL;
   }
 
   .fixedWidth {
