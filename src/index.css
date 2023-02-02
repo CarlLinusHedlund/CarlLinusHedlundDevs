@@ -1,23 +1,69 @@
 @font-face {
-  font-family: "Rubik", sans-serif;
+  font-family: 'Rubik', sans-serif;
   src: url(https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap);
 }
+
 @font-face {
-  font-family: "Roboto Serif", serif;
-  src: url("https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wght@8..144,500&display=swap");
+  font-family: 'Roboto Serif', serif;
+  src: url('https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wght@8..144,500&display=swap');
 }
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+body::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes transform {
+  from {
+    transform: translateY(15px);
+  }
+  to {
+    transform: translateY(0px);
+  }
+}
+
 @layer components {
+  .burgerActive {
+    @apply rotate-45 duration-500 before:bottom-auto before:top-0 before:h-0.5 before:w-5 before:-rotate-90 after:opacity-0;
+  }
+
+  .navFade {
+    animation: fade 1s ease-in-out
+        calc(var(--large-navigation-item-index) * 0.18s) forwards,
+      transform 1s ease-in-out calc(var(--large-navigation-item-index) * 0.18s)
+        forwards;
+  }
+
+  .navList {
+    @apply w-fit translate-y-0 cursor-pointer font-rubik text-4xl font-black capitalize opacity-0 duration-1000 hover:text-primaryCoral xs:text-textXL;
+  }
+
+  .fixedWidth {
+    width: calc(100% - 110px);
+  }
+
+  .fixedHeight {
+    height: calc(100%);
+  }
+
   .btn {
-    @apply py-3 px-4 border-primaryCoral border-2 rounded-[15px];
+    @apply rounded-[15px] border-2 border-primaryCoral py-3 px-4;
   }
 
   .inner {
-    @apply max-w-7xl mx-auto;
+    @apply mx-auto max-w-7xl;
   }
 
   .h1-heading {
