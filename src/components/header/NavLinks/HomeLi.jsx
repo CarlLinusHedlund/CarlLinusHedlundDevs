@@ -3,11 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 function HomeList() {
-  return (
-    <Link to="/">
-      HOME
-    </Link>
-  );
+  return <Link to="/">HOME</Link>;
 }
 
 export default HomeList;

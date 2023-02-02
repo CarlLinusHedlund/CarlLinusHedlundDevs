@@ -62,7 +62,7 @@ function Header() {
         ref={navRef}
         className="md:fixedWidth fixed top-0 right-0 z-10 mt-[90px] hidden h-full w-full flex-col justify-between gap-20 overflow-y-scroll bg-primaryDark text-[#cacaca] opacity-0 duration-700 md:mt-0"
       >
-        <nav className="mt-14 flex flex-col gap-2 md:gap-10 xs:gap-7 pl-[30px] md:pl-[80px]">
+        <nav className="mt-14 flex flex-col gap-2 pl-[30px] xs:gap-7 md:gap-10 md:pl-[80px]">
           <div
             onClick={updateMenu}
             onKeyDown={updateMenu}
@@ -71,13 +71,28 @@ function Header() {
           >
             <HomeList />
           </div>
-          <div onClick={updateMenu} onKeyDown={updateMenu} className={navListClass} style={{ '--large-navigation-item-index': 2 }}>
+          <div
+            onClick={updateMenu}
+            onKeyDown={updateMenu}
+            className={navListClass}
+            style={{ '--large-navigation-item-index': 2 }}
+          >
             <ContactList />
           </div>
-          <div onClick={updateMenu} onKeyDown={updateMenu} className={navListClass} style={{ '--large-navigation-item-index': 3 }}>
+          <div
+            onClick={updateMenu}
+            onKeyDown={updateMenu}
+            className={navListClass}
+            style={{ '--large-navigation-item-index': 3 }}
+          >
             <ProjectsList />
           </div>
-          <div onClick={updateMenu} onKeyDown={updateMenu} className={navListClass} style={{ '--large-navigation-item-index': 4 }}>
+          <div
+            onClick={updateMenu}
+            onKeyDown={updateMenu}
+            className={navListClass}
+            style={{ '--large-navigation-item-index': 4 }}
+          >
             <AboutList />
           </div>
         </nav>

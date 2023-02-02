@@ -3,11 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 function AboutList() {
-  return (
-    <Link to="/about">
-      ABOUT
-    </Link>
-  );
+  return <Link to="/about">ABOUT</Link>;
 }
 
 export default AboutList;

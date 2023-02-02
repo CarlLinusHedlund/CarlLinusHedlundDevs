@@ -3,11 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 function ContactList() {
-  return (
-    <Link to="/contact">
-      GET IN TOUCH
-    </Link>
-  );
+  return <Link to="/contact">GET IN TOUCH</Link>;
 }
 
 export default ContactList;
