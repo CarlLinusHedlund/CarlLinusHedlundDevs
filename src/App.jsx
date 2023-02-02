@@ -6,7 +6,7 @@ import Header from './components/header/Header';
 import AboutPage from './components/main/about';
 import ContactPage from './components/main/contact';
 import ProjectPage from './components/main/projects';
-import HomePage from './components/main';
+import HomePage from './components/main/home';
 
 function App() {
   return (
