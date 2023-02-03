@@ -37,6 +37,10 @@ body::-webkit-scrollbar {
 }
 
 @layer components {
+  .bgImg {
+    background-image: url('../profile-big.png');
+  }
+
   .inner {
     @apply max-w-5xl mx-auto
   }
