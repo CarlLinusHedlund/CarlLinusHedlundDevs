@@ -19,10 +19,11 @@ module.exports = {
         textLG: '30px',
         textXL: '55px',
         text2xl: '75px',
-        text3xl: '95px',
+        text3xl: '92px',
       },
       screens: {
         xs: '450px',
+        smd: '880px',
       },
     },
   },
