@@ -8,7 +8,7 @@ module.exports = {
         roboto: ['Roboto Serif', 'serif'],
       },
       colors: {
-        primaryDark: '#1A1A1A',
+        primaryDark: '#191919',
         primaryWhite: '#F8F8F8',
         primaryCoral: '#F17874',
       },
