@@ -3,11 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 function ProjectsList() {
-  return (
-    <Link to="/projects">
-      PROJECTS
-    </Link>
-  );
+  return <Link to="/projects">PROJECTS</Link>;
 }
 
 export default ProjectsList;

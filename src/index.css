@@ -1,7 +1,7 @@
-@font-face {
+/* @font-face {
   font-family: 'Rubik', sans-serif;
-  src: url(https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap);
-}
+  src: url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap');
+} */
 
 @font-face {
   font-family: 'Roboto Serif', serif;
@@ -11,6 +11,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
 
 body::-webkit-scrollbar {
   display: none;
@@ -35,6 +37,14 @@ body::-webkit-scrollbar {
 }
 
 @layer components {
+  .bgImg {
+    background-image: url('../profile-big.png');
+  }
+
+  .inner {
+    @apply max-w-5xl mx-auto
+  }
+
   .burgerActive {
     @apply rotate-45 duration-500 before:bottom-auto before:top-0 before:h-0.5 before:w-5 before:-rotate-90 after:opacity-0;
   }
@@ -47,7 +57,7 @@ body::-webkit-scrollbar {
   }
 
   .navList {
-    @apply w-fit translate-y-0 cursor-pointer font-rubik text-4xl font-black capitalize opacity-0 duration-1000 hover:text-primaryCoral xs:text-textXL;
+    @apply w-fit translate-y-0 cursor-pointer font-rubik text-4xl font-bold capitalize opacity-0 duration-1000 hover:text-primaryCoral xs:text-textXL;
   }
 
   .fixedWidth {
