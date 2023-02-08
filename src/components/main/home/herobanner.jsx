@@ -6,11 +6,11 @@ function HeroBanner() {
     <div className='flex justify-center items-center sm:items-start pb-40 sm:pt-10 lg:pb-36 w-full relative inner'>
       <div className="flex flex-col md:flex-row-reverse w-full h-full  md:items-center lg:justify-around ">
         <div className='hidden lg:flex flex-col w-[40%] z-10 whitespace-nowrap text-primaryWhite '>
-          <h3 className=' text-textBASE   font-rubik font-medium '>
+          <h3 className=' text-textBASE font-rubik font-medium leading-[1.5rem]  '>
             Welcome to my Website
           </h3>
-          <h2 className=' text-textLG font-bold '><span className=' text-primaryCoral text-textLG '>Front End Developer</span>  from <br /> Oslo, Norway</h2>
-          <p className=' text-textSM whitespace-normal '>Here you can find everything about me, my latest works, skills and platforms i work with on a daily basis. </p>
+          <h2 className=' leading-[2.5rem] text-textLG font-bold '><span className=' text-primaryCoral text-textLG '>Front End Developer</span>  from <br /> Oslo, Norway</h2>
+          <p className=' text-textSM whitespace-normal '>Here you can find everything about me, <br /> my latest works, skills and platforms i <br /> work with on a daily basis. </p>
         </div>
         <div className=' lg:w-[20%] max-h-[450px] md:h-full w-full flex justify-center relative md:w-2/5 '>
           {/* <img className='' src="./profile.png" alt="profile img" /> */}
