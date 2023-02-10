@@ -38,6 +38,10 @@ body::-webkit-scrollbar {
 
 
 @layer components {
+  .innerShadowContainer {
+    box-shadow: inset 7px 11px 25px 8px rgba(0, 0, 0, 0.2);
+  }
+
   .bgImg {
     background-image: url('../profile-big.png');
   }
