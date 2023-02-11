@@ -24,7 +24,7 @@ function HeroBanner() {
               <p className='block lg:hidden font-rubik font-semibold text-primaryWhite text-textBASE'>Welcome to my Website</p>
           </div>
           <div className="flex flex-col gap-4 max-w-[330px]  ">
-            <button className='w-full btn flex items-center justify-between ' >
+            <button className='w-full btn flex items-center justify-between lg:hover:scale-105 duration-300 ' >
               <p className='text-primaryWhite font-semibold text-textSM' >Hire Me</p>
               <img src="./arrow.svg" alt="arrow" />
             </button>
