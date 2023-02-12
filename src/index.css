@@ -38,6 +38,10 @@ body::-webkit-scrollbar {
 
 
 @layer components {
+  .hoverShadow {
+    filter:  drop-shadow(0px 4px 29px rgba(241, 120, 116, 0.68)) drop-shadow(0px 0.500862px 3.63125px rgba(241, 120, 116, 0.34));
+  }
+  
   .innerShadowContainer {
     box-shadow: inset 7px 11px 25px 8px rgba(0, 0, 0, 0.2);
   }

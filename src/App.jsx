@@ -13,7 +13,7 @@ import HomePage from './components/main/home/home';
 function App() {
   return (
     <BrowserRouter>
-      <div className="m-0 flex w-screen flex-col md:flex-row">
+      <div className="m-0 flex w-screen flex-col md:flex-row scroll-smooth ">
         <Header />
         <div id="main" className="md:fixedWidth flex h-full w-full flex-col">
           <Routes>
