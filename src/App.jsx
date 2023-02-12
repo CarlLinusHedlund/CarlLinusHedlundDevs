@@ -6,7 +6,7 @@ import Header from './components/header/Header';
 import AboutPage from './components/main/about';
 import ContactPage from './components/main/contact';
 import ProjectPage from './components/main/projects';
-import AdminPage from './components/main/admin';
+import AdminPage from './components/main/admin/admin';
 import HomePage from './components/main/home/home';
 
 
