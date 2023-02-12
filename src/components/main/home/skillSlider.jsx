@@ -111,10 +111,10 @@ function SkillSlider() {
               <img className='object-contain' src="../firebase.png" alt="firebase" />
             </div>
             <div className=' bg-primaryDark p-3 h-12 w-12 xs:h-14 xs:w-14 sm:w-20 sm:h-20 rounded-lg flex items-center justify-center '>
-              <img className='object-contain' src="../css.png" alt="css" />
+              <img className='object-contain' src="../netlify.png" alt="netlify" />
             </div>
             <div className=' bg-primaryDark p-3 h-12 w-12 xs:h-14 xs:w-14 sm:w-20 sm:h-20 rounded-lg flex items-center justify-center '>
-              <img className='object-contain' src="../css.png" alt="css" />
+              <img className='object-contain' src="../vercel.png" alt="vercel" />
             </div>
           </div>
         </div>
