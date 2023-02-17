@@ -22,9 +22,9 @@ function RecentProjects() {
             <h2 className=" uppercase leading-10 sm:leading-[3rem] font-bold text-[40px] sm:text-textXL lg:text-textXL ">Jobless.no</h2>
             <p className=" max-w-[450px] md:max-w-[350px] text-textXS ">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id turpis vestibulum amet, nulla ullamcorper diam amet tincidunt. Aliquam urna, dis elementum at mauris pulvinar bibendum.  </p>
             <Link to="/projects">
-              <button className=' lg:hover:hoverShadow w-full btn flex items-center justify-between mt-4 max-w-[450px] md:max-w-[350px] lg:hover:scale-105 duration-300 ' >
+              <button className='group lg:hover:hoverShadow w-full btn flex items-center justify-between mt-4 max-w-[450px] md:max-w-[350px] lg:hover:scale-105 duration-300 ' >
                 <p className='text-primaryWhite font-semibold text-textSM' >Read More</p>
-                <img src="./arrow.svg" alt="arrow" />
+                <img className="group-hover:animate-bounce-x" src="./arrow.svg" alt="arrow" />
               </button>
             </Link>
           </div>
@@ -38,9 +38,9 @@ function RecentProjects() {
             <h2 className=" uppercase leading-10 sm:leading-[3rem] font-bold text-[40px] sm:text-textXL lg:text-textXL whitespace-nowrap ">SNOWY DAYS</h2>
             <p className=" max-w-[450px] md:max-w-[350px] text-textXS ">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id turpis vestibulum amet, nulla ullamcorper diam amet tincidunt. Aliquam urna, dis elementum at mauris pulvinar bibendum.  </p>
             <Link to="/projects">
-              <button className=' lg:hover:hoverShadow w-full btn flex items-center justify-between mt-4 max-w-[450px] md:max-w-[350px] lg:hover:scale-105 duration-300 ' >
+              <button className='group lg:hover:hoverShadow w-full btn flex items-center justify-between mt-4 max-w-[450px] md:max-w-[350px] lg:hover:scale-105 duration-300 ' >
                 <p className='text-primaryWhite font-semibold text-textSM' >Read More</p>
-                <img src="./arrow.svg" alt="arrow" />
+                <img className="group-hover:animate-bounce-x" src="./arrow.svg" alt="arrow" />
               </button>
             </Link>
           </div>
