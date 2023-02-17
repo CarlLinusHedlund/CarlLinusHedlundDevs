@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 
 function HeroBanner() {
 
@@ -24,10 +26,12 @@ function HeroBanner() {
               <p className='block lg:hidden font-rubik font-semibold text-primaryWhite text-textBASE'>Welcome to my Website</p>
           </div>
           <div className="flex flex-col gap-4 max-w-[330px]  ">
-            <button className='group lg:hover:hoverShadow w-full btn flex items-center justify-between lg:hover:scale-105 duration-300  ' >
-              <p className='text-primaryWhite font-semibold text-textSM' >Hire Me</p>
-              <img className=' group-hover:animate-bounce-x ' src="./arrow.svg" alt="arrow" />
-            </button>
+            <Link to='/contact'>
+              <button className='group lg:hover:hoverShadow w-full btn flex items-center justify-between lg:hover:scale-105 duration-300  ' >
+                <p className='text-primaryWhite font-semibold text-textSM' >Hire Me</p>
+                <img className=' group-hover:animate-bounce-x ' src="./arrow.svg" alt="arrow" />
+              </button>
+            </Link>
             <div className='w-full flex items-center justify-center'>
               <a className='flex gap-2 hover:scale-105 duration-500 ' href="./profile.png" download>
                 <p className='text-textSM text-primaryWhite font-light '>Download CV</p>
