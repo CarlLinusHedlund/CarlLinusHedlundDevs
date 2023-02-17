@@ -11,6 +11,7 @@
     "lint-fix": "eslint --fix --ext .js,.jsx ."
   },
   "dependencies": {
+    "@emailjs/browser": "^3.10.0",
     "@vitejs/plugin-react": "^3.0.0",
     "formik": "^2.2.9",
     "react": "^18.2.0",
