@@ -24,9 +24,9 @@ function HeroBanner() {
               <p className='block lg:hidden font-rubik font-semibold text-primaryWhite text-textBASE'>Welcome to my Website</p>
           </div>
           <div className="flex flex-col gap-4 max-w-[330px]  ">
-            <button className=' lg:hover:hoverShadow w-full btn flex items-center justify-between lg:hover:scale-105 duration-300 ' >
+            <button className='group lg:hover:hoverShadow w-full btn flex items-center justify-between lg:hover:scale-105 duration-300  ' >
               <p className='text-primaryWhite font-semibold text-textSM' >Hire Me</p>
-              <img src="./arrow.svg" alt="arrow" />
+              <img className=' group-hover:animate-bounce-x ' src="./arrow.svg" alt="arrow" />
             </button>
             <div className='w-full flex items-center justify-center'>
               <a className='flex gap-2 hover:scale-105 duration-500 ' href="./profile.png" download>
@@ -39,7 +39,7 @@ function HeroBanner() {
       </div>
       <div className='w-36 h-8 border border-r-0 border-primaryWhite absolute bottom-14 -right-10 sm:right-10 rotate-90 flex items-center justify-between px-2 rounded-l-md '>
         <p className='font-rubik font-extralight text-primaryCoral text-textXS '>SCROLL DOWN</p>
-        <img className='w-4 h-4' src="./arrow.svg" alt="arrow" />
+        <img className='animate-bounce-x w-5 h-5' src="./arrow.svg" alt="arrow" />
       </div>
     </div>
   );
