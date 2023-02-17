@@ -4,7 +4,7 @@ import './index.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/header/Header';
 import AboutPage from './components/main/about';
-import ContactPage from './components/main/contact';
+import ContactPage from './components/main/contact/contact';
 import ProjectPage from './components/main/projects';
 import AdminPage from './components/main/admin/admin';
 import HomePage from './components/main/home/home';
