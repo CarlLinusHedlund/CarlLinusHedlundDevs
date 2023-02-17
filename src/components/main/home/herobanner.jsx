@@ -39,7 +39,7 @@ function HeroBanner() {
       </div>
       <div className='w-36 h-8 border border-r-0 border-primaryWhite absolute bottom-14 -right-10 sm:right-10 rotate-90 flex items-center justify-between px-2 rounded-l-md '>
         <p className='font-rubik font-extralight text-primaryCoral text-textXS '>SCROLL DOWN</p>
-        <img className='w-4 h-4' src="./arrow.svg" alt="arrow" />
+        <img className='animate-bounce-x w-5 h-5' src="./arrow.svg" alt="arrow" />
       </div>
     </div>
   );
