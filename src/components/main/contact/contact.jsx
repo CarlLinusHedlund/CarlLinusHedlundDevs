@@ -1,12 +1,30 @@
 import { React } from 'react';
 import { useFormik } from 'formik';
 import { messageSchema } from './validationSchema';
-
-const onSubmit = () => {
-  console.log("submitted");
-}
+import emailjs from '@emailjs/browser'
 
 function ContactPage() {
+  const onSubmit = (values, actions) => {
+    console.log("submitted");
+  
+    var templateParams = {
+      messageName: values.messageName,
+      email: values.email,
+      subject: values.subject,
+      message: values.message
+  };
+
+  emailjs.send(import.meta.env.VITE_CONTACT_FORM_SERVICEID, import.meta.env.VITE_CONTACT_FORM_TEMPLATEID, templateParams, import.meta.env.VITE_CONTACT_FORM_PUBLICKEY)
+      .then(function(response) {
+         console.log('SUCCESS!', response.status, response.text);
+         
+         if (response.status === 200) {
+          actions.resetForm();
+         }
+      }, function(error) {
+         console.log('FAILED...', error);
+      });
+  }
 
   const {values, errors, touched, handleBlur, handleChange, handleSubmit} = useFormik({
     initialValues: {
@@ -18,10 +36,6 @@ function ContactPage() {
     validationSchema: messageSchema,
     onSubmit
   });
-
-  console.log(errors);
-
-
 
   return (
     <>
@@ -61,7 +75,7 @@ function ContactPage() {
               <label htmlFor="message" className={` text-textXS duration-500 ${errors.message && touched.message ? "opacity-100 text-red-400" : "opacity-0 text-primaryDark duration-75"} `}>{errors.message ? `${errors.message}` : "."}</label>
             </div>
             <div className='w-full flex justify-center'>
-              <button className=' text-primaryWhite lg:hover:hoverShadow  w-full btn flex items-center justify-center mt-4 min-w-[300px] max-w-[450px] md:max-w-[350px] lg:hover:scale-105 duration-300 font-bold  ' type='submit'>Send Message</button>
+              <button id='submitBtn' className=' text-primaryWhite lg:hover:hoverShadow  w-full btn flex items-center justify-center mt-4 min-w-[300px] max-w-[450px] md:max-w-[350px] lg:hover:scale-105 duration-300 font-bold ' type='submit'>Send Message</button>
             </div>
           </form>
         </div>  

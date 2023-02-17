@@ -1,7 +1,12 @@
 import * as yup from 'yup'
+const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
 
 export const messageSchema = yup.object().shape({
-  email: yup.string().email('Please enter a valid email').required('Required'),
+  email: yup
+    .string()
+    .email('Please enter a valid Email')
+    .matches(emailRegex, 'Please enter a valid Email')
+    .required('Required'),
   messageName: yup
     .string()
     .min(2, 'At least 2 characters')
