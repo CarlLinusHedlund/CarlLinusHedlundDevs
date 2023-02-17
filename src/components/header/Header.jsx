@@ -5,6 +5,7 @@ import HomeList from './NavLinks/HomeLi';
 import ContactList from './NavLinks/ContactLi';
 import AboutList from './NavLinks/AboutLi';
 import ProjectsList from './NavLinks/ProjectsLi';
+import { Link } from 'react-router-dom';
 
 function Header() {
   const burgerRef = useRef();
@@ -44,9 +45,9 @@ function Header() {
       className="sticky top-0 bottom-0 z-20 h-[90px] w-full border-b border-[#2c2c2c] bg-primaryDark px-6 md:h-screen md:w-[110px] md:border-r md:border-b-0 md:px-0 md:py-12"
     >
       <div className="flex h-full w-full flex-row items-center justify-between md:flex-col-reverse">
-        <div className="flex items-center justify-center text-primaryWhite">
+        <Link to="/" className="cursor-pointer flex items-center justify-center text-primaryWhite">
           <img src="../logo.svg" alt="logo" />
-        </div>
+        </Link>
         <button
           type="button"
           onClick={updateMenu}
