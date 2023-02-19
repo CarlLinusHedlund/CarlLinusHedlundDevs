@@ -52,6 +52,10 @@ body::-webkit-scrollbar {
     @apply bounce-x
   }
 
+  .htmlTags {
+    @apply before:absolute before:-top-3 before:-left-4 before:text-sm before:font-light before:text-primaryDark before:opacity-20 after:absolute after:-bottom-3 after:-left-4 after:font-light after:text-sm after:text-primaryDark after:opacity-20
+  }
+
   .hoverShadow {
     filter:  drop-shadow(0px 4px 29px rgba(241, 120, 116, 0.68)) drop-shadow(0px 0.500862px 3.63125px rgba(241, 120, 116, 0.34));
   }
