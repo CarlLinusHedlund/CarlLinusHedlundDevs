@@ -6,6 +6,7 @@ module.exports = {
       fontFamily: {
         rubik: ['Rubik', 'sans-serif'],
         roboto: ['Roboto Serif', 'serif'],
+        shadows: ['Shadows Into Light Two', 'cursive'],
       },
       colors: {
         primaryDark: '#191919',
