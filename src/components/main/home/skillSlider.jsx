@@ -4,27 +4,6 @@ import { register } from 'swiper/element/bundle';
 
 register();
 
-
-// injectstyles
-// const paginationBullet = document.querySelector('swiper-container');
-// console.log(paginationBullet)
-
-
-// const param = {
-//   injectStyles: [
-//     `
-//       :host(.red) .swiper-pagination-bullet-active {
-//         background-color: red;
-//       }
-//       `
-//   ]
-// }
-
-
-
-    // Object.assign(paginationBullet, param);
-    // paginationBullet.initialize();
-
 function SkillSlider() {
   return (
     <>

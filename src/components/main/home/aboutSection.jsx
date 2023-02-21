@@ -77,9 +77,9 @@ function AboutSection() {
           Coffeeholic based i Oslo, Norway. <br /> With passion for clean and responsive code. Currently studying at Noroff School of technology and digital Media.
         </p>
       </div>
-      <div className="ml-2 py-2 max-w-xs htmlTags relative before:content-['<button\00a0href=/about>'] after:content-['</button>'] ">
+      <div className="ml-2 py-2 max-w-xs htmlTags relative before:content-['<button\00a0href=/about>'] after:content-['</button>'] lg:hover:hoverShadowDark duration-300 ">
         <Link to='/about' className="w-fit">
-          <button  className=' group lg:hover:hoverShadow w-full btn flex items-center justify-between border-primaryDark bg-primaryDark lg:hover:scale-105 duration-300 max-w-xs  ' >
+          <button  className=' group  w-full btn flex items-center justify-between border-primaryDark bg-primaryDark lg:hover:scale-105 duration-300 max-w-xs  ' >
               <p className='text-primaryWhite font-semibold text-textSM' >More About Me</p>
               <img className=' group-hover:animate-bounce-x ' src="./arrow.svg" alt="arrow" />
           </button>
