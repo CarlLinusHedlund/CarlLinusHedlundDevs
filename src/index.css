@@ -53,7 +53,7 @@ body::-webkit-scrollbar {
   }
 
   .htmlTags {
-    @apply before:absolute before:-top-3 before:-left-4 before:text-sm before:font-light before:text-primaryDark before:opacity-20 after:absolute after:-bottom-3 after:-left-4 after:font-light after:text-sm after:text-primaryDark after:opacity-20
+    @apply before:absolute before:font-shadows before:-top-2 before:-left-4 before:text-[10px] before:font-light before:text-primaryDark before:opacity-20 after:absolute after:-bottom-2 after:-left-4 after:font-shadows after:font-light after:text-[10px] after:text-primaryDark after:opacity-20
   }
 
   .hoverShadow {
