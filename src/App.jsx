@@ -3,12 +3,11 @@ import './index.css';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/header/Header';
-// import AboutPage from './components/main/about/About';
-
-import About from './components/main/about/About'
-import ProjectPage from './components/main/projects/Projects.jsx';
-import AdminPage from './components/main/admin/Admin.jsx';
-import HomePage from './components/main/home/Home.jsx';
+import About from './components/main/about/about';
+import ProjectPage from './components/main/projects/projects.jsx';
+import AdminPage from './components/main/admin/admin.jsx';
+import HomePage from './components/main/home/home.jsx';
+import ContactPage from './components/main/contact/contact';
 
 function App() {
   return (
