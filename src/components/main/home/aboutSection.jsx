@@ -3,14 +3,8 @@ import { useRef } from "react";
 import { Link } from "react-router-dom";
 import Typed from "typed.js";
 
-
-
-
-
-
 function AboutSection() {
   const el = useRef(null);
-
   const typed = useRef(null);
 
   useEffect(() => {
@@ -29,18 +23,6 @@ function AboutSection() {
     }
   }, [])
 
-  // const el = useRef(null);
-
-
-  // useEffect(() => {
-  //   const typed = new Typed (el.current, {
-  //     strings: ["FRONT END DEVELOPER", "COFFEEHOLIC", "PROBLEM SOLVER"],
-  //     typeSpeed: 120,
-  //     backSpeed: 120,
-  //     showCursor: false,
-  //     loop: true
-  //   })
-  // })
   return(
     <>
     <div className=" max-w-5xl mx-auto px-4 xs:px-8 pb-20 min-h-[500px] ">

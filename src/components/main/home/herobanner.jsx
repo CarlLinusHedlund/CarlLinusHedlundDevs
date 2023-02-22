@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 function HeroBanner() {
 
   return (
+    <>
     <div className='flex justify-center items-center sm:items-start pb-40 sm:pt-10 lg:pb-36 w-full relative inner'>
       <div className="flex flex-col md:flex-row-reverse w-full h-full  md:items-center lg:justify-around ">
         <div className='hidden lg:flex flex-col w-[40%] z-10 whitespace-nowrap text-primaryWhite '>
@@ -46,6 +47,8 @@ function HeroBanner() {
         <img className='animate-bounce-x w-5 h-5' src="./arrow.svg" alt="arrow" />
       </div>
     </div>
+    </>
+    
   );
 }
 

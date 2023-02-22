@@ -1,9 +1,9 @@
 import React from 'react';
 import AboutSection from './aboutSection';
 import GetInTouch from './getInTouch';
-import HeroBanner from './herobanner';
-import RecentProjects from './recentProjects';
-import SkillSlider from './skillSlider';
+import HeroBanner from './Herobanner';
+import RecentProjects from './RecentProjects';
+import SkillSlider from './SkillSlider';
 
 function HomePage() {
   return (

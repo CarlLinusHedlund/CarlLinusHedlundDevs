@@ -39,7 +39,7 @@ function ContactPage() {
 
   return (
     <>
-    <section className=' w-full h-full min-h-screen bg-primaryDark font-rubik flex items-center pt-4 pb-20 px-8'>
+    <section className=' w-full h-full min-h-screen bg-primaryDark font-rubik flex justify-center items-center py-20 px-8'>
       <div className='flex flex-col lg:flex-row gap-20 lg:gap-8 justify-between mx-auto max-w-5xl w-full h-full '>
         <div className='flex flex-col-reverse lg:flex-col justify-center items-center lg:w-fit '>
           <div className=' relative text-primaryWhite '>
