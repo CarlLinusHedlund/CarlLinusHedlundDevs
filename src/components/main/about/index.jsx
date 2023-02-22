@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+import Typed from 'typed.js';
+
 
 function AboutPage() {
   const el = useRef(null);
@@ -29,6 +31,7 @@ function AboutPage() {
   };
 
   return (
+    <>
     <section className=' bg-primaryDark w-full h-full scroll-smooth '>
       <div className=' relative px-8 h-screen max-w-5xl mx-auto flex flex-col justify-between '>
         <div className=' pt-20 '>
@@ -39,10 +42,10 @@ function AboutPage() {
             </p>
           </div>
           <div className="ml-2 py-2 max-w-xs htmlTags relative before:content-['<button\00a0href=#aboutme>'] after:content-['</button>'] lg:hover:hoverShadow duration-300 md:after:text-sm md:before:text-sm md:py-4 before:text-primaryWhite after:text-primaryWhite  ">
-              <button onClick={handleClickScroll} className=' group  w-full btn flex items-center justify-between border-primaryCoral lg:hover:scale-105 duration-300 max-w-xs  ' >
-                  <p className='text-primaryWhite font-semibold text-textSM' >More About Me</p>
-                  <img className=' group-hover:animate-bounce-x ' src="./arrow.svg" alt="arrow" />
-              </button>
+            <button onClick={handleClickScroll} className=' group  w-full btn flex items-center justify-between border-primaryCoral lg:hover:scale-105 duration-300 max-w-xs  '>
+              <p className='text-primaryWhite font-semibold text-textSM'>More About Me</p>
+              <img className=' group-hover:animate-bounce-x ' src="./arrow.svg" alt="arrow" />
+            </button>
           </div>
         </div>
         <div className='flex justify-center bottom-0 '>
@@ -54,9 +57,12 @@ function AboutPage() {
           </div>
         </div>
       </div>
-      <div id='aboutme' className=' px-8 h-screen w-full bg-primaryWhite '>
+      
+    </section>
+    <section className=' bg-primaryWhite h-full w-full px-8 '>
+      <div id='aboutme' className=' px-8 w-full bg-primaryWhite '>
         <div className=' flex justify-center '>
-          <div className=' relative ' >
+          <div className=' relative '>
             <h2 className=' opacity-5 font-extrabold text-textXL xxs:text-text2xl '>RESUME</h2>
             <div className=' w-full absolute -bottom-1 xxs:-bottom-3 flex-row text-center '>
               <span className='text-textLG xxs:text-[45px] font-rubik font-bold pr-3 '>ABOUT</span><span className=' text-textLG xxs:text-[45px] font-rubik font-bold text-primaryCoral '>ME</span>
@@ -64,7 +70,15 @@ function AboutPage() {
           </div>
         </div>
       </div>
+      <div className=' pt-10 '>
+        <div className=' w-full h-fit '>
+          <div className=''>
+            <img src="../profile-white.png" alt="profile img" />
+          </div>
+        </div>
+      </div>
     </section>
+     </>
   );
 }
 

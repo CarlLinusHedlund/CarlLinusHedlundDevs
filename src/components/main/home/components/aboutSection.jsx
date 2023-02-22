@@ -23,17 +23,6 @@ function AboutSection() {
     };
   }, []);
 
-  // const el = useRef(null);
-
-  // useEffect(() => {
-  //   const typed = new Typed (el.current, {
-  //     strings: ["FRONT END DEVELOPER", "COFFEEHOLIC", "PROBLEM SOLVER"],
-  //     typeSpeed: 120,
-  //     backSpeed: 120,
-  //     showCursor: false,
-  //     loop: true
-  //   })
-  // })
   return (
     <div className=" mx-auto min-h-[500px] max-w-5xl px-4 pb-20 xs:px-8 ">
       <div className=" min-w-xs flex items-center justify-center gap-8 pb-10 font-rubik text-[40px] font-extrabold sm:gap-12 sm:text-textXL sm:font-bold ">

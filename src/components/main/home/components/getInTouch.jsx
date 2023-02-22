@@ -17,8 +17,7 @@ function GetInTouch() {
               Interested in working together or have any questions?
               <br />
               {' '}
-              Let's meet and talk over a
-              <span className="text-[#C5A76E]">coffee</span>
+              Let's meet and talk over a <span className="text-[#C5A76E]">coffee</span>
             </p>
           </div>
           <div className=" relative h-fit max-w-[450px] ">
