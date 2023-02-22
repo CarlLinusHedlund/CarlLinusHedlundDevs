@@ -4,10 +4,10 @@ import './index.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/header/Header';
 // import AboutPage from './components/main/about/About';
-import ContactPage from './components/main/contact/Contact';
-import ProjectPage from './components/main/projects/Projects';
-import AdminPage from './components/main/admin/Admin';
-import HomePage from './components/main/home/Home';
+import ContactPage from './components/main/contact/Contact.jsx';
+import ProjectPage from './components/main/projects/Projects.jsx';
+import AdminPage from './components/main/admin/Admin.jsx';
+import HomePage from './components/main/home/Home.jsx';
 
 function App() {
   return (
