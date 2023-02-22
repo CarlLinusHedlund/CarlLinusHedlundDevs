@@ -3,7 +3,7 @@ import './index.css';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/header/Header';
-import AboutPage from './components/main/about/About';
+// import AboutPage from './components/main/about/About';
 import ContactPage from './components/main/contact/Contact';
 import ProjectPage from './components/main/projects/Projects';
 import AdminPage from './components/main/admin/Admin';
@@ -17,7 +17,7 @@ function App() {
         <div id="main" className="md:fixedWidth flex h-full w-full flex-col">
           <Routes>
             <Route path="/" element={<HomePage />} exact />
-            <Route path="/about" element={<AboutPage />} exact />
+            {/* <Route path="/about" element={<AboutPage />} exact /> */}
             <Route path="/projects" element={<ProjectPage />} exact />
             <Route path="/contact" element={<ContactPage />} exact />
             <Route path="/admin" element={<AdminPage />} exact />
