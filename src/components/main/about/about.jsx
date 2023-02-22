@@ -10,8 +10,8 @@ function About() {
   useEffect(() => {
     const options = {
       strings: ["FRONT END DEVELOPER", "COFFEEHOLIC", "PROBLEM SOLVER"],
-      typeSpeed: 100,
-      backSpeed: 100,
+      typeSpeed: 65,
+      backSpeed: 35,
       showCursor: false,
       loop: true,
     }
