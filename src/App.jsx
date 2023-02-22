@@ -1,19 +1,18 @@
 import React from 'react';
 import './index.css';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import Header from './components/header/Header';
-import AboutPage from './components/main/about/about';
-import ContactPage from './components/main/contact/contact';
+import AboutPage from './components/main/about';
+import ContactPage from './components/main/contact';
 import ProjectPage from './components/main/projects';
-import AdminPage from './components/main/admin/admin';
-import HomePage from './components/main/home/home';
-
+import AdminPage from './components/main/admin';
+import HomePage from './components/main/home';
 
 function App() {
   return (
     <BrowserRouter>
-      <div className="m-0 flex w-screen flex-col md:flex-row scroll-smooth ">
+      <div className="m-0 flex w-screen flex-col scroll-smooth md:flex-row ">
         <Header />
         <div id="main" className="md:fixedWidth flex h-full w-full flex-col">
           <Routes>
