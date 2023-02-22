@@ -1,7 +1,8 @@
-import * as yup from 'yup'
-const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
+import * as yup from 'yup';
 
-export const messageSchema = yup.object().shape({
+const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+
+const messageSchema = yup.object().shape({
   email: yup
     .string()
     .email('Please enter a valid Email')
@@ -17,4 +18,5 @@ export const messageSchema = yup.object().shape({
     .min(10, 'At least 10 characters')
     .max(350, 'Max 350 characters')
     .required('Required'),
-})
+});
+export default messageSchema;

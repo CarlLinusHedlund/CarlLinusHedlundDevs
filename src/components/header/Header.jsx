@@ -1,11 +1,11 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import MediaLinks from './MediaLinks';
 import HomeList from './NavLinks/HomeLi';
 import ContactList from './NavLinks/ContactLi';
 import AboutList from './NavLinks/AboutLi';
 import ProjectsList from './NavLinks/ProjectsLi';
-import { Link } from 'react-router-dom';
 
 function Header() {
   const burgerRef = useRef();
@@ -45,7 +45,10 @@ function Header() {
       className="sticky top-0 bottom-0 z-20 h-[90px] w-full border-b border-[#2c2c2c] bg-primaryDark px-6 md:h-screen md:w-[110px] md:border-r md:border-b-0 md:px-0 md:py-12"
     >
       <div className="flex h-full w-full flex-row items-center justify-between md:flex-col-reverse">
-        <Link to="/" className="cursor-pointer flex items-center justify-center text-primaryWhite">
+        <Link
+          to="/"
+          className="flex cursor-pointer items-center justify-center text-primaryWhite"
+        >
           <img src="../logo.svg" alt="logo" />
         </Link>
         <button

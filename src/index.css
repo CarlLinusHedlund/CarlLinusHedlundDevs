@@ -7,14 +7,13 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
 body::-webkit-scrollbar {
   display: none;
 }
 
 @keyframes bounce {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateX(-25%);
     animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
   }
@@ -46,24 +45,29 @@ body::-webkit-scrollbar {
   }
 }
 
-
 @layer components {
   .animate-bounce-x {
-    @apply bounce-x
+    @apply bounce-x;
   }
 
   .htmlTags {
-    @apply before:absolute before:font-shadows before:-top-2 before:-left-4 before:text-[10px] before:font-light before:text-primaryDark before:opacity-20 after:absolute after:-bottom-2 after:-left-4 after:font-shadows after:font-light after:text-[10px] after:text-primaryDark after:opacity-30 md:after:text-sm md:before:text-sm
+    @apply before:absolute before:-top-2 before:-left-4 before:font-shadows before:text-[10px] before:font-light before:text-primaryDark before:opacity-20 after:absolute after:-bottom-2 after:-left-4 after:font-shadows after:text-[10px] after:font-light after:text-primaryDark after:opacity-30 md:before:text-sm md:after:text-sm;
   }
 
   .hoverShadow {
-    filter: drop-shadow(0px 4px 29px rgba(241, 120, 116, 0.68)) drop-shadow(0px 0.500862px 3.63125px rgba(241, 120, 116, 0.34));
+    filter: drop-shadow(0px 4px 29px rgba(241, 120, 116, 0.68))
+      drop-shadow(0px 0.500862px 3.63125px rgba(241, 120, 116, 0.34));
   }
 
   .hoverShadowDark {
-    filter: drop-shadow(0px 72px 101px rgba(0, 0, 0, 0.13)) drop-shadow(0px 30.0799px 42.1954px rgba(0, 0, 0, 0.0934511)) drop-shadow(0px 16.0821px 22.5597px rgba(0, 0, 0, 0.0774939)) drop-shadow(0px 9.01552px 12.6468px rgba(0, 0, 0, 0.065)) drop-shadow(0px 4.78807px 6.7166px rgba(0, 0, 0, 0.0525061)) drop-shadow(0px 1.99242px 2.79493px rgba(0, 0, 0, 0.0365489));
+    filter: drop-shadow(0px 72px 101px rgba(0, 0, 0, 0.13))
+      drop-shadow(0px 30.0799px 42.1954px rgba(0, 0, 0, 0.0934511))
+      drop-shadow(0px 16.0821px 22.5597px rgba(0, 0, 0, 0.0774939))
+      drop-shadow(0px 9.01552px 12.6468px rgba(0, 0, 0, 0.065))
+      drop-shadow(0px 4.78807px 6.7166px rgba(0, 0, 0, 0.0525061))
+      drop-shadow(0px 1.99242px 2.79493px rgba(0, 0, 0, 0.0365489));
   }
-  
+
   .innerShadowContainer {
     box-shadow: inset 7px 11px 25px 8px rgba(0, 0, 0, 0.2);
   }
@@ -73,7 +77,7 @@ body::-webkit-scrollbar {
   }
 
   .inner {
-    @apply max-w-5xl mx-auto
+    @apply mx-auto max-w-5xl;
   }
 
   .burgerActive {
