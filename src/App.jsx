@@ -3,11 +3,13 @@ import './index.css';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/header/Header';
-import About from './components/main/about/about';
-import ProjectPage from './components/main/projects/projects.jsx';
-import AdminPage from './components/main/admin/admin.jsx';
-import HomePage from './components/main/home/home.jsx';
-import ContactPage from './components/main/contact/contact';
+import About from './components/main/About/About';
+import Project from './components/main/Projects/Projects.jsx';
+import HomePage from './components/main/Home/home.jsx';
+import Contact from './components/main/Contact/Contact';
+
+import Admin from './components/main/Admin/Admin'
+
 
 function App() {
   return (
@@ -18,9 +20,9 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} exact />
             <Route path="/about" element={<About />} exact />
-            <Route path="/projects" element={<ProjectPage />} exact />
-            <Route path="/contact" element={<ContactPage />} exact />
-            <Route path="/admin" element={<AdminPage />} exact />
+            <Route path="/projects" element={<Project />} exact />
+            <Route path="/contact" element={<Contact />} exact />
+            <Route path="/admin" element={<Admin />} exact />
           </Routes>
         </div>
       </div>

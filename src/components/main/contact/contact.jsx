@@ -3,7 +3,7 @@ import { useFormik } from 'formik';
 import { messageSchema } from './validationSchema';
 import emailjs from '@emailjs/browser'
 
-function ContactPage() {
+function Contact() {
   const onSubmit = (values, actions) => {
     console.log("submitted");
   
@@ -85,4 +85,4 @@ function ContactPage() {
   );
 }
 
-export default ContactPage;
+export default Contact;

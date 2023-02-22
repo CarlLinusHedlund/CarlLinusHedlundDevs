@@ -1,6 +1,6 @@
 import React from "react";
 
-function AdminPage() {
+function Admin() {
   return(
     <>
       <section className=" h-screen w-full bg-primaryDark flex justify-center items-center px-8 font-rubik ">
@@ -24,4 +24,4 @@ function AdminPage() {
   )
 }
 
-export default AdminPage;
+export default Admin;
