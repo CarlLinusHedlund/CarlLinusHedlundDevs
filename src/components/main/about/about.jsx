@@ -3,7 +3,7 @@ import { useRef } from "react";
 import Typed from "typed.js";
 
 
-function AboutPage() {
+function About() {
   const el = useRef(null);
   const typed = useRef(null);
 
@@ -71,4 +71,4 @@ function AboutPage() {
   );
 }
 
-export default AboutPage;
+export default About;

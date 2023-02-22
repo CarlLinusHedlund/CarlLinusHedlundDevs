@@ -4,7 +4,8 @@ import './index.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/header/Header';
 // import AboutPage from './components/main/about/About';
-import ContactPage from './components/main/contact/Contact.jsx';
+
+import About from './components/main/about/About'
 import ProjectPage from './components/main/projects/Projects.jsx';
 import AdminPage from './components/main/admin/Admin.jsx';
 import HomePage from './components/main/home/Home.jsx';
@@ -17,7 +18,7 @@ function App() {
         <div id="main" className="md:fixedWidth flex h-full w-full flex-col">
           <Routes>
             <Route path="/" element={<HomePage />} exact />
-            {/* <Route path="/about" element={<AboutPage />} exact /> */}
+            <Route path="/about" element={<About />} exact />
             <Route path="/projects" element={<ProjectPage />} exact />
             <Route path="/contact" element={<ContactPage />} exact />
             <Route path="/admin" element={<AdminPage />} exact />
