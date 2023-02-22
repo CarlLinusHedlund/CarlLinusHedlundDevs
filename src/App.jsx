@@ -7,7 +7,7 @@ import AboutPage from './components/main/about/About';
 import ContactPage from './components/main/contact/Contact';
 import ProjectPage from './components/main/projects/Projects';
 import AdminPage from './components/main/admin/Admin';
-import HomePage from './components/main/home/home';
+import HomePage from './components/main/home/Home';
 
 
 function App() {

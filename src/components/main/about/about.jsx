@@ -57,7 +57,6 @@ function AboutPage() {
             </div>
           </div>
         </div>
-        
       </div>
       <div id='aboutme' className=' px-8 h-screen w-full bg-primaryWhite '>
         <div className=' flex justify-center '>
@@ -67,8 +66,6 @@ function AboutPage() {
               <span className='text-textLG xxs:text-[45px] font-rubik font-bold pr-3 '>ABOUT</span><span className=' text-textLG xxs:text-[45px] font-rubik font-bold text-primaryCoral '>ME</span>
             </div>
           </div>
-          
-          
         </div>
       </div>
     </section>
