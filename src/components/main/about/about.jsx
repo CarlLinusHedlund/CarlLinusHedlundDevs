@@ -2,7 +2,11 @@ import { React } from 'react';
 
 function AboutPage() {
   return (
-    <h1>About me</h1>
+    <section className=' px-8 bg-primaryDark w-full h-full '>
+      <div className=' h-screen '>
+        
+      </div>
+    </section>
   );
 }
 
