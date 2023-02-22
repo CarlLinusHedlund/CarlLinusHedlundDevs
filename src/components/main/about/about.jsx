@@ -31,7 +31,6 @@ function AboutPage() {
     }
   };
 
-
   return (
     <section className=' bg-primaryDark w-full h-full scroll-smooth '>
       <div className=' relative px-8 h-screen max-w-5xl mx-auto flex flex-col justify-between '>

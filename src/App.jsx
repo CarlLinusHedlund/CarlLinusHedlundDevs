@@ -9,7 +9,6 @@ import ProjectPage from './components/main/projects/Projects';
 import AdminPage from './components/main/admin/Admin';
 import HomePage from './components/main/home/Home';
 
-
 function App() {
   return (
     <BrowserRouter>
