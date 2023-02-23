@@ -36,6 +36,8 @@ body::-webkit-scrollbar {
   }
 }
 
+
+/* Transform transition for header */
 @keyframes transform {
   from {
     transform: translateY(15px);
@@ -43,6 +45,62 @@ body::-webkit-scrollbar {
   to {
     transform: translateY(0px);
   }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/* Transform transition for header */
+
+
+/* Intersection Observer tranasition for about page */
+
+@keyframes scale {
+  0% {
+    transform: scale(0);
+  } 80% {
+    transform: scale(1.15);
+  } 
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes btnScale {
+  0% {
+    transform: scale(0);
+  } 90% {
+    transform: scale(1.25);
+  } 
+  100% {
+    transform: scale(1);
+  }
+}
+
+.aboutAnimation {
+  animation: fade 400ms ease-in-out calc(var(--about-info-item-index)*0.20s) forwards,
+  scale 400ms ease-in-out calc(var(--about-info-item-index)*0.20s) forwards;
+}
+
+.aboutBtnAnimtion {
+  animation: fade 400ms ease-in-out calc(var(--about-info-item-index)*0.20s) forwards,
+  btnScale 400ms ease-in-out calc(var(--about-info-item-index)*0.20s) forwards;
+}
+
+
+/* Intersection Observer tranasition for about page */
+
+
+.navFade {
+  animation: fade 1s ease-in-out
+      calc(var(--large-navigation-item-index) * 0.18s) forwards,
+    transform 1s ease-in-out calc(var(--large-navigation-item-index) * 0.18s)
+      forwards;
 }
 
 @layer components {
@@ -84,13 +142,6 @@ body::-webkit-scrollbar {
     @apply rotate-45 duration-500 before:bottom-auto before:top-0 before:h-0.5 before:w-5 before:-rotate-90 after:opacity-0;
   }
 
-  .navFade {
-    animation: fade 1s ease-in-out
-        calc(var(--large-navigation-item-index) * 0.18s) forwards,
-      transform 1s ease-in-out calc(var(--large-navigation-item-index) * 0.18s)
-        forwards;
-  }
-
   .navList {
     @apply w-fit translate-y-0 cursor-pointer font-rubik text-4xl font-bold capitalize opacity-0 duration-1000 hover:text-primaryCoral xs:text-textXL;
   }
@@ -105,6 +156,10 @@ body::-webkit-scrollbar {
 
   .btn {
     @apply rounded-[15px] border-2 border-primaryCoral py-3 px-4;
+  }
+
+  .darkBtn {
+    @apply rounded-[15px] border-2 bg-primaryDark py-3 px-4 lg:hover:scale-105 lg:hover:hoverShadowDark w-[300px] ;
   }
 
   .inner {

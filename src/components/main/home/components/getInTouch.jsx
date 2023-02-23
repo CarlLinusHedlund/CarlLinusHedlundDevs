@@ -18,6 +18,7 @@ function GetInTouch() {
               <br />
               {' '}
               Let's meet and talk over a
+              {' '}
               <span className="text-[#C5A76E]">coffee</span>
             </p>
           </div>
