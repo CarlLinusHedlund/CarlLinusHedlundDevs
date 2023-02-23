@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Typed from 'typed.js';
 
 
@@ -30,10 +30,35 @@ function AboutPage() {
     }
   };
 
+
+
+
+
+  const observeRef = useRef();
+  const [aboutSectionVisible, setAboutSectionVisbile] = useState(false);
+
+  const callbackFunction = (entries) => {
+    const [entry] = entries
+    setAboutSectionVisbile(entry.isIntersecting)
+  }
+  const options = {
+    root: null,
+    rootMargin: "50px",
+    threshold: 0.4
+  }
+
+  useEffect(()=> {
+    const observer = new IntersectionObserver(callbackFunction, options)
+    if (observeRef.current) observer.observe(observeRef.current)
+    return () => {
+      if(observeRef.current) observer.unobserve(observeRef.current)
+    }
+  }, [observeRef, options])
+
   return (
     <>
     <section className=' bg-primaryDark w-full h-full scroll-smooth '>
-      <div className=' relative px-8 h-screen max-w-5xl mx-auto flex flex-col justify-between '>
+      <div className=' relative px-8 h-screen min-h-[640px] max-w-5xl mx-auto flex flex-col justify-between '>
         <div className=' pt-20 '>
           <div className=" htmlTags before:content-['<div>'] after:content-['</div>'] flex flex-col gap-3 relative pl-2 ml-1 py-4 my-20 mb-10 md:after:text-sm md:before:text-sm before:text-primaryWhite after:text-primaryWhite ">
             <h2 ref={el} className=" pl-1 md:pl-3 py-1 md:py-3 relative htmlTags before:content-['<h2>'] after:content-['</h2>'] min-h-[32px] md:min-h-[44px] leading-5 font-rubik font-bold text-[22px] xxs:text-[27px] xs:text-[33px] sm:text-[35px] md:text-[45px] text-primaryCoral md:after:text-sm md:before:text-sm before:text-primaryWhite after:text-primaryWhite  "></h2>
@@ -57,9 +82,8 @@ function AboutPage() {
           </div>
         </div>
       </div>
-      
     </section>
-    <section className=' bg-primaryWhite h-full w-full px-8 '>
+    <section ref={observeRef} className=' bg-primaryWhite h-full w-full px-4 md:px-8 py-5 '>
       <div id='aboutme' className=' px-8 w-full bg-primaryWhite '>
         <div className=' flex justify-center '>
           <div className=' relative '>
@@ -70,12 +94,64 @@ function AboutPage() {
           </div>
         </div>
       </div>
-      <div className=' pt-10 '>
-        <div className=' w-full h-fit '>
-          <div className=''>
-            <img src="../profile-white.png" alt="profile img" />
+      <div className=' pt-10 pb-20 sm:flex sm:justify-center '>
+        <div className='relative w-full h-fit flex flex-col items-center sm:w-fit sm:px-10 '>
+          <div className='w-fit flex justify-center'>
+            <img className={` opacity-0 duration-700 ${aboutSectionVisible ? 'opacity-100' : 'opacity-0'}`} src="../profile-white.png" alt="profile img" />
+          </div>
+          <div className='font-rubik text-primaryDark flex justify-between w-full max-w-xs gap-7 sm:absolute sm:h-full sm:max-w-none'>
+            <div className=' flex flex-col gap-5 sm:relative '>
+              <div className={`flex flex-col sm:absolute top-[15%] sm:-left-10 lg:-left-20 sm:w-20 scale-50 opacity-0 ${aboutSectionVisible ? 'aboutAnimation' : ''} `} style={{ '--about-info-item-index': 1 }}>
+                <p className='font-semibold text-[12px] xxs:text-[14px] sm:whitespace-nowrap sm:text-textSM lg:text-[18px] '>FULL NAME</p>
+                <p className=' font-normal opacity-60 text-[10px] xxs:text-textXS sm:whitespace-nowrap sm:text-[13px] lg:text-[14px] '>Carl Linus Hedlund</p>
+              </div>
+              <div className={`sm:absolute sm:top-[40%] sm:-left-24 lg:-left-32 flex flex-col scale-50 sm:w-20 opacity-0 ${aboutSectionVisible ? 'aboutAnimation' : ''} `} style={{ '--about-info-item-index': 2 }}>
+                <p className=' font-semibold text-[12px] xxs:text-[14px] sm:whitespace-nowrap sm:text-textSM lg:text-[18px] '>NATIONALITY</p>
+                <p className=' font-light opacity-60 text-[10px] xxs:text-textXS sm:whitespace-nowrap sm:text-[13px] lg:text-[14px] '>Norway/Sweden</p>
+              </div>
+              <div className={`sm:absolute sm:top-[65%] sm:-left-24 lg:-left-32 flex flex-col sm:w-20 scale-50 opacity-0 ${aboutSectionVisible ? 'aboutAnimation' : ''} `} style={{ '--about-info-item-index': 3 }}>
+                <p className=' font-semibold text-[12px] xxs:text-[14px] sm:whitespace-nowrap sm:text-textSM lg:text-[18px] '>LANGUAGES</p>
+                <p  className=' font-light opacity-60 text-[10px] xxs:text-textXS whitespace-pre-wrap sm:whitespace-nowrap sm:text-[13px] lg:text-[14px] '>Norwegian, Swedish & English</p>
+              </div>
+              <div className={`sm:absolute sm:top-[90%] sm:-left-10 lg:-left-20 flex flex-col sm:w-20 opacity-0 scale-50 ${aboutSectionVisible ? 'aboutAnimation' : ''} `} style={{ '--about-info-item-index': 4 }}>
+                <p className=' font-semibold text-[12px] xxs:text-[14px] sm:whitespace-nowrap sm:text-textSM lg:text-[18px] '>EMAIL</p>
+                <p className=' font-light opacity-60 text-[10px] xxs:text-textXS sm:whitespace-nowrap sm:text-[13px] lg:text-[14px] '>linus.hedlund96@hotmail.com</p>
+
+              </div>
+            </div>
+            <div className='flex flex-col gap-5 sm:relative'>
+              <div className={` flex flex-col sm:absolute sm:top-[15%] sm:-right-10 lg:-right-20 sm:w-20 opacity-0 scale-50 ${aboutSectionVisible ? 'aboutAnimation' : ''} `} style={{ '--about-info-item-index': 1 }}>
+                <p className=' font-semibold text-[12px] xxs:text-[14px] sm:whitespace-nowrap sm:text-textSM lg:text-[18px] '>GITHUB</p>
+                <a href='https://github.com/CarlLinusHedlund' className=' font-light opacity-60 text-[10px] xxs:text-textXS underline sm:whitespace-nowrap sm:text-[13px] lg:text-[14px] '>CarlLinusHedlund</a>
+              </div>
+              <div className={` flex flex-col sm:absolute sm:top-[40%] sm:-right-24 lg:-right-32 sm:w-20 opacity-0 scale-50 ${aboutSectionVisible ? 'aboutAnimation' : ''} `} style={{ '--about-info-item-index': 2 }}>
+                <p className=' font-semibold text-[12px] xxs:text-[14px] sm:whitespace-nowrap sm:text-textSM lg:text-[18px] '>ADDRESS</p>
+                <p className=' font-light opacity-60 text-[10px] xxs:text-textXS sm:whitespace-nowrap sm:text-[13px] lg:text-[14px] '>Oslo, Norway</p>
+              </div>
+              <div className={`flex flex-col sm:absolute sm:top-[65%] sm:-right-24 lg:-right-32 sm:w-20 opacity-0 scale-50 ${aboutSectionVisible ? 'aboutAnimation' : ''} `} style={{ '--about-info-item-index': 3 }}>
+                <p className=' font-semibold text-[12px] xxs:text-[14px] sm:whitespace-nowrap sm:text-textSM lg:text-[18px] '>AGE</p>
+                <p className=' font-light opacity-60 text-[10px] xxs:text-textXS whitespace-pre-line sm:whitespace-nowrap sm:text-[13px] lg:text-[14px] '>26 Years</p>
+              </div>
+              <div className={`flex flex-col sm:absolute sm:top-[90%] sm:-right-10 lg:-right-20 sm:w-20 opacity-0 scale-50 ${aboutSectionVisible ? 'aboutAnimation' : ''} `} style={{ '--about-info-item-index': 4 }}>
+                <p className=' font-semibold text-[12px] xxs:text-[14px] sm:whitespace-nowrap sm:text-textSM lg:text-[18px] '>PHONE</p>
+                <p className=' font-light opacity-60 text-[10px] xxs:text-textXS sm:whitespace-nowrap sm:text-[13px] lg:text-[14px] '>+47 46929833</p>
+              </div>
+            </div>
           </div>
         </div>
+      </div>
+      <div className='w-full flex justify-center font-rubik font-normal px-8 text-[14px] '>
+        <p className=' text-center max-w-xl '>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam sapiente nihil illum aliquam eveniet harum itaque in neque, ipsum adipisci, voluptate tenetur consequatur, qui quo tempora praesentium nostrum quisquam enim. Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque ducimus voluptatem consectetur id, alias illum numquam vero ipsa. Quisquam delectus in sit distinctio harum soluta asperiores ea nihil ut corrupti. Lorem, ipsum dolor sit amet consec</p>
+      </div>
+      <div className='w-full flex justify-center py-10 '>
+        <a style={{ '--about-info-item-index': 8 }} className={` darkBtn flex justify-between text-primaryWhite duration-300 text-textSM font-medium opacity-0 ${ aboutSectionVisible ? 'aboutAnimation' : ''} `} download href='../profile-white.png' >
+          <p>Download CV</p>
+          <img
+                  className=" "
+                  src="./documentdownload.svg"
+                  alt="download cv"
+                />
+        </a>
       </div>
     </section>
      </>

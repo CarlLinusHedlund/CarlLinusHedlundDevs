@@ -48,9 +48,10 @@ function HeroBanner() {
               {' '}
               <span className="text-text2xl xs:text-text3xl">
                 i'm
-                <span className="text-text2xl text-primaryCoral xs:text-text3xl ">
-                  Carl
-                </span>
+              </span>
+              {' '}
+              <span className="text-text2xl text-primaryCoral xs:text-text3xl ">
+                Carl
               </span>
             </h1>
             <p className="block font-rubik text-textBASE font-semibold text-primaryWhite lg:hidden">
