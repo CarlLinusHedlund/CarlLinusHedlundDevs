@@ -5,7 +5,7 @@ function SignIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("")
-  const [user, setUser] = useState(null)
+  // const [user, setUser] = useState(null)
 
   
   const handleSignIn = async (e) => {
@@ -19,7 +19,6 @@ function SignIn() {
     else {
       console.log(data);
       setMessage(`U are now logged in with: ${data.user.email}`)
-      setUser(data.user)
     } 
   }
 
