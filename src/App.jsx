@@ -1,6 +1,5 @@
 import React from 'react';
 import './index.css';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import Header from './components/header/Header';
 import AboutPage from './components/main/about';
