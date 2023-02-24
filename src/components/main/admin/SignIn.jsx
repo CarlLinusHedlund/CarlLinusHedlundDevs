@@ -1,25 +1,35 @@
-import React, {useState} from 'react'
+import React, {useState, useRef, useContext } from 'react'
 import { supabase } from '../../../supabase';
+import { UserContext } from './auth/UserContext';
+
 
 function SignIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [message, setMessage] = useState("")
-  // const [user, setUser] = useState(null)
+  const [message, setMessage] = useState("");
+  const messageRef = useRef();
+  // const [user, setUser] = 
+  // const msg = useContext(UserContext)
+  const { setUser } = useContext(UserContext)
 
   
   const handleSignIn = async (e) => {
     e.preventDefault()
 
-    const { data, error } = await supabase.auth.signInWithPassword({email, password})
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email,
+      password,
+    });
     if (error) {
       console.log(error);
-      
-    }
-    else {
+      setMessage(error.message);
+      messageRef.current.classList.add('text-red-400')
+    } else {
       console.log(data);
+      messageRef.current.classList.add('text-primaryWhite')
+      setUser(data.user)
       setMessage(`U are now logged in with: ${data.user.email}`)
-    } 
+    }
   }
 
   return (
@@ -49,7 +59,7 @@ function SignIn() {
             />
           </div>
         </div>
-        <p className='text-white' >{message}</p>
+        <p ref={messageRef} className='text-white' >{message}</p>
         <button
           type="submit"
           className="lg:hover:hoverShadow btn mt-4 flex h-10 w-3/4 items-center justify-center font-medium duration-300 lg:hover:scale-105 "

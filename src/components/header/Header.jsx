@@ -1,13 +1,18 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-import React, { useRef, useState } from 'react';
+import React, { useContext, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import MediaLinks from './MediaLinks';
 import HomeList from './NavLinks/HomeLi';
 import ContactList from './NavLinks/ContactLi';
 import AboutList from './NavLinks/AboutLi';
 import ProjectsList from './NavLinks/ProjectsLi';
+import { UserContext } from '../main/admin/auth/UserContext';
+import LogOut from './LogOut';
+
+
 
 function Header() {
+  const { user } = useContext(UserContext)
   const burgerRef = useRef();
   const navRef = useRef();
   const [isMenuClicked, setIsMenuClicked] = useState(false);
@@ -100,7 +105,8 @@ function Header() {
             <AboutList />
           </div>
         </nav>
-        <MediaLinks />
+        {user ? <LogOut /> : <MediaLinks />}
+        
       </div>
     </div>
   );
