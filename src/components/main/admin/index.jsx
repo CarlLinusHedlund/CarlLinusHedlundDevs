@@ -1,12 +1,15 @@
-import React from 'react';
-import Dashboard from './dashboard';
+import React, { useContext } from 'react';
+import { UserContext } from './auth/UserContext';
 import SignIn from './SignIn';
+import Dashboard from './dashboard';
 
 
 function AdminPage() {
+  const { user } = useContext(UserContext)
+  console.log(user);
   return (
-    <section className=" flex min-h-screen w-full items-center justify-center bg-primaryDark px-8 font-rubik ">
-      <SignIn /> 
+    <section className=" min-h-screen w-full bg-primaryDark font-rubik ">
+      {user ?  <Dashboard /> : <SignIn />}  
     </section>
   );
 }
