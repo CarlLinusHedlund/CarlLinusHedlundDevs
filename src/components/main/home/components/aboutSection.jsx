@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import Typed from 'typed.js';
 
-
 function AboutSection() {
   const el = useRef(null);
 

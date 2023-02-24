@@ -9,10 +9,8 @@ import ProjectsList from './NavLinks/ProjectsLi';
 import { UserContext } from '../main/admin/auth/UserContext';
 import LogOut from './LogOut';
 
-
-
 function Header() {
-  const { user } = useContext(UserContext)
+  const { user } = useContext(UserContext);
   const burgerRef = useRef();
   const navRef = useRef();
   const [isMenuClicked, setIsMenuClicked] = useState(false);
@@ -106,7 +104,7 @@ function Header() {
           </div>
         </nav>
         {user ? <LogOut /> : <MediaLinks />}
-        
+
       </div>
     </div>
   );

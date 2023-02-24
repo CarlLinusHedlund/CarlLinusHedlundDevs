@@ -1,10 +1,7 @@
 import React from 'react';
 
-
 function MediaLinks() {
-  
   return (
-    <>
     <div className="mb-[90px] flex flex-col gap-2 pl-[30px] pb-3 md:mb-0 md:pb-12 md:pl-[80px]">
       <div className="">
         <h3 className="text-textSM font-bold uppercase">Where to find me?</h3>
@@ -51,7 +48,6 @@ function MediaLinks() {
         </a>
       </div>
     </div>
-    </>
   );
 }
 
