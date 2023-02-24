@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { UserContext } from './auth/UserContext';
 import SignIn from './SignIn';
-import Dashboard from './Dashboard';
+import Dashboard from './dashboard';
 
 
 function AdminPage() {
