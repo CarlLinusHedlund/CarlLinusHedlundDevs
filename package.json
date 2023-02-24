@@ -12,15 +12,17 @@
   },
   "dependencies": {
     "@emailjs/browser": "^3.10.0",
+    "@supabase/supabase-js": "^2.8.0",
     "@vitejs/plugin-react": "^3.0.0",
+    "dotenv": "^16.0.3",
     "formik": "^2.2.9",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-router-dom": "^6.8.0",
     "swiper": "^9.0.4",
     "typed.js": "^2.0.12",
     "vite": "^4.0.0",
-    "yup": "^1.0.0",
-    "react-router-dom": "^6.8.0"
+    "yup": "^1.0.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.26",
