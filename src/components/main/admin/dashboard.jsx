@@ -1,12 +1,17 @@
 import React from 'react';
-// import { UserContext } from './auth/UserContext';
+import DashboardHeader from './components/dashboardHeader';
+import DashboardMakeList from './components/dashboardMakeList';
 
 function Dashboard() {
   return (
-    <div className="w-full h-full">
-      <div className=" sticky h-32 w-full border-b border-[#2c2c2c] " />
-
-    </div>
+    <>
+      <div className="w-full h-full">
+        <DashboardHeader />
+      </div>
+      <div className="  ">
+        <DashboardMakeList />
+      </div>
+    </>
   );
 }
 
