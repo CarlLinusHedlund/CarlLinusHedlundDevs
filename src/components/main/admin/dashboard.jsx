@@ -8,7 +8,7 @@ function Dashboard() {
       <div className="w-full h-full">
         <DashboardHeader />
       </div>
-      <div className="  ">
+      <div className=" w-full h-full flex justify-center ">
         <DashboardMakeList />
       </div>
     </>
