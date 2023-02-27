@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useFormik } from 'formik';
 import formSchema from '../utils/ValidationSchema';
 import { supabase } from '../../../../supabase';
@@ -6,27 +6,70 @@ import { supabase } from '../../../../supabase';
 
 
 function Form() {
-   const onSubmit = (values) => {
-     const templateParams = {
-      title: values.title,
-      course: values.course,
-      description: values.description,
-      progress: values.progress,
-      tags: values.tags
-    };
+  // const [imgAdded, setImgAdded] = useState(false)
+  const [uploads, setUploads] = useState([])
+  console.log(uploads);
+
+
+
+
+  
+
+  // OnSubmit formik will validate the form. If every input is true. 
+  // CreatePost will not run if imgs is not added
+  // If CreatePost returns error. Call function deleteImgs from storage. 
+  const onSubmit = (values, actions) => {
+    const imgArr = uploads
+    console.log("imgArr: ", imgArr);
     function createPost() {
       supabase.from('projects').insert({
         title: values.title,
         course: values.course,
         description: values.description,
         progress: values.progress,
-        tags: [values.tags]
+        tags: [values.tags],
+        images: uploads.url
       }).then(response => {
         console.log(response);
+        if (response.data) {
+          console.log("CREATE POST SUCCEES!!");
+          actions.resetForm();
+        } 
+        if (response.error) {
+          console.log("CREATE POST FAILED!!!");
+        }
       })
     }
-    createPost();
-    console.log(templateParams);
+    if (uploads.length > 0 ) {
+      // console.log("uploadCheck:", uploads.length);
+      console.log("ImgIsAdded");
+      createPost()
+    } else {
+      console.log("Please add Img");
+    }
+
+    
+
+  }
+
+
+  //Adds photos to storage/bucket
+  function addPhotos(ev) {
+    const files = ev.target.files;
+    for (const file of files){
+      const newName = Date.now() + file.name
+      supabase.storage.from('photos')
+      .upload(newName, file)
+      .then(result => {
+        if (result.data){
+          const template = {
+            url: import.meta.env.VITE_CARLLINUSHEDLUND_SUPABASE_URL + '/storage/v1/object/public/photos/' + result.data.path,
+            key: result.data.path
+          }
+          setUploads( prevUploads => [...prevUploads, template]);
+        }
+      })
+    }
   }
 
   const {
@@ -37,13 +80,12 @@ function Form() {
       course: '',
       description: '',
       progress: '',
-      tags: '',
+      tags: ''
     },
     validationSchema: formSchema,
     onSubmit,
-  });
-
-
+  }
+  );
   return (
     <>
       <form onSubmit={handleSubmit} className=" w-full font-rubik flex flex-col gap-10 ">
@@ -56,7 +98,7 @@ function Form() {
                   errors.title && touched.title
                     ? 'border-red-400 '
                     : 'border-primaryWhite'
-                }`} 
+                }`}
                 onChange={handleChange}
                 onBlur={handleBlur}
                 name="title" id="title" type="text" value={values.title} />
@@ -74,16 +116,16 @@ function Form() {
               <div className=" flex flex-col gap-1">
                 <label htmlFor="course" className='text-primaryWhite text-textBASE font-normal'>Course</label>
                 <input onChange={handleChange}
-                      onBlur={handleBlur} 
+                      onBlur={handleBlur}
                       className={`rounded-xl focus:scale-105 border bg-transparent p-3 duration-300 lg:p-2 text-primaryWhite ${
                         errors.course && touched.course
                           ? 'border-red-400 '
                           : 'border-primaryWhite'
                       }`
-                      } 
-                      name="course" 
-                      id="course" 
-                      type="text" 
+                      }
+                      name="course"
+                      id="course"
+                      type="text"
                       value={values.course} />
                       <label
                       htmlFor="course"
@@ -99,16 +141,16 @@ function Form() {
             </div>
             <div className=" flex flex-col gap-1">
               <label htmlFor="description" className='text-primaryWhite text-textBASE font-normal'>Description</label>
-              <textarea 
-              value={values.description} 
+              <textarea
+              value={values.description}
               onChange={handleChange}
-              onBlur={handleBlur} 
+              onBlur={handleBlur}
               className={`border min-h-[200px] max-h-[200px] font-light rounded-lg bg-transparent focus:scale-105 duration-300 focus:outline-none px-2 py-3 text-primaryWhite ${
                 errors.description && touched.description
                   ? 'border-red-400 '
                   : 'border-primaryWhite'
-                  }`} 
-                  name="description" id="title" 
+                  }`}
+                  name="description" id="title"
                   />
                   <label
                       htmlFor="description"
@@ -131,9 +173,9 @@ function Form() {
                 errors.progress && touched.progress
                   ? 'border-red-400 '
                   : 'border-primaryWhite'
-                  }`} 
-                  name="progress" 
-                  id="progress" 
+                  }`}
+                  name="progress"
+                  id="progress"
                   />
                   <label
                       htmlFor="progress"
@@ -159,13 +201,13 @@ function Form() {
             </div>
             <div className=" flex flex-col gap-1">
               <label htmlFor="tags" className='text-primaryWhite text-textBASE font-normal'>Add Tags</label>
-              <input 
-                placeholder='css, html, react' 
-                type="text" 
+              <input
+                placeholder='css, html, react'
+                type="text"
                 className={`border bg-transparent font-light rounded-lg focus:scale-105 duration-300 focus:outline-none px-2 py-3 ${errors.tags  && touched.tags ? 'border-red-400 ' : 'border-primaryWhite'} `}
-                name="tags" 
-                value={values.tags} 
-                id="tags" 
+                name="tags"
+                value={values.tags}
+                id="tags"
                 onChange={handleChange}
                 onBlur={handleBlur}
                 />
@@ -183,7 +225,32 @@ function Form() {
           </div>
           <div>
             <h2 className='text-primaryWhite font-semibold capitalize text-textLG '>Images</h2>
-            <input type="file" accept='image/png, image/jpeg' />
+            <input
+            multiple
+            id='image'
+            name='image'
+            type="file"
+            accept='image/png, image/jpeg'
+            onChange={addPhotos}/>
+            <label
+              htmlFor="tags"
+              className={` text-textXS duration-500 ${
+              errors.image && touched.image
+                  ? 'text-red-400 opacity-100'
+                  : 'text-primaryDark opacity-0 duration-75'
+                } `}
+                >
+              {errors.image ? `${errors.image}` : '.'}
+            </label>
+            {uploads.length > 0 && (
+              <div className=" flex gap-3 ">
+                {uploads.map(upload => (
+                  <div key={upload.key} className=''>
+                    <img src={upload.url} alt={upload.key} className=' rounded-lg w-auto h-24' />
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
           <button
             id="submitBtn"
@@ -191,6 +258,9 @@ function Form() {
             type="submit">
             Send Message
           </button>
+          <p className=' text-red-400 '>
+
+          </p>
       </form>
     </>
   )
