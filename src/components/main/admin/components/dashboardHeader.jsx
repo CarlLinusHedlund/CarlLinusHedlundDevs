@@ -1,27 +1,17 @@
 import React from 'react';
 import { SignOut } from '../auth/SignOut';
-// import { useNavigate } from 'react-router-dom';
 
 function DashboardHeader(props) {
-  // const navigate = useNavigate()
-  // function handleMakePost() {
-  //   navigate("/admin/make-a-post")
-  // }
-  // function handleViewPosts() {
-  //   navigate("/admin/view-post")
-
-  // }
-
   return (
     <>
       <div className="sticky hidden h-24 w-full justify-center border-b border-[#2c2c2c] md:flex ">
         <div className=" flex h-full w-full max-w-5xl items-center justify-between px-10">
           <div className="flex h-full items-center gap-10">
-            <div className=" h-fit w-fit ">
-              <p className=" duration-300 text-textBASE font-rubik font-semibold text-primaryWhite  ">MAKE A POST</p>
+            <div  className=" cursor-pointer h-fit w-fit ">
+              <p onClick={props.handleMakePostDesktop} className=" duration-300 text-textBASE font-rubik font-semibold text-primaryWhite  ">MAKE A POST</p>
             </div>
-            <div className=" h-fit w-fit">
-              <p className=" duration-300 text-textBASE font-rubik font-semibold text-primaryWhite  ">VIEW POSTS</p>
+            <div  className=" cursor-pointer h-fit w-fit">
+              <p onClick={props.handleViewPostsDesktop} className=" duration-300 text-textBASE font-rubik font-semibold text-primaryWhite  ">VIEW POSTS</p>
             </div>
           </div>
           <div
