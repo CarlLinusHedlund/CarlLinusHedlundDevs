@@ -9,7 +9,7 @@ function AboutSection() {
 
   useEffect(() => {
     const options = {
-      strings: ['FRONT END DEVELOPER', 'COFFEEHOLIC', 'PROBLEM SOLVER'],
+      strings: ['COFFEEHOLIC', 'PROBLEM SOLVER', 'FRONT END DEVELOPER'],
       typeSpeed: 100,
       backSpeed: 100,
       showCursor: false,
@@ -70,7 +70,9 @@ function AboutSection() {
         <h2
           ref={el}
           className=" htmlTags relative min-h-[32px] py-1 pl-1 font-rubik text-[22px] font-bold leading-5 text-primaryCoral before:content-['<h2>'] after:content-['</h2>'] xxs:text-[27px] xs:text-[33px] sm:text-[35px] md:min-h-[44px] md:py-3 md:pl-3 md:text-[45px] md:before:text-sm md:after:text-sm "
-        />
+        >
+          FRONT END DEVELOPER
+        </h2>
         <p className=" htmlTags relative max-w-sm py-0 pl-1 font-rubik text-textXS font-normal leading-4 before:content-['<p>'] after:content-['</p>'] sm:py-1 md:max-w-lg md:pl-3 md:text-textSM md:font-light md:before:text-sm md:after:text-sm ">
           Coffeeholic based i Oslo, Norway. With passion for
           {' '}

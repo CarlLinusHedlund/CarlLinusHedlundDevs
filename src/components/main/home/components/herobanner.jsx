@@ -60,7 +60,7 @@ function HeroBanner() {
           </div>
           <div className="flex max-w-[330px] flex-col gap-4  ">
             <Link to="/contact">
-              <button className="lg:hover:hoverShadow btn group flex w-full items-center justify-between duration-300 lg:hover:scale-105  ">
+              <button type="button" className="lg:hover:hoverShadow btn group flex w-full items-center justify-between duration-300 lg:hover:scale-105  ">
                 <p className="text-textSM font-semibold text-primaryWhite">
                   Hire Me
                 </p>

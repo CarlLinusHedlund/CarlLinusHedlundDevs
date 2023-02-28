@@ -29,7 +29,6 @@ function App() {
     checkLoggedIn();
   }, []);
 
-  console.log(user);
   return (
     <UserContext.Provider value={{ user, setUser }}>
       <BrowserRouter>
