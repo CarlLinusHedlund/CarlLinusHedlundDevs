@@ -93,7 +93,7 @@ function Form() {
           <div className=" flex flex-col gap-1">
             <label htmlFor="title" className="text-primaryWhite text-textBASE font-normal">Title</label>
             <input
-              className={` focus:scale-105 text-primaryWhite rounded-xl border bg-transparent p-3 duration-300 lg:p-2 ${
+              className={` outline-none focus:outline-none focus:scale-105 focus:border-b-2 text-primaryWhite border-b bg-transparent p-3 duration-300 lg:p-2 ${
                 errors.title && touched.title
                   ? 'border-red-400 '
                   : 'border-primaryWhite'
@@ -121,7 +121,7 @@ function Form() {
             <input
               onChange={handleChange}
               onBlur={handleBlur}
-              className={`rounded-xl focus:scale-105 border bg-transparent p-3 duration-300 lg:p-2 text-primaryWhite ${
+              className={`outline-none focus:outline-none focus:scale-105 focus:border-b-2 text-primaryWhite border-b bg-transparent p-3 duration-300 lg:p-2  ${
                 errors.course && touched.course
                   ? 'border-red-400 '
                   : 'border-primaryWhite'

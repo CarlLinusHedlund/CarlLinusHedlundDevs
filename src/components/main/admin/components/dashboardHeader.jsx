@@ -3,15 +3,18 @@ import { SignOut } from '../auth/SignOut';
 
 function DashboardHeader(props) {
   return (
+
+
+
     <>
       <div className="sticky hidden h-24 w-full justify-center border-b border-[#2c2c2c] md:flex ">
         <div className=" flex h-full w-full max-w-5xl items-center justify-between px-10">
           <div className="flex h-full items-center gap-10">
             <div  className=" cursor-pointer h-fit w-fit ">
-              <p onClick={props.handleMakePostDesktop} className=" duration-300 text-textBASE font-rubik font-semibold text-primaryWhite  ">MAKE A POST</p>
+              <p onClick={props.handleMakePost} className=" duration-300 text-textBASE font-rubik font-semibold text-primaryWhite  ">MAKE A POST</p>
             </div>
             <div  className=" cursor-pointer h-fit w-fit">
-              <p onClick={props.handleViewPostsDesktop} className=" duration-300 text-textBASE font-rubik font-semibold text-primaryWhite  ">VIEW POSTS</p>
+              <p onClick={props.handleViewPosts} className=" duration-300 text-textBASE font-rubik font-semibold text-primaryWhite  ">VIEW POSTS</p>
             </div>
           </div>
           <div

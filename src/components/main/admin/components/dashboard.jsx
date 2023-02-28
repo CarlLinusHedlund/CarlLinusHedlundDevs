@@ -10,14 +10,6 @@ function Dashboard() {
     setShowMakeList(false);
   }
 
-  function handleMakePostDesktop() {
-    setShowMakeList(false);
-  }
-
-  function handleViewPostsDesktop() {
-    setShowMakeList(true);
-  }
-
   function handleViewPosts() {
     setShowMakeList(true);
   }
@@ -27,8 +19,8 @@ function Dashboard() {
       <div className="w-full h-full">
         <DashboardHeader
           handleMakePost={handleMakePost}
-          handleMakePostDesktop={handleMakePostDesktop}
-          handleViewPostsDesktop={handleViewPostsDesktop}
+          // handleMakePostDesktop={handleMakePostDesktop}
+          // handleViewPostsDesktop={handleViewPostsDesktop}
           handleViewPosts={handleViewPosts}
         />
       </div>
