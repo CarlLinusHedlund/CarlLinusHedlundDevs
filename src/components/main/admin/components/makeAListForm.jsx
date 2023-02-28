@@ -95,11 +95,12 @@ function Form() {
   });
 
   return (
-    <form onSubmit={handleSubmit} className=" w-full font-rubik flex flex-col gap-10 ">
+    <form onSubmit={handleSubmit} className=" w-full font-rubik flex flex-col gap-10 pb-32">
+      <div className='w-full flex-col lg:flex-row '>
       <div className=" flex flex-col gap-14 font-semibold text-textBASE w-full h-full ">
         <h2 className=" text-primaryWhite capitalize text-textLG ">Information</h2>
         <div className="w-full h-full flex flex-col gap-5">
-          <div className=" flex flex-col gap-1">
+          <div className=" flex flex-col ">
             <label htmlFor="title" className="text-primaryWhite text-textBASE font-normal">Title</label>
             <input
               className={` outline-none focus:outline-none focus:scale-105 focus:border-b-2 text-primaryWhite border-b bg-transparent p-3 duration-300 lg:p-2 ${
@@ -125,7 +126,7 @@ function Form() {
               {errors.title ? `${errors.title}` : '.'}
             </label>
           </div>
-          <div className=" flex flex-col gap-1">
+          <div className=" flex flex-col ">
             <label htmlFor="course" className="text-primaryWhite text-textBASE font-normal">Course</label>
             <input
               onChange={handleChange}
@@ -251,8 +252,7 @@ function Form() {
             {errors.tags ? `${errors.tags}` : '.'}
           </label>
         </div>
-      </div>
-      <div>
+        <div>
         <h2 className="text-primaryWhite font-semibold capitalize text-textLG ">Images</h2>
         <input
           multiple
@@ -287,8 +287,9 @@ function Form() {
         {/* {uploads.length > 0 && (
         <div className=" flex gap-3 ">
           {uploads.map((upload) => (
-            <div key={upload.key} className="">
-              <img src={upload.url} alt={upload.key} className=" rounded-lg w-auto h-24" />
+            <div key={upload.key} className="  relative border group rounded-md bg-primaryWhite p-4">
+              <img src="../add.svg" alt="" className=' group-hover:opacity-70 rotate-45 h-4 w-4 absolute top-1 right-1 opacity-0 hover:opacity-100 duration-300 cursor-pointer ' />
+              <img src={upload.url} alt={upload.key} className=" z-10 rounded-lg w-auto h-20" />
             </div>
           ))}
         </div>
@@ -299,7 +300,7 @@ function Form() {
         className=" lg:hover:hoverShadow btn  mt-4 flex w-full min-w-[300px] max-w-[450px] items-center justify-center font-bold text-primaryWhite duration-300 md:max-w-[350px] lg:hover:scale-105 "
         type="submit"
       >
-        Send Message
+        Submit
       </button>
       <p className=" text-red-400 " />
     </form>
