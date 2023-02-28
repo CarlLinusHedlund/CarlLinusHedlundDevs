@@ -1,7 +1,17 @@
 import React from 'react';
 import { SignOut } from '../auth/SignOut';
+// import { useNavigate } from 'react-router-dom';
 
-function DashboardHeader() {
+function DashboardHeader(props) {
+  // const navigate = useNavigate()
+  // function handleMakePost() {
+  //   navigate("/admin/make-a-post")
+  // }
+  // function handleViewPosts() {
+  //   navigate("/admin/view-post")
+
+  // }
+
   return (
     <>
       <div className="sticky hidden h-24 w-full justify-center border-b border-[#2c2c2c] md:flex ">
@@ -23,16 +33,16 @@ function DashboardHeader() {
         </div>
       </div>
       <div className="flex items-center justify-between md:hidden rounded-t-[50px] fixed bottom-0 w-full bg-[#242424] h-20 px-14 xs:px-20 ">
-        <div className=" h-fit w-fit ">
-          <img className="w-7 h-7" src="../viewlists.svg" alt="" />
+        <div onClick={props.handleViewPosts} className=" h-fit w-fit ">
+          <img className="w-7 h-7" src="../viewlists.svg" alt="view lists icon" />
         </div>
         <div className=" relative h-20 w-20">
-          <div className=" w-20 h-20 flex justify-center items-center rounded-full bg-primaryCoral absolute -top-5 ">
-            <img className="w-8 h-8" src="../plus.svg" alt="" />
+          <div onClick={props.handleMakePost} className=" w-20 h-20 flex justify-center items-center rounded-full bg-primaryCoral absolute -top-5 ">
+            <img className="w-8 h-8" src="../plus.svg" alt="makeAList icon" />
           </div>
         </div>
-        <div className=" h-fit w-fit">
-          <img className="w-7 h-7" src="../signout.svg" alt="" />
+        <div onClick={SignOut} className=" h-fit w-fit">
+          <img className="w-7 h-7" src="../signout.svg" alt="signout" />
         </div>
       </div>
     </>

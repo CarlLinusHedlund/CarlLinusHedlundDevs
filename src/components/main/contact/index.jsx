@@ -5,7 +5,7 @@ import messageSchema from './utils/validationSchema';
 
 function ContactPage() {
   const onSubmit = (values, actions) => {
-    console.log('submitted');
+    console.log('SUBMITTED');
 
     const templateParams = {
       messageName: values.messageName,
@@ -62,7 +62,7 @@ function ContactPage() {
             <p className=" text-textXS sm:text-textSM ">
               Interested in working together or have any questions?
               <br />
-              {' '}
+              {`&apos`}
               Let's meet and talk over a
               <span className="text-[#C5A76E]">coffee</span>
             </p>

@@ -1,9 +1,9 @@
 import React from 'react';
 
-function DashboardGetProjects() {
+function DashboardViewLists() {
   return (
     <div>dashboardGetProjects</div>
   );
 }
 
-export default DashboardGetProjects;
+export default DashboardViewLists;
