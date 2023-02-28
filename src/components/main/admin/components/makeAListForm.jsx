@@ -93,7 +93,7 @@ function Form() {
           <div className=" flex flex-col gap-1">
             <label htmlFor="title" className="text-primaryWhite text-textBASE font-normal">Title</label>
             <input
-              className={` focus:scale-105 text-primaryWhite rounded-xl border bg-transparent p-3 duration-300 lg:p-2 ${
+              className={` outline-none focus:outline-none focus:scale-105 focus:border-b-2 text-primaryWhite border-b bg-transparent p-3 duration-300 lg:p-2 ${
                 errors.title && touched.title
                   ? 'border-red-400 '
                   : 'border-primaryWhite'
@@ -121,7 +121,7 @@ function Form() {
             <input
               onChange={handleChange}
               onBlur={handleBlur}
-              className={`rounded-xl focus:scale-105 border bg-transparent p-3 duration-300 lg:p-2 text-primaryWhite ${
+              className={`outline-none focus:outline-none focus:scale-105 focus:border-b-2 text-primaryWhite border-b bg-transparent p-3 duration-300 lg:p-2  ${
                 errors.course && touched.course
                   ? 'border-red-400 '
                   : 'border-primaryWhite'
@@ -143,13 +143,13 @@ function Form() {
             </label>
           </div>
         </div>
-        <div className=" flex flex-col gap-1">
+        <div className=" flex flex-col gap-2 pt-5">
           <label htmlFor="description" className="text-primaryWhite text-textBASE font-normal">Description</label>
           <textarea
             value={values.description}
             onChange={handleChange}
             onBlur={handleBlur}
-            className={`border min-h-[200px] max-h-[200px] font-light rounded-lg bg-transparent focus:scale-105 duration-300 focus:outline-none px-2 py-3 text-primaryWhite ${
+            className={`outline-none focus:outline-none focus:scale-105 focus:border-b-2 text-primaryWhite border-b bg-transparent p-3 duration-300 lg:p-2 ${
               errors.description && touched.description
                 ? 'border-red-400 '
                 : 'border-primaryWhite'
@@ -168,13 +168,13 @@ function Form() {
             {errors.description ? `${errors.description}` : '.'}
           </label>
         </div>
-        <div className=" flex flex-col gap-1">
+        <div className=" flex flex-col gap-2 pb-5">
           <label htmlFor="progress" className="text-primaryWhite text-textBASE font-normal">Progress</label>
           <textarea
             value={values.progress}
             onChange={handleChange}
             onBlur={handleBlur}
-            className={`border min-h-[200px] max-h-[200px] font-light rounded-lg bg-transparent focus:scale-105 duration-300 focus:outline-none px-2 py-3 text-primaryWhite ${
+            className={`outline-none focus:outline-none focus:scale-105 focus:border-b-2 text-primaryWhite border-b bg-transparent p-2 duration-300 lg:p-2 ${
               errors.progress && touched.progress
                 ? 'border-red-400 '
                 : 'border-primaryWhite'
@@ -224,7 +224,7 @@ function Form() {
           <input
             placeholder="css, html, react"
             type="text"
-            className={`border bg-transparent font-light rounded-lg focus:scale-105 duration-300 focus:outline-none px-2 py-3 ${errors.tags && touched.tags ? 'border-red-400 ' : 'border-primaryWhite'} `}
+            className={`outline-none focus:outline-none focus:scale-105 focus:border-b-2 text-primaryWhite border-b bg-transparent p-3 duration-300 lg:p-2 ${errors.tags && touched.tags ? 'border-red-400 ' : 'border-primaryWhite'} `}
             name="tags"
             value={values.tags}
             id="tags"
