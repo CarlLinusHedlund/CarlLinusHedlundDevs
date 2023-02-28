@@ -7,7 +7,7 @@ function DashboardHeader(props) {
 
 
     <>
-      <div className="sticky hidden h-24 w-full justify-center border-b border-[#2c2c2c] md:flex ">
+      <div className="sticky hidden h-24 w-full justify-center border-b border-[#2c2c2c] md:flex">
         <div className=" flex h-full w-full max-w-5xl items-center justify-between px-10">
           <div className="flex h-full items-center gap-10">
             <div  className=" cursor-pointer h-fit w-fit ">
@@ -25,7 +25,7 @@ function DashboardHeader(props) {
           </div>
         </div>
       </div>
-      <div className="flex items-center justify-between md:hidden rounded-t-[50px] fixed bottom-0 w-full bg-[#242424] h-20 px-14 xs:px-20 ">
+      <div className="flex z-40 items-center justify-between md:hidden rounded-t-[50px] fixed bottom-0 w-full bg-[#242424] h-20 px-14 xs:px-20 ">
         <div onClick={props.handleViewPosts} className=" h-fit w-fit ">
           <img className="w-7 h-7" src="../viewlists.svg" alt="view lists icon" />
         </div>

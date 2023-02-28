@@ -16,7 +16,7 @@ function Dashboard() {
 
   return (
     <>
-      <div className="w-full h-full">
+      <div className="w-full h-full z-30">
         <DashboardHeader
           handleMakePost={handleMakePost}
           // handleMakePostDesktop={handleMakePostDesktop}
