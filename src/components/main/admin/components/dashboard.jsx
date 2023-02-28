@@ -4,14 +4,22 @@ import DashboardHeader from './dashboardHeader';
 import DashboardMakeList from './dashboardMakeList';
 
 function Dashboard() {
-  const [showMakeList, setShowMakeList] = useState(true);
+  const [showMakeList, setShowMakeList] = useState(false);
 
   function handleMakePost() {
+    setShowMakeList(false);
+  }
+
+  function handleMakePostDesktop() {
+    setShowMakeList(false);
+  }
+
+  function handleViewPostsDesktop() {
     setShowMakeList(true);
   }
 
   function handleViewPosts() {
-    setShowMakeList(false);
+    setShowMakeList(true);
   }
 
   return (
@@ -19,11 +27,13 @@ function Dashboard() {
       <div className="w-full h-full">
         <DashboardHeader
           handleMakePost={handleMakePost}
+          handleMakePostDesktop={handleMakePostDesktop}
+          handleViewPostsDesktop={handleViewPostsDesktop}
           handleViewPosts={handleViewPosts}
         />
       </div>
       <div className=" w-full h-full flex justify-center ">
-        {showMakeList ? <DashboardMakeList /> : <DashboardViewLists />}
+        {showMakeList ? <DashboardViewLists /> : <DashboardMakeList />}
       </div>
     </>
   );
