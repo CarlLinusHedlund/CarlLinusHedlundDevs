@@ -4,6 +4,7 @@ import formSchema from '../utils/ValidationSchema';
 import { supabase } from '../../../../supabase';
 
 function Form() {
+  const [selectedImages , setSelectedImages] = useState([]);
   // const [imgAdded, setImgAdded] = useState(false)
   const [uploads, setUploads] = useState([]);
 
@@ -54,21 +55,28 @@ function Form() {
 
   // Adds photos to storage/bucket
   function addPhotos(ev) {
-    const { files } = ev.target;
-    for (const file of files) {
-      const newName = Date.now() + file.name;
-      supabase.storage.from('photos')
-        .upload(newName, file)
-        .then((result) => {
-          if (result.data) {
-            const template = {
-              url: `${import.meta.env.VITE_CARLLINUSHEDLUND_SUPABASE_URL}/storage/v1/object/public/photos/${result.data.path}`,
-              key: result.data.path,
-            };
-            setUploads((prevUploads) => [...prevUploads, template]);
-          }
-        });
-    }
+    const selectedFiles = ev.target.files;
+    const selectedFilesArr = Array.from(selectedFiles);
+    const imageArr = selectedFilesArr.map((file) => {
+      return URL.createObjectURL(file)
+    })
+    setSelectedImages(imageArr)
+    // for (const file of selectedFiles) {
+    //   console.log(file);
+    //   con
+    //   // const newName = Date.now() + file.name;
+    //   // supabase.storage.from('photos')
+    //   //   .upload(newName, file)
+    //   //   .then((result) => {
+    //   //     if (result.data) {
+    //   //       const template = {
+    //   //         url: `${import.meta.env.VITE_CARLLINUSHEDLUND_SUPABASE_URL}/storage/v1/object/public/photos/${result.data.path}`,
+    //   //         key: result.data.path,
+    //   //       };
+    //   //       setUploads((prevUploads) => [...prevUploads, template]);
+    //   //     }
+    //   //   });
+    // }
   }
 
   const {
@@ -85,6 +93,7 @@ function Form() {
     validationSchema: formSchema,
     onSubmit,
   });
+
   return (
     <form onSubmit={handleSubmit} className=" w-full font-rubik flex flex-col gap-10 ">
       <div className=" flex flex-col gap-14 font-semibold text-textBASE w-full h-full ">
@@ -263,7 +272,19 @@ function Form() {
         >
           {errors.image ? `${errors.image}` : '.'}
         </label>
-        {uploads.length > 0 && (
+        <div className='flex gap-3 mt-4'>
+          {selectedImages && 
+            selectedImages.map((image) => {
+              return (
+                <div key={image}>
+                  <img src={image} alt={image} className="rounded-lg w-auto h-24" />
+                </div>
+              )
+            })
+          }
+        </div>
+        
+        {/* {uploads.length > 0 && (
         <div className=" flex gap-3 ">
           {uploads.map((upload) => (
             <div key={upload.key} className="">
@@ -271,7 +292,7 @@ function Form() {
             </div>
           ))}
         </div>
-        )}
+        )} */}
       </div>
       <button
         id="submitBtn"
