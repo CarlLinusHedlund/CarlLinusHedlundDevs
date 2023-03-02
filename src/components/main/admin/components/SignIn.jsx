@@ -70,3 +70,46 @@ function SignIn() {
 }
 
 export default SignIn;
+
+
+
+
+
+// function createPost() {
+    //   supabase.from('projects').insert({
+    //     title: values.title,
+    //     course: values.course,
+    //     description: values.description,
+    //     progress: values.progress,
+    //     tags: [values.tags],
+    //     images: imageUrls,
+    //     active: values.active,
+    //   }).then((response) => {
+    //     console.log(response);
+    //     if (response.data) {
+    //       console.log('CREATE POST SUCCEES!!');
+    //       actions.resetForm();
+    //     }
+    //     if (response.error) {
+    //       console.log('CREATE POST FAILED!!!');
+    //       const { data, error } = supabase
+    //         .storage
+    //         .from('avatars')
+    //         .remove([imageUrls]);
+    //       if (error) {
+    //         console.log(error);
+    //         console.log('IMAGES not removed');
+    //       }
+    //       if (data) {
+    //         console.log(data);
+    //         console.log('IMAGES removed');
+    //       }
+    //     }
+    //   });
+    // }
+    // if (uploads.length > 0) {
+    //   console.log('ImgIsAdded');
+    //   createPost();
+    // } else {
+    //   console.log('Please add Img');
+    // }
