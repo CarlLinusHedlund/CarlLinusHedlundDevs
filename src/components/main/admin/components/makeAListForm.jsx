@@ -4,100 +4,107 @@ import formSchema from '../utils/ValidationSchema';
 import { supabase } from '../../../../supabase';
 
 function Form() {
-  const [selectedImages , setSelectedImages] = useState([]);
-  // const [uploadedImages, setUploadedImages] = useState([]);
+   const [selectedImages, setSelectedImages] = useState([]);
+   
+
+   
+   // OnSubmit formik will validate the form. If every input is true.
+   // CreatePost will not run if imgs is not added
+   // If CreatePost returns error. Call function deleteImgs from storage.
+   const onSubmit = (values, actions) => {
+    //  const imageUrls = uploads.map((upload) => upload.url);
+     function createPost() {
+       supabase.from('projects').insert({
+         title: values.title,
+         course: values.course,
+         description: values.description,
+         progress: values.progress,
+         tags: [values.tags],
+         images: imageUrls,
+         active: values.active,
+       }).then((response) => {
+         console.log(response);
+         if (response.data) {
+           console.log('CREATE POST SUCCEES!!');
+           actions.resetForm();
+         }
+         if (response.error) {
+           console.log('CREATE POST FAILED!!!');
+           const { data, error } = supabase
+             .storage
+             .from('avatars')
+             .remove([imageUrls]);
+           if (error) {
+             console.log(error);
+             console.log('IMAGES not removed');
+           }
+           if (data) {
+             console.log(data);
+             console.log('IMAGES removed');
+           }
+         }
+       });
+     }
+     if (uploads.length > 0) {
+       console.log('ImgIsAdded');
+       createPost();
+     } else {
+       console.log('Please add Img');
+     }
+   };
 
 
-  // function addUploads (event) {
-  //   setUploadedImages(event.target.files)
-  //   console.log(uploadedImages);
-  // }
 
   
-  function onSubmit () {
-    // const uniqueImages = selectedImages.map((image) => {
-    //   const timeStamp = new Date().getTime();
-    //   const fileName = timeStamp + image
-    //   return [fileName, image]
-    // })
-    // console.log(uniqueImages);
-    // console.log(fileName);
-    // console.log(image);
-    
-    for (const file of selectedImages){
-      const { data, error } = supabase
-      .storage
-      .from('photos')
-      .upload('homo', file)
-      .then((result) => {
-        if(result.data){
-          console.log(data);
-        } if (result.error) {
-          console.log(error);
-        }
-      })
-    }
+function uploadImgStorage(ev) {
 
-    // const { data, error } = await supabase
-    //   .storage
-    //   .from('avatars')
-    //   .upload('public/avatar1.png', selectedImages, {
-    //     cacheControl: '3600',
-    //     upsert: false
-    //   })
-    //   .then((result) => {
-    //     if(result.data){
-    //       console.log(data);
-    //     } if (result.error) {
-    //       console.log(error);
-    //     }
-    //   })
 }
 
-
-
-
-
-
-
-
-
   //Previewimg
-  function addPhotos(ev) {
+  function addPreview(ev) {
+    console.log("log me");
     const selectedFiles = ev.target.files;
+
     const selectedFilesArr = Array.from(selectedFiles);
-    console.log("selectedAFilesArr: ", selectedFilesArr);
+    console.log('selectedAFilesArr: ', selectedFilesArr);
     const imageArr = selectedFilesArr.map((file) => {
-      return URL.createObjectURL(file)
-    })
+      return URL.createObjectURL(file);
+    });
     setSelectedImages((prevImages) => prevImages.concat(imageArr));
   }
 
-  const {
-    values, handleChange, errors, touched, handleBlur, handleSubmit,
-  } = useFormik({
-    initialValues: {
-      title: '',
-      course: '',
-      description: '',
-      progress: '',
-      tags: '',
-      active: true
-    },
-    validationSchema: formSchema,
-    onSubmit,
-  });
+  const { values, handleChange, errors, touched, handleBlur, handleSubmit } =
+    useFormik({
+      initialValues: {
+        title: '',
+        course: '',
+        description: '',
+        progress: '',
+        tags: '',
+        active: true,
+      },
+      validationSchema: formSchema,
+      onSubmit,
+    });
 
   return (
-    <form onSubmit={handleSubmit} className=" w-full font-rubik flex flex-col gap-10 pb-32">
-      <div className='w-full flex-col lg:flex-row '>
-        <div className=" flex flex-col gap-14 font-semibold text-textBASE w-full h-full ">
-          <h2 className=" text-primaryWhite capitalize text-textLG ">Information</h2>
-          <div className="w-full h-full flex flex-col gap-5">
+    <form
+      onSubmit={handleSubmit}
+      className=" flex w-full flex-col gap-10 pb-32 font-rubik"
+    >
+      <div className="w-full flex-col lg:flex-row ">
+        <div className=" flex h-full w-full flex-col gap-14 text-textBASE font-semibold ">
+          <h2 className=" text-textLG capitalize text-primaryWhite ">Information</h2>
+          <div className="flex h-full w-full flex-col gap-5">
             <div className=" flex flex-col ">
-              <label htmlFor="title" className="text-primaryWhite text-textBASE font-normal">Title</label>
+              <label
+                htmlFor="title"
+                className="text-textBASE font-normal text-primaryWhite"
+              >
+                Title
+              </label>
               <input
-                className={` outline-none focus:outline-none focus:scale-105 focus:border-b-2 text-primaryWhite border-b bg-transparent p-3 duration-300 lg:p-2 ${
+                className={` border-b bg-transparent p-3 text-primaryWhite outline-none duration-300 focus:scale-105 focus:border-b-2 focus:outline-none lg:p-2 ${
                   errors.title && touched.title
                     ? 'border-red-400 '
                     : 'border-primaryWhite'
@@ -121,11 +128,16 @@ function Form() {
               </label>
             </div>
             <div className=" flex flex-col ">
-              <label htmlFor="course" className="text-primaryWhite text-textBASE font-normal">Course</label>
+              <label
+                htmlFor="course"
+                className="text-textBASE font-normal text-primaryWhite"
+              >
+                Course
+              </label>
               <input
                 onChange={handleChange}
                 onBlur={handleBlur}
-                className={`outline-none focus:outline-none focus:scale-105 focus:border-b-2 text-primaryWhite border-b bg-transparent p-3 duration-300 lg:p-2  ${
+                className={`border-b bg-transparent p-3 text-primaryWhite outline-none duration-300 focus:scale-105 focus:border-b-2 focus:outline-none lg:p-2  ${
                   errors.course && touched.course
                     ? 'border-red-400 '
                     : 'border-primaryWhite'
@@ -148,12 +160,17 @@ function Form() {
             </div>
           </div>
           <div className=" flex flex-col gap-2 pt-5">
-            <label htmlFor="description" className="text-primaryWhite text-textBASE font-normal">Description</label>
+            <label
+              htmlFor="description"
+              className="text-textBASE font-normal text-primaryWhite"
+            >
+              Description
+            </label>
             <textarea
               value={values.description}
               onChange={handleChange}
               onBlur={handleBlur}
-              className={`outline-none focus:outline-none focus:scale-105 focus:border-b-2 text-primaryWhite border-b bg-transparent p-3 duration-300 lg:p-2 ${
+              className={`border-b bg-transparent p-3 text-primaryWhite outline-none duration-300 focus:scale-105 focus:border-b-2 focus:outline-none lg:p-2 ${
                 errors.description && touched.description
                   ? 'border-red-400 '
                   : 'border-primaryWhite'
@@ -173,12 +190,17 @@ function Form() {
             </label>
           </div>
           <div className=" flex flex-col gap-2 pb-5">
-            <label htmlFor="progress" className="text-primaryWhite text-textBASE font-normal">Progress</label>
+            <label
+              htmlFor="progress"
+              className="text-textBASE font-normal text-primaryWhite"
+            >
+              Progress
+            </label>
             <textarea
               value={values.progress}
               onChange={handleChange}
               onBlur={handleBlur}
-              className={`outline-none focus:outline-none focus:scale-105 focus:border-b-2 text-primaryWhite border-b bg-transparent p-2 duration-300 lg:p-2 ${
+              className={`border-b bg-transparent p-2 text-primaryWhite outline-none duration-300 focus:scale-105 focus:border-b-2 focus:outline-none lg:p-2 ${
                 errors.progress && touched.progress
                   ? 'border-red-400 '
                   : 'border-primaryWhite'
@@ -199,37 +221,44 @@ function Form() {
           </div>
           <div />
         </div>
-        <div className=" flex flex-col gap-10 font-semibold text-textBASE w-full h-full ">
-
-          <h2 className=" text-primaryWhite font-semibold capitalize text-textLG ">Details</h2>
+        <div className=" flex h-full w-full flex-col gap-10 text-textBASE font-semibold ">
+          <h2 className=" text-textLG font-semibold capitalize text-primaryWhite ">
+            Details
+          </h2>
           <div className=" flex flex-col gap-1">
-            <label htmlFor="active" className="text-primaryWhite text-textBASE font-normal">Active</label>
+            <label
+              htmlFor="active"
+              className="text-textBASE font-normal text-primaryWhite"
+            >
+              Active
+            </label>
             <select
-              className=" font-medium rounded-lg focus:scale-105 duration-300 focus:outline-none px-2 py-3"
+              className=" rounded-lg px-2 py-3 font-medium duration-300 focus:scale-105 focus:outline-none"
               name="active"
               onChange={handleChange}
               onBlur={handleBlur}
               value={values.active}
               id="active"
             >
-              <option
-                value
-              >
-                Active
-              </option>
-              <option
-                value={false}
-              >
-                Not Active
-              </option>
+              <option value>Active</option>
+              <option value={false}>Not Active</option>
             </select>
           </div>
           <div className=" flex flex-col gap-1">
-            <label htmlFor="tags" className="text-primaryWhite text-textBASE font-normal">Add Tags</label>
+            <label
+              htmlFor="tags"
+              className="text-textBASE font-normal text-primaryWhite"
+            >
+              Add Tags
+            </label>
             <input
               placeholder="css, html, react"
               type="text"
-              className={`outline-none focus:outline-none focus:scale-105 focus:border-b-2 text-primaryWhite border-b bg-transparent p-3 duration-300 lg:p-2 ${errors.tags && touched.tags ? 'border-red-400 ' : 'border-primaryWhite'} `}
+              className={`border-b bg-transparent p-3 text-primaryWhite outline-none duration-300 focus:scale-105 focus:border-b-2 focus:outline-none lg:p-2 ${
+                errors.tags && touched.tags
+                  ? 'border-red-400 '
+                  : 'border-primaryWhite'
+              } `}
               name="tags"
               value={values.tags}
               id="tags"
@@ -248,42 +277,47 @@ function Form() {
             </label>
           </div>
           <div>
-          <h2 className="text-primaryWhite font-semibold capitalize text-textLG ">Images</h2>
-          <input
-            multiple
-            id="image"
-            name="image"
-            type="file"
-            accept="image/png, image/jpeg"
-            onChange={addPhotos}
-          />
-          <label
-            htmlFor="tags"
-            className={` text-textXS duration-500 ${
-              errors.image && touched.image
-                ? 'text-red-400 opacity-100'
-                : 'text-primaryDark opacity-0 duration-75'
-            } `}
-          >
-            {errors.image ? `${errors.image}` : '.'}
-          </label>
-          <div className='flex gap-3 mt-4'>
-            {selectedImages && 
-              selectedImages.map((image) => {
-                return (
-                  <div key={image} className="relative border group rounded-md bg-primaryWhite p-4">
-                    <img onClick={() => 
-                    setSelectedImages(selectedImages.filter((e) => e !== image)) } src="../add.svg" alt="close icon" className=' lg:group-hover:opacity-100 rotate-45 h-5 w-5 lg:h-4 lg:w-4 absolute top-1 right-1 opacity-100 lg:opacity-0 hover:opacity-100 duration-300 cursor-pointer ' />
-                    <img src={image} alt={image} className="rounded-lg w-auto h-20" />
-                  </div>
-                )
-              })
-            }
+            <h2 className="text-textLG font-semibold capitalize text-primaryWhite ">
+              Images
+            </h2>
+            <input
+              multiple
+              id="image"
+              name="image"
+              type="file"
+              accept="image/png, image/jpeg"
+              onChange= {(e) => {addPreview(e), uploadImgStorage(e);}}
+            />
+            
+            <div className="mt-4 flex gap-3">
+              {selectedImages &&
+                selectedImages.map((image) => {
+                  return (
+                    <div
+                      key={image}
+                      className="group relative rounded-md border bg-primaryWhite p-4"
+                    >
+                      <img
+                        onClick={(e) => setSelectedImages(
+                          selectedImages.filter((e) => e !== image)
+                        )}
+                        src="../add.svg"
+                        alt="close icon"
+                        className=" absolute top-1 right-1 h-5 w-5 rotate-45 cursor-pointer opacity-100 duration-300 hover:opacity-100 lg:h-4 lg:w-4 lg:opacity-0 lg:group-hover:opacity-100 "
+                      />
+                      <img
+                        src={image}
+                        alt={image}
+                        className="h-20 w-auto rounded-lg"
+                      />
+                    </div>
+                  );
+                })}
+            </div>
           </div>
         </div>
-        </div>
       </div>
-      <div className='w-full flex justify-center'>
+      <div className="flex w-full justify-center">
         <button
           id="submitBtn"
           className=" lg:hover:hoverShadow btn  mt-4 flex w-full min-w-[300px] max-w-[450px] items-center justify-center font-bold text-primaryWhite duration-300 md:max-w-[350px] lg:hover:scale-105 "
@@ -292,7 +326,6 @@ function Form() {
           Submit
         </button>
       </div>
-      
       <p className=" text-red-400 " />
     </form>
   );

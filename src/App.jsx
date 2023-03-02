@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 import './index.css';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import Header from './components/header/Header';
-import AboutPage from './components/main/about';
-import ContactPage from './components/main/contact';
-import ProjectPage from './components/main/projects';
-import AdminPage from './components/main/admin';
-import HomePage from './components/main/home';
-import { UserContext } from './components/main/admin/auth/UserContext';
+import AboutPage from './components/main/About/index';
+import ContactPage from './components/main/Contact/Index';
+import ProjectPage from './components/main/Projects/index';
+import AdminPage from './components/main/Admin/Index';
+import HomePage from './components/main/Home';
+import { UserContext } from './components/main/Admin/Auth/UserContext';
 import { supabase } from './supabase';
 
 function App() {
@@ -19,7 +19,8 @@ function App() {
     if (error) {
       setUser(null);
       console.log(error);
-    } if (data) {
+    }
+    if (data) {
       setUser(data.session.user);
     }
   };
@@ -46,7 +47,6 @@ function App() {
         </div>
       </BrowserRouter>
     </UserContext.Provider>
-
   );
 }
 export default App;

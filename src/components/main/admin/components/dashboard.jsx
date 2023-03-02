@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import DashboardViewLists from './dashboardGetProjects';
-import DashboardHeader from './dashboardHeader';
-import DashboardMakeList from './dashboardMakeList';
+import DashboardViewLists from './DashboardGetProjects';
+import DashboardHeader from './DashboardHeader';
+import DashboardMakeList from './DashboardMakeList';
 
 function Dashboard() {
   const [showMakeList, setShowMakeList] = useState(false);
@@ -16,7 +16,7 @@ function Dashboard() {
 
   return (
     <>
-      <div className="w-full h-full z-30">
+      <div className="z-30 h-full w-full">
         <DashboardHeader
           handleMakePost={handleMakePost}
           // handleMakePostDesktop={handleMakePostDesktop}
@@ -24,7 +24,7 @@ function Dashboard() {
           handleViewPosts={handleViewPosts}
         />
       </div>
-      <div className=" w-full h-full flex justify-center ">
+      <div className=" flex h-full w-full justify-center ">
         {showMakeList ? <DashboardViewLists /> : <DashboardMakeList />}
       </div>
     </>

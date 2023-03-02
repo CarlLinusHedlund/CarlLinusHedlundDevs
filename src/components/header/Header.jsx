@@ -6,7 +6,7 @@ import HomeList from './NavLinks/HomeLi';
 import ContactList from './NavLinks/ContactLi';
 import AboutList from './NavLinks/AboutLi';
 import ProjectsList from './NavLinks/ProjectsLi';
-import { UserContext } from '../main/admin/auth/UserContext';
+import { UserContext } from '../main/Admin/Auth/UserContext';
 import LogOut from './LogOut';
 
 function Header() {
@@ -104,7 +104,6 @@ function Header() {
           </div>
         </nav>
         {user ? <LogOut /> : <MediaLinks />}
-
       </div>
     </div>
   );

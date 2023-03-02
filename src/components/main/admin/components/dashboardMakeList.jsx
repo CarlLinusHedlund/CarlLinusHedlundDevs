@@ -1,10 +1,10 @@
 import React from 'react';
-import Form from './makeAListForm';
+import Form from './MakeAListForm';
 
 function dashboardMakeList() {
   return (
-    <div className="flex flex-col lg:flex-row justify-center items-center w-full h-fit max-w-5xl">
-      <div className=" py-10 w-full max-w-xl  px-8 md:px-10">
+    <div className="flex h-fit w-full max-w-5xl flex-col items-center lg:items-start">
+      <div className=" w-full max-w-xl py-10  px-8 md:px-10">
         <Form />
       </div>
     </div>

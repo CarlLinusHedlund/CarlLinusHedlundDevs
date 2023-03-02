@@ -36,7 +36,6 @@ body::-webkit-scrollbar {
   }
 }
 
-
 /* Transform transition for header */
 @keyframes transform {
   from {
@@ -57,15 +56,15 @@ body::-webkit-scrollbar {
 }
 /* Transform transition for header */
 
-
 /* Intersection Observer tranasition for about page */
 
 @keyframes scale {
   0% {
     transform: scale(0);
-  } 80% {
+  }
+  80% {
     transform: scale(1.15);
-  } 
+  }
   100% {
     transform: scale(1);
   }
@@ -74,27 +73,29 @@ body::-webkit-scrollbar {
 @keyframes btnScale {
   0% {
     transform: scale(0);
-  } 90% {
+  }
+  90% {
     transform: scale(1.25);
-  } 
+  }
   100% {
     transform: scale(1);
   }
 }
 
 .aboutAnimation {
-  animation: fade 400ms ease-in-out calc(var(--about-info-item-index)*0.20s) forwards,
-  scale 400ms ease-in-out calc(var(--about-info-item-index)*0.20s) forwards;
+  animation: fade 400ms ease-in-out calc(var(--about-info-item-index) * 0.2s)
+      forwards,
+    scale 400ms ease-in-out calc(var(--about-info-item-index) * 0.2s) forwards;
 }
 
 .aboutBtnAnimtion {
-  animation: fade 400ms ease-in-out calc(var(--about-info-item-index)*0.20s) forwards,
-  btnScale 400ms ease-in-out calc(var(--about-info-item-index)*0.20s) forwards;
+  animation: fade 400ms ease-in-out calc(var(--about-info-item-index) * 0.2s)
+      forwards,
+    btnScale 400ms ease-in-out calc(var(--about-info-item-index) * 0.2s)
+      forwards;
 }
 
-
 /* Intersection Observer tranasition for about page */
-
 
 .navFade {
   animation: fade 1s ease-in-out
@@ -159,7 +160,7 @@ body::-webkit-scrollbar {
   }
 
   .darkBtn {
-    @apply rounded-[15px] border-2 bg-primaryDark py-3 px-4 lg:hover:scale-105 lg:hover:hoverShadowDark w-[300px] ;
+    @apply lg:hover:hoverShadowDark w-[300px] rounded-[15px] border-2 bg-primaryDark py-3 px-4 lg:hover:scale-105;
   }
 
   .inner {
