@@ -57,7 +57,7 @@ function Form() {
 
   
 function uploadImgStorage(ev) {
-
+  console.log("Upploadfunction");
 }
 
   //Previewimg
