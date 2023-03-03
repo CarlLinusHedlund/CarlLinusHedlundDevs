@@ -1,77 +1,73 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useFormik } from 'formik';
 import formSchema from '../utils/ValidationSchema';
 import { supabase } from '../../../../supabase';
 
 function Form() {
-   const [selectedImages, setSelectedImages] = useState([]);
-   
+  const [images, setImages] = useState([]);
+  const [imageURLs, setImageURLs] = useState([]);
+  console.log(images);
 
-   
+
+
    // OnSubmit formik will validate the form. If every input is true.
    // CreatePost will not run if imgs is not added
    // If CreatePost returns error. Call function deleteImgs from storage.
-   const onSubmit = (values, actions) => {
-    //  const imageUrls = uploads.map((upload) => upload.url);
-     function createPost() {
-       supabase.from('projects').insert({
-         title: values.title,
-         course: values.course,
-         description: values.description,
-         progress: values.progress,
-         tags: [values.tags],
-         images: imageUrls,
-         active: values.active,
-       }).then((response) => {
-         console.log(response);
-         if (response.data) {
-           console.log('CREATE POST SUCCEES!!');
-           actions.resetForm();
-         }
-         if (response.error) {
-           console.log('CREATE POST FAILED!!!');
-           const { data, error } = supabase
-             .storage
-             .from('avatars')
-             .remove([imageUrls]);
-           if (error) {
-             console.log(error);
-             console.log('IMAGES not removed');
-           }
-           if (data) {
-             console.log(data);
-             console.log('IMAGES removed');
-           }
-         }
-       });
-     }
-     if (uploads.length > 0) {
-       console.log('ImgIsAdded');
-       createPost();
-     } else {
-       console.log('Please add Img');
-     }
-   };
+    async function onSubmit (values, actions) {
+      try {
+        (function uploadImg() {
+          images.forEach(file => {
+            const newName = Date.now() + file.name
+            console.log(newName);
+          });
+          supabase.storage.from('photos')
+          .upload(newName, file)
+          if (result.data) {
+            console.log("RESULT DATA: ", result.data);
+            const imgURL = `${import.meta.env.VITE_CARLLINUSHEDLUND_SUPABASE_URL}/storage/v1/object/public/photos/${result.data.path}`;
+            const imgKey = result.data.path;
+            createPost(imgURL, imgKey)
+          } if (result.error) {
+            console.log("FAILED TO UPLOAD IMAGES!!!!", result.error);
+            
+          }
+        }())
+        
+          function createPost(imgURL, imgKey) {
+            supabase.from('projects').insert({
+              title: values.title,
+              course: values.course,
+              description: values.description,
+              progress: values.progress,
+              tags: [values.tags],
+              images: imgURL,
+              active: values.active
+            }).then((response) => {
+              console.log("RESPONSE: ", response);
+            })
+            if (response.data) {
+              console.log('CREATE POST SUCCEES!!: ', response.data);
+              actions.resetForm();
+            } if (response.error) {
+              console.log("RESPONSE ERROR!: ", response.error);
+            }
+          }
+      } catch (error) {
+        
+      }
+   }
 
+   useEffect(() => {
+    if (images.length < 1) return;
+    const newImageURLs = [];
+    images.forEach(image => newImageURLs.push(URL.createObjectURL(image)));
+    setImageURLs(newImageURLs);
+  }, [images])
 
-
-  
-function uploadImgStorage(ev) {
-  console.log("Upploadfunction");
-}
-
-  //Previewimg
-  function addPreview(ev) {
-    console.log("log me");
-    const selectedFiles = ev.target.files;
-
-    const selectedFilesArr = Array.from(selectedFiles);
-    console.log('selectedAFilesArr: ', selectedFilesArr);
-    const imageArr = selectedFilesArr.map((file) => {
-      return URL.createObjectURL(file);
-    });
-    setSelectedImages((prevImages) => prevImages.concat(imageArr));
+  function onImageChange(e) {
+    setImages([...e.target.files]);
   }
+  
 
   const { values, handleChange, errors, touched, handleBlur, handleSubmit } =
     useFormik({
@@ -286,33 +282,10 @@ function uploadImgStorage(ev) {
               name="image"
               type="file"
               accept="image/png, image/jpeg"
-              onChange= {(e) => {addPreview(e), uploadImgStorage(e);}}
+              onChange= {onImageChange}
             />
-            
-            <div className="mt-4 flex gap-3">
-              {selectedImages &&
-                selectedImages.map((image) => {
-                  return (
-                    <div
-                      key={image}
-                      className="group relative rounded-md border bg-primaryWhite p-4"
-                    >
-                      <img
-                        onClick={(e) => setSelectedImages(
-                          selectedImages.filter((e) => e !== image)
-                        )}
-                        src="../add.svg"
-                        alt="close icon"
-                        className=" absolute top-1 right-1 h-5 w-5 rotate-45 cursor-pointer opacity-100 duration-300 hover:opacity-100 lg:h-4 lg:w-4 lg:opacity-0 lg:group-hover:opacity-100 "
-                      />
-                      <img
-                        src={image}
-                        alt={image}
-                        className="h-20 w-auto rounded-lg"
-                      />
-                    </div>
-                  );
-                })}
+            <div className="mt-4 flex gap-3 flex-wrap">
+              {imageURLs.map(imageSrc => <img key={imageSrc} className='h-32 w-auto rounded-md hover:scale-125 hover:z-10 duration-500' src={imageSrc}/>)}
             </div>
           </div>
         </div>
