@@ -1,62 +1,88 @@
 import React, { useEffect, useState } from 'react';
 import { useFormik } from 'formik';
 import formSchema from '../Utils/ValidationSchema';
-// import { supabase } from '../../../../supabase';
+import { supabase } from '../../../../supabase';
 function Form() {
   const [images, setImages] = useState([]);
   const [imageURLs, setImageURLs] = useState([]);
-  console.log(images);
-  console.log("HEI");
-
-
-
+  const [uploads, setUploads] = useState([]);
+  
    // OnSubmit formik will validate the form. If every input is true.
    // CreatePost will not run if imgs is not added
    // If CreatePost returns error. Call function deleteImgs from storage.
-    function onSubmit (values, actions) {
-      console.log("VALIDATION SUCCESS");
-      // try {
-      //   // (function uploadImg() {
-      //   //   images.forEach(file => {
-      //   //     const newName = Date.now() + file.name
-      //   //     console.log(newName);
-      //   //   });
-      //   //   supabase.storage.from('photos')
-      //   //   .upload(newName, file)
-      //   //   if (result.data) {
-      //   //     console.log("RESULT DATA: ", result.data);
-      //   //     const imgURL = `${import.meta.env.VITE_CARLLINUSHEDLUND_SUPABASE_URL}/storage/v1/object/public/photos/${result.data.path}`;
-      //   //     const imgKey = result.data.path;
-      //   //     createPost(imgURL, imgKey)
-      //   //   } if (result.error) {
-      //   //     console.log("FAILED TO UPLOAD IMAGES!!!!", result.error);
-            
-      //   //   }
-      //   // }())
-      //     (async function createPost(imgURL, imgKey) {
-      //       supabase.from('projects').insert({
-      //         title: values.title,
-      //         course: values.course,
-      //         description: values.description,
-      //         progress: values.progress,
-      //         tags: [values.tags],
-      //         images: imgURL,
-      //         active: values.active
-      //       }).then((response) => {
-      //         console.log("RESPONSE: ", response);
-      //       })
-      //       if (response.data) {
-      //         console.log('CREATE POST SUCCEES!!: ', response.data);
-      //         actions.resetForm();
-      //       } if (response.error) {
-      //         console.log("RESPONSE ERROR!: ", response.error);
-      //       }
-      //     }())
-      // } catch (error) {
-      //   console.log(error);
-      // }
-   }
+   function onSubmit (values, actions) {
+    console.log("VALIDATION SUCCESS");
+    try {
+      //Uploads img yo bucket
+      (async function uploadImg() {
+        images.forEach(async file => {
+          const newName = Date.now() + file.name
+          console.log(newName);
+          const { data, error } = await supabase
+          .storage
+          .from('photos')
+          .upload(newName, file)
+          if (data) {
+            console.log("success!!");
+            console.log(data);
+            createPost()
+            setImages([])
+            actions.resetForm();
 
+            const template = {
+              url: `${import.meta.env.VITE_CARLLINUSHEDLUND_SUPABASE_URL}/storage/v1/object/public/photos/${data.path}`,
+              key: data.path
+            }
+            setUploads((prevUploads) => [...prevUploads, template]);
+            console.log(uploads.url);
+          }
+          if (error) {
+            console.log("error!!");
+            console.log(error);
+          }
+        });
+      }())
+
+      //Post request to add to table
+      function createPost() {
+        supabase.from('projects').insert({
+          title: values.title,
+          course: values.course,
+          description: values.description,
+          progress: values.progress,
+          tags: [values.tags],
+          images: [uploads.url],
+          active: values.active,
+        }).then((response) => {
+          console.log(response);
+          if (response.data) {
+            console.log('CREATE POST SUCCEES!!');
+            actions.resetForm();
+          }
+          if (response.error) {
+            console.log('CREATE POST FAILED!!!');
+            const { data, error } = supabase
+              .storage
+              .from('photos')
+              .remove([imageUrls]);
+            if (error) {
+              console.log(error);
+              console.log('IMAGES not removed');
+            }
+            if (data) {
+              console.log(data);
+              console.log('IMAGES removed');
+            }
+          }
+        });
+      }
+      
+    } catch (error) {
+      
+    }
+      
+  }
+  
    useEffect(() => {
     if (images.length < 1) return;
     const newImageURLs = [];
