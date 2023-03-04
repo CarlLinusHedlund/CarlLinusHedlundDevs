@@ -1,60 +1,60 @@
 import React, { useEffect, useState } from 'react';
 import { useFormik } from 'formik';
-import formSchema from '../utils/ValidationSchema';
-import { supabase } from '../../../../supabase';
-
+import formSchema from '../Utils/ValidationSchema';
+// import { supabase } from '../../../../supabase';
 function Form() {
   const [images, setImages] = useState([]);
   const [imageURLs, setImageURLs] = useState([]);
   console.log(images);
+  console.log("HEI");
 
 
 
    // OnSubmit formik will validate the form. If every input is true.
    // CreatePost will not run if imgs is not added
    // If CreatePost returns error. Call function deleteImgs from storage.
-    async function onSubmit (values, actions) {
-      try {
-        (function uploadImg() {
-          images.forEach(file => {
-            const newName = Date.now() + file.name
-            console.log(newName);
-          });
-          supabase.storage.from('photos')
-          .upload(newName, file)
-          if (result.data) {
-            console.log("RESULT DATA: ", result.data);
-            const imgURL = `${import.meta.env.VITE_CARLLINUSHEDLUND_SUPABASE_URL}/storage/v1/object/public/photos/${result.data.path}`;
-            const imgKey = result.data.path;
-            createPost(imgURL, imgKey)
-          } if (result.error) {
-            console.log("FAILED TO UPLOAD IMAGES!!!!", result.error);
+    function onSubmit (values, actions) {
+      console.log("VALIDATION SUCCESS");
+      // try {
+      //   // (function uploadImg() {
+      //   //   images.forEach(file => {
+      //   //     const newName = Date.now() + file.name
+      //   //     console.log(newName);
+      //   //   });
+      //   //   supabase.storage.from('photos')
+      //   //   .upload(newName, file)
+      //   //   if (result.data) {
+      //   //     console.log("RESULT DATA: ", result.data);
+      //   //     const imgURL = `${import.meta.env.VITE_CARLLINUSHEDLUND_SUPABASE_URL}/storage/v1/object/public/photos/${result.data.path}`;
+      //   //     const imgKey = result.data.path;
+      //   //     createPost(imgURL, imgKey)
+      //   //   } if (result.error) {
+      //   //     console.log("FAILED TO UPLOAD IMAGES!!!!", result.error);
             
-          }
-        }())
-        
-          function createPost(imgURL, imgKey) {
-            supabase.from('projects').insert({
-              title: values.title,
-              course: values.course,
-              description: values.description,
-              progress: values.progress,
-              tags: [values.tags],
-              images: imgURL,
-              active: values.active
-            }).then((response) => {
-              console.log("RESPONSE: ", response);
-            })
-            if (response.data) {
-              console.log('CREATE POST SUCCEES!!: ', response.data);
-              actions.resetForm();
-            } if (response.error) {
-              console.log("RESPONSE ERROR!: ", response.error);
-            }
-          }
-      } catch (error) {
-        
-      }
+      //   //   }
+      //   // }())
+      //     (async function createPost(imgURL, imgKey) {
+      //       supabase.from('projects').insert({
+      //         title: values.title,
+      //         course: values.course,
+      //         description: values.description,
+      //         progress: values.progress,
+      //         tags: [values.tags],
+      //         images: imgURL,
+      //         active: values.active
+      //       }).then((response) => {
+      //         console.log("RESPONSE: ", response);
+      //       })
+      //       if (response.data) {
+      //         console.log('CREATE POST SUCCEES!!: ', response.data);
+      //         actions.resetForm();
+      //       } if (response.error) {
+      //         console.log("RESPONSE ERROR!: ", response.error);
+      //       }
+      //     }())
+      // } catch (error) {
+      //   console.log(error);
+      // }
    }
 
    useEffect(() => {
@@ -295,6 +295,7 @@ function Form() {
           id="submitBtn"
           className=" lg:hover:hoverShadow btn  mt-4 flex w-full min-w-[300px] max-w-[450px] items-center justify-center font-bold text-primaryWhite duration-300 md:max-w-[350px] lg:hover:scale-105 "
           type="submit"
+          onSubmit={handleSubmit}
         >
           Submit
         </button>
