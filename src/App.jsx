@@ -9,9 +9,13 @@ import AdminPage from './components/main/Admin/Index';
 import HomePage from './components/main/Home';
 import { UserContext } from './components/main/Admin/Auth/UserContext';
 import { supabase } from './supabase';
+import { headerContext } from './components/main/Admin/utils/Context';
 
 function App() {
   const [user, setUser] = useState(null);
+  const [activeHeader, setActiveHeader] = useState(true)
+  console.log(activeHeader);
+
 
   // Calls supabase for session. Either retrives a null or session with token and user details
   const checkLoggedIn = async () => {
@@ -32,6 +36,7 @@ function App() {
 
   return (
     <UserContext.Provider value={{ user, setUser }}>
+    <headerContext.Provider value={{ activeHeader, setActiveHeader }}>
       <BrowserRouter>
         <div className="m-0 flex w-screen flex-col scroll-smooth md:flex-row ">
           <Header />
@@ -46,6 +51,7 @@ function App() {
           </div>
         </div>
       </BrowserRouter>
+      </headerContext.Provider>
     </UserContext.Provider>
   );
 }

@@ -1,16 +1,19 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { SignOut } from '../Auth/SignOut';
-
+import { headerContext } from '../utils/Context';
 function DashboardHeader(props) {
+  const { activeHeader } = useContext(headerContext)
   return (
     <>
+      
       <div className="sticky hidden h-24 w-full justify-center border-b border-[#2c2c2c] md:flex">
         <div className=" flex h-full w-full max-w-5xl items-center justify-between px-10">
           <div className="flex h-full items-center gap-10">
             <div className=" h-fit w-fit cursor-pointer ">
+              
               <p
                 onClick={props.handleMakePost}
-                className=" font-rubik text-textBASE font-semibold text-primaryWhite duration-300  "
+                className={` font-rubik text-textSM font-semibold duration-300 ${activeHeader ?  'text-primaryWhite opacity-100 scale-110' : 'text-primaryWhite opacity-50 scale-75 '} `}
               >
                 MAKE A POST
               </p>
@@ -18,7 +21,7 @@ function DashboardHeader(props) {
             <div className=" h-fit w-fit cursor-pointer">
               <p
                 onClick={props.handleViewPosts}
-                className=" font-rubik text-textBASE font-semibold text-primaryWhite duration-300  "
+                className={`font-rubik text-textSM font-semibold text-primaryWhite duration-300  ${activeHeader ? 'text-primaryWhite opacity-50 scale-75 ' : 'text-primaryWhite opacity-100 scale-115' } `}
               >
                 VIEW POSTS
               </p>

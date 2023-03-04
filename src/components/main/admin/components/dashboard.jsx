@@ -1,17 +1,20 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { headerContext } from '../utils/Context';
 import DashboardViewLists from './DashboardGetProjects';
 import DashboardHeader from './DashboardHeader';
 import DashboardMakeList from './DashboardMakeList';
 
 function Dashboard() {
   const [showMakeList, setShowMakeList] = useState(false);
-
+  const { setActiveHeader } = useContext(headerContext)
   function handleMakePost() {
     setShowMakeList(false);
+    setActiveHeader(true)
   }
 
   function handleViewPosts() {
     setShowMakeList(true);
+    setActiveHeader(false)
   }
 
   return (
@@ -19,8 +22,6 @@ function Dashboard() {
       <div className="z-30 h-full w-full">
         <DashboardHeader
           handleMakePost={handleMakePost}
-          // handleMakePostDesktop={handleMakePostDesktop}
-          // handleViewPostsDesktop={handleViewPostsDesktop}
           handleViewPosts={handleViewPosts}
         />
       </div>
