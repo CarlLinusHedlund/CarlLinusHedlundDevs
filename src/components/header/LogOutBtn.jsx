@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 
-import { SignOut } from '../../pages/admin/auth/signOut';
+import { SignOut } from '../../pages/admin/auth/SignOut';
 import { UserContext } from '../../pages/admin/utils/userContext';
 
 function LogOut() {
