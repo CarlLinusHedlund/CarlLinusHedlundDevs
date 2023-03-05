@@ -1,6 +1,6 @@
 import React, { useState, useRef, useContext } from 'react';
 import { supabase } from '../../../supabase';
-import { UserContext } from '../auth/userContext';
+import { UserContext } from '../utils/userContext';
 
 function SignIn() {
   const [email, setEmail] = useState('');

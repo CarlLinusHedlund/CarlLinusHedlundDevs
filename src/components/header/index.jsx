@@ -6,7 +6,7 @@ import HomeList from './HomeLi';
 import ContactList from './ContactLi';
 import AboutList from './AboutLi';
 import ProjectsList from './ProjectsLi';
-import { UserContext } from '../../pages/admin/auth/userContext';
+import { UserContext } from '../../pages/admin/utils/userContext';
 import LogOut from './Logout';
 
 function Header() {

@@ -9,7 +9,7 @@ import AdminPage from './pages/admin/index';
 import HomePage from './pages/home';
 import { supabase } from './supabase';
 import { headerContext } from './pages/admin/utils/context';
-import { UserContext } from './pages/admin/auth/userContext';
+import { UserContext } from './pages/admin/utils/userContext';
 
 function App() {
   const [user, setUser] = useState(null);

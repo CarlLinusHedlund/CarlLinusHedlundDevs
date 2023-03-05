@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { UserContext } from './auth/userContext';
+import { UserContext } from './utils/userContext';
 import SignIn from './components/SignIn';
 import Dashboard from './components/Dashboard';
 
