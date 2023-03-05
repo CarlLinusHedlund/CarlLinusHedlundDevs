@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useFormik } from 'formik';
-import formSchema from '../Utils/ValidationSchema';
+import formSchema from '../utils/ValidationSchema';
 import { supabase } from '../../../../supabase';
 function Form() {
   const [images, setImages] = useState([]);
   const [imageURLs, setImageURLs] = useState([]);
   const [uploads, setUploads] = useState([]);
-  
+
    // OnSubmit formik will validate the form. If every input is true.
    // CreatePost will not run if imgs is not added
    // If CreatePost returns error. Call function deleteImgs from storage.

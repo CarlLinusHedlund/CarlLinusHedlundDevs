@@ -2,11 +2,11 @@
 import React, { useContext, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import MediaLinks from './MediaLinks';
-import HomeList from './NavLinks/HomeLi';
-import ContactList from './NavLinks/ContactLi';
-import AboutList from './NavLinks/AboutLi';
-import ProjectsList from './NavLinks/ProjectsLi';
-import { UserContext } from '../main/Admin/Auth/UserContext';
+import HomeList from './navLinks/HomeLi';
+import ContactList from './navLinks/ContactLi';
+import AboutList from './navLinks/AboutLi';
+import ProjectsList from './navLinks/ProjectsLi';
+import { UserContext } from '../main/admin/auth/UserContext';
 import LogOut from './LogOut';
 
 function Header() {
