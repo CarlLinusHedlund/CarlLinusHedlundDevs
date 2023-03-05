@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { SignOut } from '../auth/SignOut';
+import { SignOut } from '../auth/signOut';
 import { headerContext } from '../utils/context';
 function DashboardHeader(props) {
   const { activeHeader } = useContext(headerContext);
