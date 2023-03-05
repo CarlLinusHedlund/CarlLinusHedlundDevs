@@ -2,10 +2,10 @@
 import React, { useContext, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import MediaLinks from './MediaLinks';
-import HomeList from './navLinks/homeLi';
-import ContactList from './navLinks/contactLi';
-import AboutList from './navLinks/aboutLi';
-import ProjectsList from './navLinks/projectsLi';
+import HomeList from './HomeLi';
+import ContactList from './ContactLi';
+import AboutList from './AboutLi';
+import ProjectsList from './ProjectsLi';
 import { UserContext } from '../../pages/admin/auth/UserContext';
 import LogOut from './LogOut';
 
