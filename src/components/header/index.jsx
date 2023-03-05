@@ -7,7 +7,7 @@ import ContactList from './ContactLi';
 import AboutList from './AboutLi';
 import ProjectsList from './ProjectsLi';
 import { UserContext } from '../../pages/admin/utils/userContext';
-import LogOut from './logout';
+import LogOut from './LogOutBtn';
 
 function Header() {
   const { user } = useContext(UserContext);
