@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useFormik } from 'formik';
-import formSchema from '../utils/ValidationSchema';
+import formSchema from '../utils/validationSchema';
 import { supabase } from '../../../../supabase';
 function Form() {
   const [images, setImages] = useState([]);

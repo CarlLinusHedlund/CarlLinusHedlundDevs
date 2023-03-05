@@ -1,13 +1,13 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useContext, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import MediaLinks from './MediaLinks';
-import HomeList from './navLinks/HomeLi';
-import ContactList from './navLinks/ContactLi';
-import AboutList from './navLinks/AboutLi';
-import ProjectsList from './navLinks/ProjectsLi';
-import { UserContext } from '../main/admin/auth/UserContext';
-import LogOut from './LogOut';
+import MediaLinks from './mediaLinks';
+import HomeList from './navLinks/homeLi';
+import ContactList from './navLinks/contactLi';
+import AboutList from './navLinks/aboutLi';
+import ProjectsList from './navLinks/projectsLi';
+import { UserContext } from '../main/admin/auth/userContext';
+import LogOut from './logOut';
 
 function Header() {
   const { user } = useContext(UserContext);

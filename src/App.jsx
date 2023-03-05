@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import './index.css';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
-import Header from './components/header/Header';
-import AboutPage from './components/main/about/Index';
+import Header from './components/header/header';
+import AboutPage from './components/main/about/index';
 import ContactPage from './components/main/contact/index';
 import ProjectPage from './components/main/projects/index';
 import AdminPage from './components/main/admin/index';
 import HomePage from './components/main/home';
-import { UserContext } from './components/main/admin/auth/UserContext';
+import { UserContext } from './components/main/admin/auth/userContext';
 import { supabase } from './supabase';
-import { headerContext } from './components/main/admin/utils/Context';
+import { headerContext } from './components/main/admin/utils/context';
 
 function App() {
   const [user, setUser] = useState(null);

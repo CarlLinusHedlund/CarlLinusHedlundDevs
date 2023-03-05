@@ -1,8 +1,8 @@
 import React, { useContext, useState } from 'react';
-import { headerContext } from '../utils/Context';
-import DashboardViewLists from './DashboardGetProjects';
-import DashboardHeader from './DashboardHeader';
-import DashboardMakeList from './DashboardMakeList';
+import { headerContext } from '../utils/context';
+import DashboardViewLists from './dashboardGetProjects';
+import DashboardHeader from './dashboardHeader';
+import DashboardMakeList from './dashboardMakeList';
 
 function Dashboard() {
   const [showMakeList, setShowMakeList] = useState(false);
