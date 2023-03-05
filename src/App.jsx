@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import './index.css';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
-import Header from './components/header';
+import Header from './components/header/index';
 import AboutPage from './pages/about/index';
 import ContactPage from './pages/contact/index';
 import ProjectPage from './pages/projects/index';
 import AdminPage from './pages/admin/index';
-import HomePage from './pages/home';
+import HomePage from './pages/home/index';
 import { supabase } from './supabase';
 import { headerContext } from './pages/admin/utils/context';
 import { UserContext } from './pages/admin/utils/userContext';
