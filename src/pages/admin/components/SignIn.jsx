@@ -1,13 +1,13 @@
 import React, { useState, useRef, useContext } from 'react';
-import { supabase } from '../../../../supabase';
-import { UserContext } from '../auth/userContext';
+import { supabase } from '../../../supabase';
+import { UserContext } from '../auth/UserContext';
 
 function SignIn() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
   const messageRef = useRef();
-    const { setUser } = useContext(UserContext);
+  const { setUser } = useContext(UserContext);
 
   const handleSignIn = async (e) => {
     e.preventDefault();
@@ -70,5 +70,3 @@ function SignIn() {
 }
 
 export default SignIn;
-
-

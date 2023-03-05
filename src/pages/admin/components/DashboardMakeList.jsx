@@ -1,5 +1,5 @@
 import React from 'react';
-import Form from './makeAListForm';
+import Form from './MakeAListForm';
 
 function dashboardMakeList() {
   return (

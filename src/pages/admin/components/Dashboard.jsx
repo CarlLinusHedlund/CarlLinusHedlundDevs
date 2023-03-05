@@ -1,20 +1,20 @@
 import React, { useContext, useState } from 'react';
 import { headerContext } from '../utils/context';
-import DashboardViewLists from './dashboardGetProjects';
-import DashboardHeader from './dashboardHeader';
-import DashboardMakeList from './dashboardMakeList';
+import DashboardViewLists from './DashboardGetProjects';
+import DashboardHeader from './DashboardHeader';
+import DashboardMakeList from './DashboardMakeList';
 
 function Dashboard() {
   const [showMakeList, setShowMakeList] = useState(false);
-  const { setActiveHeader } = useContext(headerContext)
+  const { setActiveHeader } = useContext(headerContext);
   function handleMakePost() {
     setShowMakeList(false);
-    setActiveHeader(true)
+    setActiveHeader(true);
   }
 
   function handleViewPosts() {
     setShowMakeList(true);
-    setActiveHeader(false)
+    setActiveHeader(false);
   }
 
   return (

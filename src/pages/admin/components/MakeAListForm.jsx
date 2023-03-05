@@ -1,99 +1,97 @@
 import React, { useEffect, useState } from 'react';
 import { useFormik } from 'formik';
 import formSchema from '../utils/validationSchema';
-import { supabase } from '../../../../supabase';
+import { supabase } from '../../../supabase';
 function Form() {
   const [images, setImages] = useState([]);
   const [imageURLs, setImageURLs] = useState([]);
   const [uploads, setUploads] = useState([]);
 
-   // OnSubmit formik will validate the form. If every input is true.
-   // CreatePost will not run if imgs is not added
-   // If CreatePost returns error. Call function deleteImgs from storage.
-   function onSubmit (values, actions) {
-    console.log("VALIDATION SUCCESS");
+  // OnSubmit formik will validate the form. If every input is true.
+  // CreatePost will not run if imgs is not added
+  // If CreatePost returns error. Call function deleteImgs from storage.
+  function onSubmit(values, actions) {
+    console.log('VALIDATION SUCCESS');
     try {
       //Uploads img yo bucket
       (async function uploadImg() {
-        images.forEach(async file => {
-          const newName = Date.now() + file.name
+        images.forEach(async (file) => {
+          const newName = Date.now() + file.name;
           console.log(newName);
-          const { data, error } = await supabase
-          .storage
-          .from('photos')
-          .upload(newName, file)
+          const { data, error } = await supabase.storage
+            .from('photos')
+            .upload(newName, file);
           if (data) {
-            console.log("success!!");
+            console.log('success!!');
             console.log(data);
-            createPost()
-            setImages([])
+            createPost();
+            setImages([]);
             actions.resetForm();
 
             const template = {
-              url: `${import.meta.env.VITE_CARLLINUSHEDLUND_SUPABASE_URL}/storage/v1/object/public/photos/${data.path}`,
-              key: data.path
-            }
+              url: `${
+                import.meta.env.VITE_CARLLINUSHEDLUND_SUPABASE_URL
+              }/storage/v1/object/public/photos/${data.path}`,
+              key: data.path,
+            };
             setUploads((prevUploads) => [...prevUploads, template]);
             console.log(uploads.url);
           }
           if (error) {
-            console.log("error!!");
+            console.log('error!!');
             console.log(error);
           }
         });
-      }())
+      })();
 
       //Post request to add to table
       function createPost() {
-        supabase.from('projects').insert({
-          title: values.title,
-          course: values.course,
-          description: values.description,
-          progress: values.progress,
-          tags: [values.tags],
-          images: [uploads.url],
-          active: values.active,
-        }).then((response) => {
-          console.log(response);
-          if (response.data) {
-            console.log('CREATE POST SUCCEES!!');
-            actions.resetForm();
-          }
-          if (response.error) {
-            console.log('CREATE POST FAILED!!!');
-            const { data, error } = supabase
-              .storage
-              .from('photos')
-              .remove([imageUrls]);
-            if (error) {
-              console.log(error);
-              console.log('IMAGES not removed');
+        supabase
+          .from('projects')
+          .insert({
+            title: values.title,
+            course: values.course,
+            description: values.description,
+            progress: values.progress,
+            tags: [values.tags],
+            images: [uploads.url],
+            active: values.active,
+          })
+          .then((response) => {
+            console.log(response);
+            if (response.data) {
+              console.log('CREATE POST SUCCEES!!');
+              actions.resetForm();
             }
-            if (data) {
-              console.log(data);
-              console.log('IMAGES removed');
+            if (response.error) {
+              console.log('CREATE POST FAILED!!!');
+              const { data, error } = supabase.storage
+                .from('photos')
+                .remove([imageUrls]);
+              if (error) {
+                console.log(error);
+                console.log('IMAGES not removed');
+              }
+              if (data) {
+                console.log(data);
+                console.log('IMAGES removed');
+              }
             }
-          }
-        });
+          });
       }
-      
-    } catch (error) {
-      
-    }
-      
+    } catch (error) {}
   }
-  
-   useEffect(() => {
+
+  useEffect(() => {
     if (images.length < 1) return;
     const newImageURLs = [];
-    images.forEach(image => newImageURLs.push(URL.createObjectURL(image)));
+    images.forEach((image) => newImageURLs.push(URL.createObjectURL(image)));
     setImageURLs(newImageURLs);
-  }, [images])
+  }, [images]);
 
   function onImageChange(e) {
     setImages([...e.target.files]);
   }
-  
 
   const { values, handleChange, errors, touched, handleBlur, handleSubmit } =
     useFormik({
@@ -116,7 +114,9 @@ function Form() {
     >
       <div className="w-full flex-col lg:flex-row ">
         <div className=" flex h-full w-full flex-col gap-14 text-textBASE font-semibold ">
-          <h2 className=" text-textLG capitalize text-primaryWhite ">Information</h2>
+          <h2 className=" text-textLG capitalize text-primaryWhite ">
+            Information
+          </h2>
           <div className="flex h-full w-full flex-col gap-5">
             <div className=" flex flex-col ">
               <label
@@ -308,10 +308,16 @@ function Form() {
               name="image"
               type="file"
               accept="image/png, image/jpeg"
-              onChange= {onImageChange}
+              onChange={onImageChange}
             />
-            <div className="mt-4 flex gap-3 flex-wrap">
-              {imageURLs.map(imageSrc => <img key={imageSrc} className='h-32 w-auto rounded-md hover:scale-125 hover:z-10 duration-500' src={imageSrc}/>)}
+            <div className="mt-4 flex flex-wrap gap-3">
+              {imageURLs.map((imageSrc) => (
+                <img
+                  key={imageSrc}
+                  className="h-32 w-auto rounded-md duration-500 hover:z-10 hover:scale-125"
+                  src={imageSrc}
+                />
+              ))}
             </div>
           </div>
         </div>

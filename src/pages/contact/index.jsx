@@ -1,7 +1,7 @@
 import React from 'react';
 import { useFormik } from 'formik';
 import emailjs from '@emailjs/browser';
-import messageSchema from './utils/validationSchema';
+import messageSchema from './utils/ValidationSchema';
 
 function ContactPage() {
   const onSubmit = (values, actions) => {
