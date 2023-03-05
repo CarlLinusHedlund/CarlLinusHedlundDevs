@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import './index.css';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
-import Header from './components/header/Header';
+import Header from './components/header/header';
 import AboutPage from './components/main/about';
 import ContactPage from './components/main/contact';
 import ProjectPage from './components/main/projects';
 import AdminPage from './components/main/admin';
 import HomePage from './components/main/home';
-import { UserContext } from './components/main/admin/auth/UserContext';
+import { UserContext } from './components/main/admin/auth/userContext';
 import { supabase } from './supabase';
 
 function App() {
