@@ -7,9 +7,9 @@ import ContactPage from './pages/contact/index';
 import ProjectPage from './pages/projects/index';
 import AdminPage from './pages/admin/index';
 import HomePage from './pages/home';
-import { UserContext } from './pages/admin/auth/userContext';
 import { supabase } from './supabase';
 import { headerContext } from './pages/admin/utils/context';
+import { UserContext } from './pages/admin/auth/userContext';
 
 function App() {
   const [user, setUser] = useState(null);
