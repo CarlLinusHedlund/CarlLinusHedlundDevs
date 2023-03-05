@@ -2,12 +2,12 @@
 import React, { useContext, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import MediaLinks from './MediaLinks';
-import HomeList from './NavLinks/HomeLi';
-import ContactList from './NavLinks/ContactLi';
-import AboutList from './NavLinks/AboutLi';
-import ProjectsList from './NavLinks/ProjectsLi';
-import { UserContext } from '../main/admin/auth/UserContext';
-import LogOut from './LogOut';
+import HomeList from './HomeLi';
+import ContactList from './ContactLi';
+import AboutList from './AboutLi';
+import ProjectsList from './ProjectsLi';
+import { UserContext } from '../../pages/admin/utils/userContext';
+import LogOut from './LogOutBtn';
 
 function Header() {
   const { user } = useContext(UserContext);
@@ -104,7 +104,6 @@ function Header() {
           </div>
         </nav>
         {user ? <LogOut /> : <MediaLinks />}
-
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useFormik } from 'formik';
 import emailjs from '@emailjs/browser';
-import messageSchema from './utils/validationSchema';
+import messageSchema from './utils/ValidationSchema';
 
 function ContactPage() {
   const onSubmit = (values, actions) => {
@@ -19,7 +19,7 @@ function ContactPage() {
         import.meta.env.VITE_CONTACT_FORM_SERVICEID,
         import.meta.env.VITE_CONTACT_FORM_TEMPLATEID,
         templateParams,
-        import.meta.env.VITE_CONTACT_FORM_PUBLICKEY,
+        import.meta.env.VITE_CONTACT_FORM_PUBLICKEY
       )
       .then(
         (response) => {
@@ -31,22 +31,21 @@ function ContactPage() {
         },
         (error) => {
           console.log('FAILED...', error);
-        },
+        }
       );
   };
 
-  const {
-    values, errors, touched, handleBlur, handleChange, handleSubmit,
-  } = useFormik({
-    initialValues: {
-      messageName: '',
-      email: '',
-      subject: '',
-      message: '',
-    },
-    validationSchema: messageSchema,
-    onSubmit,
-  });
+  const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
+    useFormik({
+      initialValues: {
+        messageName: '',
+        email: '',
+        subject: '',
+        message: '',
+      },
+      validationSchema: messageSchema,
+      onSubmit,
+    });
 
   return (
     <section className=" flex h-full min-h-screen w-full items-center bg-primaryDark px-8 pt-4 pb-20 font-rubik">

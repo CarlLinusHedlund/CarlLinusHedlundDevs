@@ -1,14 +1,12 @@
 import React, { useState, useRef, useContext } from 'react';
-import { supabase } from '../../../../supabase';
-import { UserContext } from '../auth/UserContext';
+import { supabase } from '../../../supabase';
+import { UserContext } from '../utils/userContext';
 
 function SignIn() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
   const messageRef = useRef();
-  // const [user, setUser] =
-  // const msg = useContext(UserContext)
   const { setUser } = useContext(UserContext);
 
   const handleSignIn = async (e) => {
@@ -31,7 +29,7 @@ function SignIn() {
   };
 
   return (
-    <div className=" w-full h-screen flex justify-center items-center px-8 ">
+    <div className=" flex h-screen w-full items-center justify-center px-8 ">
       <form
         onSubmit={handleSignIn}
         className=" flex w-full max-w-[400px] flex-col items-center justify-center gap-5 text-primaryWhite md:max-w-[350px] "
@@ -57,7 +55,9 @@ function SignIn() {
             />
           </div>
         </div>
-        <p ref={messageRef} className="">{message}</p>
+        <p ref={messageRef} className="">
+          {message}
+        </p>
         <button
           type="submit"
           className="lg:hover:hoverShadow btn mt-4 flex h-10 w-3/4 items-center justify-center font-medium duration-300 lg:hover:scale-105 "
