@@ -1,6 +1,16 @@
 import React from 'react';
+import { supabase } from '../../../supabase';
 
 export default function Card({ course, title, id }) {
+  async function deletePost() {
+    const { error } = await supabase.from('projects').delete('*').eq('id', id);
+
+    if (error) {
+      console.log(error);
+    } else {
+      window.location.reload;
+    }
+  }
   return (
     <div className="relative my-20 flex w-full flex-col gap-4 lg:flex-row ">
       <div className=" ">
@@ -23,6 +33,7 @@ export default function Card({ course, title, id }) {
             edit post
           </button>
           <button
+            onClick={deletePost}
             className="w-full cursor-pointer rounded-md border-2 border-primaryWhite py-2 uppercase lg:w-fit lg:w-fit lg:border-none lg:py-1 "
             type="button"
           >

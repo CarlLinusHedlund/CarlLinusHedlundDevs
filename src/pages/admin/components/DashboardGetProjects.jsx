@@ -4,12 +4,14 @@ import Card from './PostCard';
 
 function DashboardViewLists() {
   const [posts, setPosts] = useState([]);
+
   useEffect(() => {
-    (async function name() {
+    (async function getPosts() {
       const { data, error } = await supabase.from('projects').select('*');
       if (data) {
         console.log(data);
         setPosts(data);
+        console.log('posts: ', posts);
       }
       if (error) {
         console.log(error);
