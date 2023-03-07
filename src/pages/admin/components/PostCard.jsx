@@ -1,6 +1,7 @@
 import React from 'react';
 import { supabase } from '../../../supabase';
 
+// eslint-disable-next-line react/prop-types
 export default function Card({ course, title, id }) {
   async function deletePost() {
     const { error } = await supabase.from('projects').delete('*').eq('id', id);
@@ -8,7 +9,8 @@ export default function Card({ course, title, id }) {
     if (error) {
       console.log(error);
     } else {
-      window.location.reload;
+      console.log('Reload page');
+      // window.location.reload;
     }
   }
   return (
