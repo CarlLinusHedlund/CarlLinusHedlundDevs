@@ -1,3 +1,4 @@
+import React from 'react';
 import { motion } from 'framer-motion';
 
 const gradientVariants = {
@@ -8,7 +9,7 @@ const gradientVariants = {
   },
 };
 
-const SvgWithGradient = () => {
+function SvgWithGradient() {
   return (
     <motion.svg
       viewBox="0 0 1332 107"
@@ -41,6 +42,6 @@ const SvgWithGradient = () => {
       />
     </motion.svg>
   );
-};
+}
 
 export default SvgWithGradient;

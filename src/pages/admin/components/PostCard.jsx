@@ -46,7 +46,7 @@ export default function Card({ course, title, id }) {
           </button>
         </div>
       </div>
-      <div className="absolute left-[50%] right-[50%] -bottom-32 h-10 w-[2px] bg-primaryWhite opacity-20 "></div>
+      <div className="absolute left-[50%] right-[50%] -bottom-32 h-10 w-[2px] bg-primaryWhite opacity-20 " />
     </div>
   );
 }

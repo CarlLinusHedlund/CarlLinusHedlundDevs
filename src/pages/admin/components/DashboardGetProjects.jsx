@@ -22,6 +22,7 @@ function DashboardViewLists() {
   return (
     <div className="flex max-w-5xl flex-col gap-10 px-10 py-20 ">
       {posts.map((post) => (
+        // eslint-disable-next-line react/jsx-props-no-spreading
         <Card key={post.id} {...post} />
       ))}
     </div>

@@ -79,9 +79,12 @@ function AboutSection() {
           digital Media.
         </p>
       </div>
-      <div className="htmlTags lg:hover:hoverShadowDark relative ml-2 max-w-xs py-2 duration-300 before:content-['<button\00a0href=/about>'] after:content-['</button>'] md:py-4 md:before:text-sm md:after:text-sm ">
+      <div className="htmlTags lg:hover:hoverShadowDark before:content-['<button\ 00a0href=/about>'] relative ml-2 max-w-xs py-2 duration-300 after:content-['</button>'] md:py-4 md:before:text-sm md:after:text-sm ">
         <Link to="/about" className="w-fit">
-          <button className=" btn  group flex w-full max-w-xs items-center justify-between border-primaryDark bg-primaryDark duration-300 lg:hover:scale-105  ">
+          <button
+            type="button"
+            className=" btn  group flex w-full max-w-xs items-center justify-between border-primaryDark bg-primaryDark duration-300 lg:hover:scale-105  "
+          >
             <p className="text-textSM font-semibold text-primaryWhite">
               More About Me
             </p>

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useFormik } from 'formik';
 import formSchema from '../utils/validationSchema';
 import { supabase } from '../../../supabase';
+
 function Form() {
   const [images, setImages] = useState([]);
   const [imageURLs, setImageURLs] = useState([]);
@@ -13,7 +14,7 @@ function Form() {
   function onSubmit(values, actions) {
     console.log('VALIDATION SUCCESS');
     try {
-      //Uploads img yo bucket
+      // Uploads img yo bucket
       (async function uploadImg() {
         images.forEach(async (file) => {
           const newName = Date.now() + file.name;
@@ -42,9 +43,9 @@ function Form() {
             console.log(error);
           }
         });
-      })();
+      }());
 
-      //Post request to add to table
+      // Post request to add to table
       function createPost() {
         supabase
           .from('projects')
@@ -93,19 +94,20 @@ function Form() {
     setImages([...e.target.files]);
   }
 
-  const { values, handleChange, errors, touched, handleBlur, handleSubmit } =
-    useFormik({
-      initialValues: {
-        title: '',
-        course: '',
-        description: '',
-        progress: '',
-        tags: '',
-        active: true,
-      },
-      validationSchema: formSchema,
-      onSubmit,
-    });
+  const {
+    values, handleChange, errors, touched, handleBlur, handleSubmit,
+  } = useFormik({
+    initialValues: {
+      title: '',
+      course: '',
+      description: '',
+      progress: '',
+      tags: '',
+      active: true,
+    },
+    validationSchema: formSchema,
+    onSubmit,
+  });
 
   return (
     <form

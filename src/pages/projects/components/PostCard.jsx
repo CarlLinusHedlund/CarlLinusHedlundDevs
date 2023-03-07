@@ -15,7 +15,8 @@ function PostCard() {
         <p className=" max-w-[450px] text-textXS md:max-w-[350px] ">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id turpis
           vestibulum amet, nulla ullamcorper diam amet tincidunt. Aliquam urna,
-          dis elementum at mauris pulvinar bibendum.{' '}
+          dis elementum at mauris pulvinar bibendum.
+          {' '}
         </p>
         <Link to="/projects">
           <button
