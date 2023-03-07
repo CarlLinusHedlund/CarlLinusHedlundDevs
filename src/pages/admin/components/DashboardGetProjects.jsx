@@ -6,7 +6,7 @@ function DashboardViewLists() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    (async function getPosts() {
+    async function getPosts() {
       const { data, error } = await supabase.from('projects').select('*');
       if (data) {
         console.log(data);
@@ -16,7 +16,8 @@ function DashboardViewLists() {
       if (error) {
         console.log(error);
       }
-    })();
+    }
+    getPosts();
   }, []);
 
   return (
