@@ -1,22 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function PostCard() {
+function PostCard({ title, course }) {
   return (
     <div className="flex max-w-5xl flex-col gap-6 lg:flex-row ">
-      <div className="flex items-center">
-        <img src="../jobless.png" alt="" />
+      <div className="flex items-center ">
+        <img className="rounded-lg" src="../jobless.png" alt="" />
       </div>
       <div className=" font-rubik uppercase text-primaryWhite ">
-        <h3 className=" text-primaryCoral ">INTERACTION DESIGN</h3>
+        <h3 className=" text-primaryCoral ">{course}</h3>
         <h2 className=" text-[40px] font-bold uppercase leading-10 sm:text-textXL sm:leading-[3rem] lg:text-textXL ">
-          Jobless.no
+          {title}
         </h2>
         <p className=" max-w-[450px] text-textXS md:max-w-[350px] ">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id turpis
           vestibulum amet, nulla ullamcorper diam amet tincidunt. Aliquam urna,
-          dis elementum at mauris pulvinar bibendum.
-          {' '}
+          dis elementum at mauris pulvinar bibendum.{' '}
         </p>
         <Link to="/projects">
           <button

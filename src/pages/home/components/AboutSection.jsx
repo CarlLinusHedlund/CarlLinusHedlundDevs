@@ -74,7 +74,11 @@ function AboutSection() {
           FRONT END DEVELOPER
         </h2>
         <p className=" htmlTags relative max-w-sm py-0 pl-1 font-rubik text-textXS font-normal leading-4 before:content-['<p>'] after:content-['</p>'] sm:py-1 md:max-w-lg md:pl-3 md:text-textSM md:font-light md:before:text-sm md:after:text-sm ">
-          Coffeeholic based i Oslo, Norway. With passion for <br /> clean and
+          Coffeeholic based i Oslo, Norway. With passion for
+          {' '}
+          <br />
+          {' '}
+          clean and
           responsive code. Currently studying at Noroff School of technology and
           digital Media.
         </p>

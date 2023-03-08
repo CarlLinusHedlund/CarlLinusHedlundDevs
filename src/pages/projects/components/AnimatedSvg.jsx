@@ -5,7 +5,7 @@ const gradientVariants = {
   hidden: { pathLength: 0 },
   visible: {
     pathLength: 1,
-    transition: { delay: 1.1, duration: 1.5, ease: 'easeInOut' },
+    transition: { delay: 0.9, duration: 1.2, ease: 'easeInOut' },
   },
 };
 

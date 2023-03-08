@@ -17,14 +17,14 @@ const h3Variants = {
 
 function MotionHeading() {
   return (
-    <div className="relative mx-auto max-w-5xl px-8 pb-5 lg:flex lg:flex-col lg:justify-center">
+    <div className=" relative mx-auto max-w-5xl px-8 pb-5 uppercase lg:flex lg:flex-col lg:justify-center">
       <motion.h3
-        className="text-textSM font-semibold text-primaryCoral xs:text-textBASE sm:text-textLG"
+        className="pl-2 text-textSM font-semibold text-primaryCoral xs:text-textBASE sm:text-textLG"
         variants={h3Variants}
         initial="hidden"
         animate="visible"
       >
-        MOST RECENT
+        MY WORK
       </motion.h3>
       <motion.h2
         className="text-[50px] font-bold leading-[2.8rem] text-primaryWhite xs:text-[68px] sm:text-[100px] sm:leading-[4rem] lg:text-[160px] lg:leading-[7rem]"
