@@ -1,7 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
-function PostCard({ title, course }) {
+function PostCard({ title, course, id }) {
+  // const { postId } = useParams();
   return (
     <div className="flex max-w-5xl flex-col gap-6 lg:flex-row ">
       <div className="flex items-center ">
@@ -17,7 +18,7 @@ function PostCard({ title, course }) {
           vestibulum amet, nulla ullamcorper diam amet tincidunt. Aliquam urna,
           dis elementum at mauris pulvinar bibendum.{' '}
         </p>
-        <Link to="/projects">
+        <Link to={`${id}`}>
           <button
             type="button"
             className="lg:hover:hoverShadow btn group mt-4 flex w-full max-w-[450px] items-center justify-between duration-300 md:max-w-[350px] lg:hover:scale-105 "

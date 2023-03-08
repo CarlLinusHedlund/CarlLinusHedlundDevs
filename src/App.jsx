@@ -10,6 +10,8 @@ import HomePage from './pages/home/index';
 import { supabase } from './supabase';
 import { headerContext } from './pages/admin/utils/context';
 import { UserContext } from './pages/admin/utils/userContext';
+import ProjectDetails from './pages/projects/components/ProjectDetails';
+import PageNotFound from './components/PageNotFound';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -24,7 +26,7 @@ function App() {
       console.log(error);
     }
     if (data) {
-      setUser(data.session.user);
+      setUser(data.session);
     }
   };
 
@@ -47,8 +49,10 @@ function App() {
                 <Route path="/" element={<HomePage />} exact />
                 <Route path="/about" element={<AboutPage />} exact />
                 <Route path="/projects" element={<ProjectPage />} exact />
+                <Route path="/projects/:id" element={<ProjectDetails />} />
                 <Route path="/contact" element={<ContactPage />} exact />
                 <Route path="/admin" element={<AdminPage />} exact />
+                <Route path="*" element={<PageNotFound />} exact />
               </Routes>
             </div>
           </div>

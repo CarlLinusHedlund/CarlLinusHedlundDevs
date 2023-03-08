@@ -20,7 +20,7 @@ function ContactPage() {
         import.meta.env.VITE_CONTACT_FORM_SERVICEID,
         import.meta.env.VITE_CONTACT_FORM_TEMPLATEID,
         templateParams,
-        import.meta.env.VITE_CONTACT_FORM_PUBLICKEY,
+        import.meta.env.VITE_CONTACT_FORM_PUBLICKEY
       )
       .then(
         (response) => {
@@ -32,22 +32,21 @@ function ContactPage() {
         },
         (error) => {
           console.log('FAILED...', error);
-        },
+        }
       );
   };
 
-  const {
-    values, errors, touched, handleBlur, handleChange, handleSubmit,
-  } = useFormik({
-    initialValues: {
-      messageName: '',
-      email: '',
-      subject: '',
-      message: '',
-    },
-    validationSchema: messageSchema,
-    onSubmit,
-  });
+  const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
+    useFormik({
+      initialValues: {
+        messageName: '',
+        email: '',
+        subject: '',
+        message: '',
+      },
+      validationSchema: messageSchema,
+      onSubmit,
+    });
 
   return (
     <section className=" flex h-full min-h-screen w-full items-center bg-primaryDark px-8 pt-4 pb-20 font-rubik">
@@ -63,8 +62,8 @@ function ContactPage() {
             <p className=" text-textXS sm:text-textSM ">
               Interested in working together or have any questions?
               <br />
-              &apos Let's meet and talk over a
-              <span className="text-[#C5A76E]">coffee</span>
+              Let's meet and talk over a
+              <span className="text-[#C5A76E]"> coffee</span>
             </p>
             <img
               className=" absolute -bottom-14 right-0 -rotate-45 lg:-rotate-[130deg] "
