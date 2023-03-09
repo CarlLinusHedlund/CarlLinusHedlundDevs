@@ -4,10 +4,16 @@ import GetInTouch from './components/GetInTouch';
 import HeroBanner from './components/Herobanner';
 import RecentProjects from './components/RecentProjects';
 import SkillSlider from './components/SkillSlider';
+import { motion } from 'framer-motion';
 
 function HomePage() {
   return (
-    <>
+    <motion.div
+      exit={{ opacity: 0 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1, transition: { duration: 0.3 } }}
+      className=""
+    >
       <section
         id="home"
         className=" relative flex min-h-fit w-full justify-center bg-primaryDark px-5 md:h-screen md:px-8 lg:px-12"
@@ -26,7 +32,7 @@ function HomePage() {
       <section className=" min-h-fit w-full bg-primaryDark ">
         <GetInTouch />
       </section>
-    </>
+    </motion.div>
   );
 }
 

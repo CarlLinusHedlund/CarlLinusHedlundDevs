@@ -37,7 +37,7 @@ function App() {
             <Header />
             <div
               id="main"
-              className="md:fixedWidth flex h-full w-full flex-col bg-primaryDark "
+              className="md:fixedWidth flex h-full w-full flex-col bg-primaryDark"
             >
               <AnimatedRoutes />
             </div>

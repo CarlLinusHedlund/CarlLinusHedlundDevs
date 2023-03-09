@@ -26,10 +26,10 @@ function ProjectPage() {
 
   return (
     <motion.div
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.3 }}
+      exit={{ opacity: 0, transition: { duration: 0.1 } }}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
+      transition={{ duration: 0.2 }}
       className=" h-full min-h-screen w-full bg-primaryDark py-20 font-rubik"
     >
       <div className="h-full w-full">

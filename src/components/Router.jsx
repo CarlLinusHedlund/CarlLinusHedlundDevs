@@ -13,7 +13,7 @@ export default function AnimatedRoutes() {
   const location = useLocation();
   return (
     <AnimatePresence mode="wait">
-      <Routes location={location} key={location.pathname}>
+      <Routes key={location.pathname} location={location}>
         <Route path="/" element={<HomePage />} exact />
         <Route path="/about" element={<AboutPage />} exact />
         <Route path="/projects" element={<ProjectPage />} exact />

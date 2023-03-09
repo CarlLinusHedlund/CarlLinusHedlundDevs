@@ -100,9 +100,12 @@ body::-webkit-scrollbar {
 .navFade {
   animation: fade 1s ease-in-out
       calc(var(--large-navigation-item-index) * 0.18s) forwards,
-    transform 1s ease-in-out calc(var(--large-navigation-item-index) * 0.18s)
+      transform 1s ease-in-out calc(var(--large-navigation-item-index) * 0.18s)
       forwards;
+      animation: name duration timing-function delay iteration-count direction fill-mode;
 }
+
+
 
 @layer components {
   .animate-bounce-x {
