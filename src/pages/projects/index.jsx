@@ -28,8 +28,7 @@ function ProjectPage() {
     <div className=" h-full min-h-screen w-full bg-primaryDark py-20 font-rubik">
       <motion.div
         exit={{ opacity: 0 }}
-        initial="initial"
-        animate="animate"
+        transition={{ duration: 1 }}
         className="h-full w-full"
       >
         <section className=" w-full pb-32 ">

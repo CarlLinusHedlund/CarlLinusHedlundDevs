@@ -1,12 +1,12 @@
 import React from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-function PostCard({ title, course, id }) {
+function PostCard({ title, course, id, main_image }) {
   // const { postId } = useParams();
   return (
     <div className="flex max-w-5xl flex-col gap-6 lg:flex-row ">
       <div className="flex items-center ">
-        <img className="rounded-lg" src="../jobless.png" alt="" />
+        <img className="rounded-lg" src={main_image} alt="" />
       </div>
       <div className=" font-rubik uppercase text-primaryWhite ">
         <h3 className=" text-primaryCoral ">{course}</h3>

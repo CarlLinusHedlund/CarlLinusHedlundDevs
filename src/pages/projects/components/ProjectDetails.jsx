@@ -8,9 +8,9 @@ import PageNotFound from '../../../components/PageNotFound';
 export default function ProjectDetails() {
   const id = useParams();
   const string = id.id;
-  const [project, setProject] = useState();
-  // console.log(id.id);
-  // console.log(string);
+  const [project, setProject] = useState([]);
+  const [tags, setTags] = useState([]);
+
   useEffect(() => {
     async function getProject() {
       const { data, error } = await supabase
@@ -18,8 +18,8 @@ export default function ProjectDetails() {
         .select('*')
         .eq('id', string);
       if (data) {
-        console.log(data);
-        setProject(data);
+        setProject(data[0]);
+        setTags(data[0].tags);
       }
       if (error) {
         setProject(null);
@@ -27,15 +27,18 @@ export default function ProjectDetails() {
     }
     getProject();
   }, []);
-  console.log(project);
 
   return project ? (
-    <div className="flex min-h-screen w-full flex-col items-center justify-center bg-primaryDark font-rubik lg:flex-row">
+    <motion.div
+      exit={{ opacity: 0 }}
+      transition={{ duration: 1 }}
+      className="flex min-h-screen w-full flex-col items-center justify-center bg-primaryDark font-rubik lg:flex-row"
+    >
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.2 }}
-        className=" flex min-h-screen w-full max-w-5xl flex-col gap-14 px-6 pt-20 pb-44 lg:flex-row xl:px-0 "
+        className=" flex min-h-screen w-full max-w-5xl flex-col gap-24 px-6 pt-20 pb-44 lg:flex-row xl:px-0 "
       >
         <div className=" flex w-full flex-col gap-14 text-primaryWhite lg:w-[55%] ">
           <div className=" lg:min-h-[450px] ">
@@ -44,24 +47,19 @@ export default function ProjectDetails() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.3, delay: 0.3 }}
               className=" text-textSM font-semibold uppercase text-primaryCoral xs:text-textBASE"
-            ></motion.h3>
+            >
+              {project.course}
+            </motion.h3>
             <motion.h2
               initial={{ opacity: 0, y: -40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4 }}
               className=" text-[40px] font-bold uppercase leading-8 xs:text-textXL xs:leading-10 "
-            ></motion.h2>
+            >
+              {project.title}
+            </motion.h2>
             <p className=" max-w-lg pt-4 text-textXS font-light xs:text-textSM ">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. In rerum
-              quaerat repellat perferendis enim culpa eaque id, a voluptates
-              ipsum laudantium nihil minus debitis itaque doloremque saepe
-              corrupti sed libero. Lorem ipsum dolor sit, amet consectetur
-              adipisicing elit. In rerum quaerat repellat perferendis enim culpa
-              eaque id, a voluptates ipsum laudantium nihil minus debitis itaque
-              doloremque saepe corrupti sed libero. Lorem ipsum dolor sit, amet
-              consectetur adipisicing elit. In rerum quaerat repellat
-              perferendis enim culpa eaque id, a voluptates ipsum laudantium
-              nihil minus debitis itaque doloremque saepe corrupti sed libero.
+              {project.description}
             </p>
             <div className=" flex gap-5 pt-6">
               <a
@@ -81,13 +79,17 @@ export default function ProjectDetails() {
               </a>
             </div>
           </div>
-          <img className="" src="../jobless.png" alt="jobless" />
+          <img
+            className=" max-h-[400px] object-contain  "
+            src={project.main_image}
+            alt="jobless"
+          />
         </div>
         <div className=" flex  w-full flex-col-reverse gap-14 text-primaryWhite lg:w-[45%] lg:flex-col ">
-          <div className="flex-nowrap lg:min-h-[450px]">
+          <div className="max-h-[450px] flex-nowrap lg:min-h-[450px]">
             <img
               className="lightShadow h-full w-full object-contain "
-              src="../iPad-Pro-11.png"
+              src={project.demo_image}
               alt="iphone"
             />
           </div>
@@ -98,50 +100,28 @@ export default function ProjectDetails() {
                 Progress
               </h3>
               <p className=" max-w-lg text-textSM font-light ">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut
-                mollitia aliquid enim alias error iure quia illum tempore
-                maiores sequi. Provident, dolorum magni officiis harum earum
-                eaque tenetur quia fuga. Provident, dolorum magni officiis harum
-                earum eaque tenetur quia fuga. Provident, dolorum magni officiis
-                harum earum eaque tenetur quia fuga.Provident, dolorum magni
-                officiis harum earum eaque tenetur quia fuga. Provident, dolorum
-                magni officiis harum earum eaque tenetur quia fuga. Lorem ipsum
-                dolor sit amet consectetur adipisicing elit. Ut mollitia aliquid
-                enim alias error iure quia illum tempore maiores sequi.
-                Provident, dolorum magni.
+                {project.progress}
               </p>
             </div>
             <div className="flex w-full flex-col gap-2">
               <h4 className=" text-textBASE font-semibold uppercase ">
                 Tools used for this project
               </h4>
-              <div className="flex gap-3">
-                <img
-                  className=" h-10 w-10 duration-200 hover:scale-105"
-                  src="../sass.png"
-                  alt=""
-                />
-                <img
-                  className=" h-10 w-10 duration-200 hover:scale-105 "
-                  src="../react.png"
-                  alt=""
-                />
-                <img
-                  className=" h-10 w-10 duration-200 hover:scale-105 "
-                  src="../css.png"
-                  alt=""
-                />
-                <img
-                  className=" h-10 w-10 duration-200 hover:scale-105 "
-                  src="../html.png"
-                  alt=""
-                />
+              <div className="flex flex-wrap gap-5">
+                {tags.map((tag) => (
+                  <img
+                    className=" h-10 w-auto duration-500 hover:scale-110"
+                    src={`../${tag}.png`}
+                    alt={tag}
+                    key={tag}
+                  />
+                ))}
               </div>
             </div>
           </div>
         </div>
       </motion.div>
-    </div>
+    </motion.div>
   ) : (
     <PageNotFound />
   );
