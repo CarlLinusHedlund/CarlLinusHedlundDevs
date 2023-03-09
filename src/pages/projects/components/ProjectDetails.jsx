@@ -31,7 +31,9 @@ export default function ProjectDetails() {
   return project ? (
     <motion.div
       exit={{ opacity: 0 }}
-      transition={{ duration: 1 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.3 }}
       className="flex min-h-screen w-full flex-col items-center justify-center bg-primaryDark font-rubik lg:flex-row"
     >
       <motion.div
@@ -40,7 +42,7 @@ export default function ProjectDetails() {
         transition={{ duration: 0.2 }}
         className=" flex min-h-screen w-full max-w-5xl flex-col gap-24 px-6 pt-20 pb-44 lg:flex-row xl:px-0 "
       >
-        <div className=" flex w-full flex-col gap-14 text-primaryWhite lg:w-[55%] ">
+        <div className=" flex w-full flex-col gap-24 text-primaryWhite lg:w-[55%] ">
           <div className=" lg:min-h-[450px] ">
             <motion.h3
               initial={{ opacity: 0, x: -40 }}
@@ -85,7 +87,7 @@ export default function ProjectDetails() {
             alt="jobless"
           />
         </div>
-        <div className=" flex  w-full flex-col-reverse gap-14 text-primaryWhite lg:w-[45%] lg:flex-col ">
+        <div className=" flex w-full flex-col-reverse gap-24 text-primaryWhite lg:w-[45%] lg:flex-col ">
           <div className="max-h-[450px] flex-nowrap lg:min-h-[450px]">
             <img
               className="lightShadow h-full w-full object-contain "

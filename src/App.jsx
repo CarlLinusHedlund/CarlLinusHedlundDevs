@@ -1,18 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import './index.css';
-import { Routes, Route, BrowserRouter, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import Header from './components/header/index';
-import AboutPage from './pages/about/index';
-import ContactPage from './pages/contact/index';
-import ProjectPage from './pages/projects/index';
-import AdminPage from './pages/admin/index';
-import HomePage from './pages/home/index';
 import { supabase } from './supabase';
 import { headerContext } from './pages/admin/utils/context';
 import { UserContext } from './pages/admin/utils/userContext';
-import ProjectDetails from './pages/projects/components/ProjectDetails';
-import PageNotFound from './components/PageNotFound';
-import { AnimatePresence } from 'framer-motion';
+import AnimatedRoutes from './components/Router';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -39,25 +32,17 @@ function App() {
   return (
     <UserContext.Provider value={{ user, setUser }}>
       <headerContext.Provider value={{ activeHeader, setActiveHeader }}>
-        <BrowserRouter>
+        <Router>
           <div className="m-0 flex w-screen flex-col scroll-smooth md:flex-row ">
             <Header />
             <div
               id="main"
               className="md:fixedWidth flex h-full w-full flex-col bg-primaryDark "
             >
-              <Routes>
-                <Route path="/" element={<HomePage />} exact />
-                <Route path="/about" element={<AboutPage />} exact />
-                <Route path="/projects" element={<ProjectPage />} exact />
-                <Route path="/projects/:id" element={<ProjectDetails />} />
-                <Route path="/contact" element={<ContactPage />} exact />
-                <Route path="/admin" element={<AdminPage />} exact />
-                <Route path="*" element={<PageNotFound />} exact />
-              </Routes>
+              <AnimatedRoutes />
             </div>
           </div>
-        </BrowserRouter>
+        </Router>
       </headerContext.Provider>
     </UserContext.Provider>
   );

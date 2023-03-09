@@ -25,17 +25,18 @@ function ProjectPage() {
   console.log('projects :', projects);
 
   return (
-    <div className=" h-full min-h-screen w-full bg-primaryDark py-20 font-rubik">
-      <motion.div
-        exit={{ opacity: 0 }}
-        transition={{ duration: 1 }}
-        className="h-full w-full"
-      >
+    <motion.div
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.3 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      className=" h-full min-h-screen w-full bg-primaryDark py-20 font-rubik"
+    >
+      <div className="h-full w-full">
         <section className=" w-full pb-32 ">
           <MotionHeading />
           <SvgWithGradient />
         </section>
-
         <motion.section
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -47,8 +48,8 @@ function ProjectPage() {
             <AnimatedPostCard key={project.id} {...project} />
           ))}
         </motion.section>
-      </motion.div>
-    </div>
+      </div>
+    </motion.div>
   );
 }
 
