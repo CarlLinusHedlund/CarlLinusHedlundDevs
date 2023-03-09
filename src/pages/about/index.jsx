@@ -61,7 +61,11 @@ function AboutPage() {
                 className=" htmlTags relative min-h-[32px] py-1 pl-1 font-rubik text-[22px] font-bold leading-5 text-primaryCoral before:text-primaryWhite before:content-['<h2>'] after:text-primaryWhite after:content-['</h2>'] xxs:text-[27px] xs:text-[33px] sm:text-[35px] md:min-h-[44px] md:py-3 md:pl-3 md:text-[45px] md:before:text-sm md:after:text-sm  "
               />
               <p className=" htmlTags relative max-w-sm py-0 pl-1 font-rubik text-textXS font-light leading-4 text-primaryWhite before:text-primaryWhite before:content-['<p>'] after:text-primaryWhite after:content-['</p>'] sm:py-1 md:max-w-lg md:pl-3 md:text-textSM md:font-light md:before:text-sm md:after:text-sm  ">
-                Coffeeholic based i Oslo, Norway. With passion for <br /> clean
+                Coffeeholic based i Oslo, Norway. With passion for
+                {' '}
+                <br />
+                {' '}
+                clean
                 and responsive code. Currently studying at Noroff School of
                 technology and digital Media.
               </p>

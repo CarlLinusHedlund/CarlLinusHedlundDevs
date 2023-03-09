@@ -15,7 +15,10 @@ function GetInTouch() {
             </h2>
             <p className=" text-textXS sm:text-textSM ">
               Interested in working together or have any questions?
-              <br /> Let's meet and talk over a{' '}
+              <br />
+              {' '}
+              Let's meet and talk over a
+              {' '}
               <span className="text-[#C5A76E]">coffee</span>
             </p>
           </div>

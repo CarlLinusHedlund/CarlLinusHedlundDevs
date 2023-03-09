@@ -12,13 +12,23 @@ function HeroBanner() {
           <h2 className=" text-textLG font-bold leading-[2.5rem] ">
             <span className=" text-textLG text-primaryCoral ">
               Front End Developer
-            </span>{' '}
-            from <br /> Oslo, Norway
+            </span>
+            {' '}
+            from
+            {' '}
+            <br />
+            {' '}
+            Oslo, Norway
           </h2>
           <p className=" whitespace-normal text-textSM ">
             Here you can find everything about me,
-            <br /> my latest works, skills and platforms i
-            <br /> work with on a daily basis.{' '}
+            <br />
+            {' '}
+            my latest works, skills and platforms i
+            <br />
+            {' '}
+            work with on a daily basis.
+            {' '}
           </p>
         </div>
         <div className=" relative flex max-h-[450px] w-full justify-center md:h-full md:w-2/5 lg:w-[20%] ">
@@ -32,8 +42,12 @@ function HeroBanner() {
         <div className="z-10 flex h-full w-fit flex-col flex-nowrap justify-center gap-10 xs:pl-4 md:w-3/5 md:pl-0 lg:w-fit">
           <div className="w-full  whitespace-nowrap">
             <h1 className="relative font-roboto text-textXL font-semibold leading-[4rem] text-primaryWhite xs:leading-[5rem]">
-              Hi, <br />{' '}
-              <span className="text-text2xl xs:text-text3xl">i'm</span>{' '}
+              Hi,
+              {' '}
+              <br />
+              {' '}
+              <span className="text-text2xl xs:text-text3xl">i'm</span>
+              {' '}
               <span className="text-text2xl text-primaryCoral xs:text-text3xl ">
                 Carl
               </span>

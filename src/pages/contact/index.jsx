@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
 import { useFormik } from 'formik';
 import emailjs from '@emailjs/browser';
@@ -61,9 +62,8 @@ function ContactPage() {
             <p className=" text-textXS sm:text-textSM ">
               Interested in working together or have any questions?
               <br />
-              {`&apos`}
               Let's meet and talk over a
-              <span className="text-[#C5A76E]">coffee</span>
+              <span className="text-[#C5A76E]"> coffee</span>
             </p>
             <img
               className=" absolute -bottom-14 right-0 -rotate-45 lg:-rotate-[130deg] "
