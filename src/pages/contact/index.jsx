@@ -63,7 +63,7 @@ function ContactPage() {
               exit={{ opacity: 0, x: -100 }}
               initial={{ opacity: 0, x: -100 }}
               animate={{ opacity: 1, x: 0, transition: { duration: 0.4 } }}
-              className=" text-textXS font-medium uppercase xs:text-textBASE "
+              className=" text-textXS font-medium  uppercase  xs:text-textBASE "
             >
               Work Together?
             </motion.h3>
@@ -71,7 +71,7 @@ function ContactPage() {
               exit={{ opacity: 0, x: -100 }}
               initial={{ opacity: 0, x: -100 }}
               animate={{ opacity: 1, x: 0, transition: { duration: 0.6 } }}
-              className=" whitespace-nowrap text-[36px] font-bold uppercase leading-[3rem] xs:text-textXL sm:text-text2xl sm:leading-[4rem] "
+              className=" whitespace-nowrap text-[36px]  font-bold uppercase leading-[3rem] xs:text-textXL sm:text-text2xl sm:leading-[4rem] "
             >
               GET IN TOUCH
             </motion.h2>
@@ -118,7 +118,7 @@ function ContactPage() {
             autoComplete="off"
             className="flex w-full max-w-[480px] flex-col gap-2 lg:max-w-[380px]"
           >
-            <div className="flex flex-col gap-2 font-rubik  text-primaryWhite ">
+            <div className="flex flex-col pb-2 font-rubik  text-primaryWhite ">
               <label
                 htmlFor="messageName"
                 className=" text-textSM font-light capitalize opacity-70"
@@ -126,7 +126,7 @@ function ContactPage() {
                 Name
               </label>
               <input
-                className={`rounded-xl border bg-transparent p-3 duration-300 lg:p-2 ${
+                className={`border-b-2 bg-transparent p-3 duration-300 focus:outline-none lg:p-2 ${
                   errors.messageName && touched.messageName
                     ? 'border-red-400 '
                     : 'border-primaryWhite'
@@ -149,7 +149,7 @@ function ContactPage() {
                 {errors.messageName ? `${errors.messageName}` : '.'}
               </label>
             </div>
-            <div className="flex flex-col gap-2 font-rubik  text-primaryWhite ">
+            <div className="flex flex-col pb-2 font-rubik  text-primaryWhite ">
               <label
                 htmlFor="email"
                 className=" text-textSM font-light capitalize opacity-70"
@@ -157,7 +157,7 @@ function ContactPage() {
                 Email
               </label>
               <input
-                className={` rounded-xl border bg-transparent p-3 duration-300 lg:p-2 ${
+                className={` border-b-2 bg-transparent p-3 duration-300 focus:outline-none lg:p-2 ${
                   errors.email && touched.email
                     ? 'border-red-400'
                     : 'border-primaryWhite'
@@ -180,7 +180,7 @@ function ContactPage() {
                 {errors.email ? `${errors.email}` : '.'}
               </label>
             </div>
-            <div className="flex flex-col gap-2 font-rubik  text-primaryWhite ">
+            <div className="flex flex-col pb-2 font-rubik  text-primaryWhite ">
               <label
                 htmlFor="subject"
                 className=" text-textSM font-light capitalize opacity-70"
@@ -188,7 +188,7 @@ function ContactPage() {
                 Subject
               </label>
               <input
-                className={`rounded-xl border bg-transparent p-3 duration-300 lg:p-2 ${
+                className={`border-b-2 bg-transparent p-3 duration-300 focus:outline-none lg:p-2 ${
                   errors.subject && touched.subject
                     ? 'border-red-400'
                     : 'border-primaryWhite'
@@ -219,7 +219,7 @@ function ContactPage() {
                 Message
               </label>
               <textarea
-                className={` max-h-44 min-h-[90px] rounded-xl border bg-transparent p-3 lg:p-2 ${
+                className={` max-h-44 min-h-[90px] border-b-2 bg-transparent p-3 focus:outline-none lg:p-2 ${
                   errors.message && touched.message
                     ? 'border-red-400'
                     : 'border-primaryWhite'
