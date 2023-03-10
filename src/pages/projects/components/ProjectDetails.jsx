@@ -115,7 +115,7 @@ export default function ProjectDetails() {
           />
         </div>
         <div className=" flex w-full flex-col-reverse gap-24 text-primaryWhite lg:w-[45%] lg:flex-col ">
-          <div className="max-h-[450px] flex-nowrap lg:min-h-[450px]">
+          <div className=" flex-nowrap lg:max-h-[450px] lg:min-h-[450px]">
             <motion.img
               initial={{ opacity: 0 }}
               animate={{
@@ -123,7 +123,7 @@ export default function ProjectDetails() {
                 transition: { delay: 0.8, duration: 0.8 },
               }}
               exit={{ opacity: 0 }}
-              className="lightShadow h-full w-full object-contain "
+              className=" lightShadow h-full max-h-[450px] w-full object-contain "
               src={images[1]}
               alt={project.title}
             />
