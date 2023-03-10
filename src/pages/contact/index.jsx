@@ -53,41 +53,72 @@ function ContactPage() {
     <motion.section
       exit={{ opacity: 0 }}
       initial={{ opacity: 0 }}
-      animate={{ opacity: 1, transition: { duration: 0.3 } }}
+      animate={{ opacity: 1, transition: { duration: 0.4 } }}
       className=" flex h-full min-h-screen w-full items-center bg-primaryDark px-8 pt-4 pb-20 font-rubik"
     >
       <div className="mx-auto flex h-full w-full max-w-5xl flex-col justify-between gap-20 lg:flex-row lg:gap-8 ">
         <div className="flex flex-col-reverse items-center justify-center lg:w-fit lg:flex-col ">
           <div className=" relative text-primaryWhite ">
-            <h3 className=" text-textXS font-medium uppercase xs:text-textBASE ">
+            <motion.h3
+              exit={{ opacity: 0, x: -100 }}
+              initial={{ opacity: 0, x: -100 }}
+              animate={{ opacity: 1, x: 0, transition: { duration: 0.4 } }}
+              className=" text-textXS font-medium  uppercase  xs:text-textBASE "
+            >
               Work Together?
-            </h3>
-            <h2 className=" whitespace-nowrap text-[36px] font-bold uppercase leading-[3rem] xs:text-textXL sm:text-text2xl sm:leading-[4rem] ">
+            </motion.h3>
+            <motion.h2
+              exit={{ opacity: 0, x: -100 }}
+              initial={{ opacity: 0, x: -100 }}
+              animate={{ opacity: 1, x: 0, transition: { duration: 0.6 } }}
+              className=" whitespace-nowrap text-[36px]  font-bold uppercase leading-[3rem] xs:text-textXL sm:text-text2xl sm:leading-[4rem] "
+            >
               GET IN TOUCH
-            </h2>
-            <p className=" text-textXS sm:text-textSM ">
+            </motion.h2>
+            <motion.p
+              exit={{ opacity: 0, x: -100 }}
+              initial={{ opacity: 0, x: -100 }}
+              animate={{ opacity: 1, x: 0, transition: { duration: 0.8 } }}
+              className=" text-textXS sm:text-textSM "
+            >
               Interested in working together or have any questions?
               <br />
               Let's meet and talk over a
               <span className="text-[#C5A76E]"> coffee</span>
-            </p>
-            <img
+            </motion.p>
+            <motion.img
+              exit={{ opacity: 0 }}
+              initial={{ opacity: 0 }}
+              animate={{
+                opacity: 1,
+                transition: { delay: 0.5, duration: 0.8 },
+              }}
               className=" absolute -bottom-14 right-0 -rotate-45 lg:-rotate-[130deg] "
               src="../curlypointer.svg"
               alt="pointer"
             />
           </div>
-          <div>
+          <motion.div
+            exit={{ opacity: 0 }}
+            initial={{ opacity: 0 }}
+            animate={{
+              opacity: 1,
+              transition: { delay: 0.5, duration: 0.8 },
+            }}
+          >
             <img src="../coffee.png" alt="coffee bg" />
-          </div>
+          </motion.div>
         </div>
         <div className="flex w-full items-center justify-center lg:w-2/5">
-          <form
+          <motion.form
+            exit={{ opacity: 0, x: 100 }}
+            initial={{ opacity: 0, x: 100 }}
+            animate={{ opacity: 1, x: 0, transition: { delay: 1 } }}
             onSubmit={handleSubmit}
             autoComplete="off"
             className="flex w-full max-w-[480px] flex-col gap-2 lg:max-w-[380px]"
           >
-            <div className="flex flex-col gap-2 font-rubik  text-primaryWhite ">
+            <div className="flex flex-col pb-2 font-rubik  text-primaryWhite ">
               <label
                 htmlFor="messageName"
                 className=" text-textSM font-light capitalize opacity-70"
@@ -95,7 +126,7 @@ function ContactPage() {
                 Name
               </label>
               <input
-                className={`rounded-xl border bg-transparent p-3 duration-300 lg:p-2 ${
+                className={`border-b-2 bg-transparent p-3 duration-300 focus:outline-none lg:p-2 ${
                   errors.messageName && touched.messageName
                     ? 'border-red-400 '
                     : 'border-primaryWhite'
@@ -118,7 +149,7 @@ function ContactPage() {
                 {errors.messageName ? `${errors.messageName}` : '.'}
               </label>
             </div>
-            <div className="flex flex-col gap-2 font-rubik  text-primaryWhite ">
+            <div className="flex flex-col pb-2 font-rubik  text-primaryWhite ">
               <label
                 htmlFor="email"
                 className=" text-textSM font-light capitalize opacity-70"
@@ -126,7 +157,7 @@ function ContactPage() {
                 Email
               </label>
               <input
-                className={` rounded-xl border bg-transparent p-3 duration-300 lg:p-2 ${
+                className={` border-b-2 bg-transparent p-3 duration-300 focus:outline-none lg:p-2 ${
                   errors.email && touched.email
                     ? 'border-red-400'
                     : 'border-primaryWhite'
@@ -149,7 +180,7 @@ function ContactPage() {
                 {errors.email ? `${errors.email}` : '.'}
               </label>
             </div>
-            <div className="flex flex-col gap-2 font-rubik  text-primaryWhite ">
+            <div className="flex flex-col pb-2 font-rubik  text-primaryWhite ">
               <label
                 htmlFor="subject"
                 className=" text-textSM font-light capitalize opacity-70"
@@ -157,7 +188,7 @@ function ContactPage() {
                 Subject
               </label>
               <input
-                className={`rounded-xl border bg-transparent p-3 duration-300 lg:p-2 ${
+                className={`border-b-2 bg-transparent p-3 duration-300 focus:outline-none lg:p-2 ${
                   errors.subject && touched.subject
                     ? 'border-red-400'
                     : 'border-primaryWhite'
@@ -188,7 +219,7 @@ function ContactPage() {
                 Message
               </label>
               <textarea
-                className={` max-h-44 min-h-[90px] rounded-xl border bg-transparent p-3 lg:p-2 ${
+                className={` max-h-44 min-h-[90px] border-b-2 bg-transparent p-3 focus:outline-none lg:p-2 ${
                   errors.message && touched.message
                     ? 'border-red-400'
                     : 'border-primaryWhite'
@@ -219,7 +250,7 @@ function ContactPage() {
                 Send Message
               </button>
             </div>
-          </form>
+          </motion.form>
         </div>
       </div>
     </motion.section>
