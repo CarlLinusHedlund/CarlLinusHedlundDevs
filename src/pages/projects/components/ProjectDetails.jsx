@@ -10,6 +10,8 @@ export default function ProjectDetails() {
   const string = id.id;
   const [project, setProject] = useState([]);
   const [tags, setTags] = useState([]);
+  const [images, setImages] = useState([]);
+  console.log(images);
 
   useEffect(() => {
     async function getProject() {
@@ -20,6 +22,7 @@ export default function ProjectDetails() {
       if (data) {
         setProject(data[0]);
         setTags(data[0].tags);
+        setImages(data[0].images);
       }
       if (error) {
         setProject(null);
@@ -81,7 +84,7 @@ export default function ProjectDetails() {
                 }}
                 target="_blank"
                 className=" flex gap-2 duration-200 hover:scale-105 "
-                href="https://github.com/"
+                href={project.github_url}
               >
                 <img src="../github.svg" alt="" />
                 <p className="underline">Github</p>
@@ -96,7 +99,7 @@ export default function ProjectDetails() {
                 }}
                 target="_blank"
                 className="underline duration-200 hover:scale-105"
-                href="https://github.com/"
+                href={project.website_url}
               >
                 Website
               </motion.a>
@@ -107,7 +110,7 @@ export default function ProjectDetails() {
             animate={{ opacity: 1, transition: { delay: 0.8, duration: 0.8 } }}
             exit={{ opacity: 0 }}
             className=" max-h-[400px] object-contain  "
-            src={project.main_image}
+            src={images[0]}
             alt={project.title}
           />
         </div>
@@ -121,7 +124,7 @@ export default function ProjectDetails() {
               }}
               exit={{ opacity: 0 }}
               className="lightShadow h-full w-full object-contain "
-              src={project.demo_image}
+              src={images[1]}
               alt={project.title}
             />
           </div>

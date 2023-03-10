@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { UserContext } from './utils/userContext';
 import SignIn from './components/SignIn';
 import Dashboard from './components/Dashboard';
+import { motion } from 'framer-motion';
 
 function AdminPage() {
   const { user } = useContext(UserContext);
