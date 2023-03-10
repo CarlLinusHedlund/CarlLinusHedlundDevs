@@ -4,9 +4,12 @@ import formSchema from '../utils/validationSchema';
 import { supabase } from '../../../supabase';
 
 function Form() {
+  const [uploads, setUploads] = useState([]);
+
   const [images, setImages] = useState([]);
   const [imageURLs, setImageURLs] = useState([]);
-  const [uploads, setUploads] = useState([]);
+  const [mainImage, setMainImage] = useState();
+  const [mainImagePreview, setMainImagePreview] = useState();
 
   // OnSubmit formik will validate the form. If every input is true.
   // CreatePost will not run if imgs is not added
@@ -14,7 +17,7 @@ function Form() {
   function onSubmit(values, actions) {
     console.log('VALIDATION SUCCESS');
     try {
-      // Uploads img yo bucket
+      // Uploads img o bucket
       (async function uploadImg() {
         images.forEach(async (file) => {
           const newName = Date.now() + file.name;
@@ -43,7 +46,7 @@ function Form() {
             console.log(error);
           }
         });
-      }());
+      })();
 
       // Post request to add to table
       function createPost() {
@@ -68,7 +71,7 @@ function Form() {
               console.log('CREATE POST FAILED!!!');
               const { data, error } = supabase.storage
                 .from('photos')
-                .remove([imageUrls]);
+                .remove([imageURLs]);
               if (error) {
                 console.log(error);
                 console.log('IMAGES not removed');
@@ -90,32 +93,42 @@ function Form() {
     setImageURLs(newImageURLs);
   }, [images]);
 
+  function onMainImageChange(e) {
+    setMainImage(e.target.files[0]);
+  }
+
+  useEffect(() => {
+    if (mainImage) {
+      const url = URL.createObjectURL(mainImage);
+      setMainImagePreview(url);
+    }
+  }, [mainImage]);
+
   function onImageChange(e) {
     setImages([...e.target.files]);
   }
 
-  const {
-    values, handleChange, errors, touched, handleBlur, handleSubmit,
-  } = useFormik({
-    initialValues: {
-      title: '',
-      course: '',
-      description: '',
-      progress: '',
-      tags: '',
-      active: true,
-    },
-    validationSchema: formSchema,
-    onSubmit,
-  });
+  const { values, handleChange, errors, touched, handleBlur, handleSubmit } =
+    useFormik({
+      initialValues: {
+        title: '',
+        course: '',
+        description: '',
+        progress: '',
+        tags: '',
+        active: true,
+      },
+      validationSchema: formSchema,
+      onSubmit,
+    });
 
   return (
     <form
       onSubmit={handleSubmit}
       className=" flex w-full flex-col gap-10 pb-32 font-rubik"
     >
-      <div className="w-full flex-col lg:flex-row ">
-        <div className=" flex h-full w-full flex-col gap-14 text-textBASE font-semibold ">
+      <div className="flex w-full flex-col gap-20 lg:flex-row ">
+        <div className=" flex h-full w-full flex-col gap-14 text-textBASE font-semibold lg:w-1/2 ">
           <h2 className=" text-textLG capitalize text-primaryWhite ">
             Information
           </h2>
@@ -243,31 +256,6 @@ function Form() {
               {errors.progress ? `${errors.progress}` : '.'}
             </label>
           </div>
-          <div />
-        </div>
-        <div className=" flex h-full w-full flex-col gap-10 text-textBASE font-semibold ">
-          <h2 className=" text-textLG font-semibold capitalize text-primaryWhite ">
-            Details
-          </h2>
-          <div className=" flex flex-col gap-1">
-            <label
-              htmlFor="active"
-              className="text-textBASE font-normal text-primaryWhite"
-            >
-              Active
-            </label>
-            <select
-              className=" rounded-lg px-2 py-3 font-medium duration-300 focus:scale-105 focus:outline-none"
-              name="active"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.active}
-              id="active"
-            >
-              <option value>Active</option>
-              <option value={false}>Not Active</option>
-            </select>
-          </div>
           <div className=" flex flex-col gap-1">
             <label
               htmlFor="tags"
@@ -300,11 +288,36 @@ function Form() {
               {errors.tags ? `${errors.tags}` : '.'}
             </label>
           </div>
-          <div>
-            <h2 className="text-textLG font-semibold capitalize text-primaryWhite ">
-              Images
+          <div className=" flex flex-col gap-1">
+            <label
+              htmlFor="active"
+              className="text-textBASE font-normal text-primaryWhite"
+            >
+              Active
+            </label>
+            <select
+              className=" rounded-lg px-2 py-3 font-medium duration-300 focus:scale-105 focus:outline-none"
+              name="active"
+              onChange={handleChange}
+              onBlur={handleBlur}
+              value={values.active}
+              id="active"
+            >
+              <option value>Active</option>
+              <option value={false}>Not Active</option>
+            </select>
+          </div>
+        </div>
+        <div className=" flex h-full w-full flex-col gap-10 text-textBASE font-semibold lg:w-1/2 ">
+          <h2 className=" text-textLG font-semibold capitalize text-primaryWhite ">
+            Images
+          </h2>
+          <div className="flex flex-col gap-5">
+            <h2 className=" text-textBASE font-semibold capitalize text-primaryWhite ">
+              Gallery
             </h2>
             <input
+              className=" text-SM font-light text-primaryWhite "
               multiple
               id="image"
               name="image"
@@ -316,22 +329,44 @@ function Form() {
               {imageURLs.map((imageSrc) => (
                 <img
                   key={imageSrc}
-                  className="h-32 w-auto rounded-md duration-500 hover:z-10 hover:scale-125"
+                  className="h-16 w-auto rounded-md duration-500 hover:z-10 hover:scale-125"
                   src={imageSrc}
                 />
               ))}
             </div>
           </div>
+          <div className="flex flex-col gap-5">
+            <h2 className=" text-textBASE font-semibold capitalize text-primaryWhite ">
+              Main Image
+            </h2>
+            <input
+              className=" text-SM font-light text-primaryWhite "
+              id="image"
+              name="image"
+              type="file"
+              accept="image/png, image/jpeg"
+              onChange={onMainImageChange}
+            />
+            <div className="mt-4 flex flex-wrap gap-3">
+              {mainImagePreview && (
+                <img
+                  key={mainImagePreview}
+                  className="h-32 w-auto rounded-md duration-500 hover:z-10 hover:scale-125"
+                  src={mainImagePreview}
+                />
+              )}
+            </div>
+          </div>
         </div>
       </div>
-      <div className="flex w-full justify-center">
+      <div className="flex w-full justify-center pt-20">
         <button
           id="submitBtn"
           className=" lg:hover:hoverShadow btn  mt-4 flex w-full min-w-[300px] max-w-[450px] items-center justify-center font-bold text-primaryWhite duration-300 md:max-w-[350px] lg:hover:scale-105 "
           type="submit"
           onSubmit={handleSubmit}
         >
-          Submit
+          Publish
         </button>
       </div>
       <p className=" text-red-400 " />

@@ -3,6 +3,7 @@ import React from 'react';
 import { useFormik } from 'formik';
 import emailjs from '@emailjs/browser';
 import messageSchema from './utils/ValidationSchema';
+import { motion } from 'framer-motion';
 
 function ContactPage() {
   const onSubmit = (values, actions) => {
@@ -49,7 +50,12 @@ function ContactPage() {
     });
 
   return (
-    <section className=" flex h-full min-h-screen w-full items-center bg-primaryDark px-8 pt-4 pb-20 font-rubik">
+    <motion.section
+      exit={{ opacity: 0 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1, transition: { duration: 0.3 } }}
+      className=" flex h-full min-h-screen w-full items-center bg-primaryDark px-8 pt-4 pb-20 font-rubik"
+    >
       <div className="mx-auto flex h-full w-full max-w-5xl flex-col justify-between gap-20 lg:flex-row lg:gap-8 ">
         <div className="flex flex-col-reverse items-center justify-center lg:w-fit lg:flex-col ">
           <div className=" relative text-primaryWhite ">
@@ -216,7 +222,7 @@ function ContactPage() {
           </form>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }
 

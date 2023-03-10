@@ -21,9 +21,14 @@ function Header() {
       navRef.current.classList.add('opacity-1');
       navRef.current.classList.remove('opacity-0');
     }
-    function overlayRemove() {
+    function removeDisplay() {
       navRef.current.classList.remove('flex');
       navRef.current.classList.add('hidden');
+    }
+    function overlayRemove() {
+      navRef.current.classList.remove('opacity-1');
+      navRef.current.classList.add('opacity-0');
+      setTimeout(removeDisplay, 500);
     }
     if (!isMenuClicked) {
       setNavListClass('navList navFade');
@@ -33,11 +38,11 @@ function Header() {
       burgerRef.current.classList.add('burgerActive');
       setTimeout(overlayStart, 300);
     } else {
-      setNavListClass('navList navFade opacity-0');
+      setNavListClass('navList navFade hidden');
       burgerRef.current.classList.remove('after:opacity-0');
-      navRef.current.classList.add('opacity-0');
+      // navRef.current.classList.add('opacity-0');
       burgerRef.current.classList.remove('burgerActive');
-      setTimeout(overlayRemove, 500);
+      setTimeout(overlayRemove, 300);
     }
     setIsMenuClicked(!isMenuClicked);
   };
