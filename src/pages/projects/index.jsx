@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
 import SvgWithGradient from './components/AnimatedSvg';
 import MotionHeading from './components/MotionHeading';
 import { supabase } from '../../supabase';
 import AnimatedPostCard from './components/AnimatedPostCard';
+
 import './index.css';
-import { motion } from 'framer-motion';
 
 function ProjectPage() {
   const [projects, setProjects] = useState([]);
@@ -13,7 +14,6 @@ function ProjectPage() {
     async function getProjects() {
       const { data, error } = await supabase.from('projects').select('*');
       if (data) {
-        console.log(data);
         setProjects(data);
       }
       if (error) {
@@ -22,8 +22,6 @@ function ProjectPage() {
     }
     getProjects();
   }, []);
-  console.log('projects :', projects);
-
   return (
     <motion.div
       exit={{ opacity: 0, transition: { duration: 0.1 } }}
@@ -45,7 +43,15 @@ function ProjectPage() {
         >
           {projects.map((project) => (
             // <PostCard key={project.id} {...project} />
-            <AnimatedPostCard key={project.id} {...project} />
+            <AnimatedPostCard
+              key={project.id}
+              id={project.id}
+              title={project.title}
+              description={project.description}
+              images={project.images}
+              course={project.course}
+              intro={project.intro}
+            />
           ))}
         </motion.section>
       </div>

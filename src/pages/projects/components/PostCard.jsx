@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 function PostCard({ title, course, id, images, intro }) {
   // const { postId } = useParams();
   return (
-    <div className="flex max-w-5xl flex-col gap-6 lg:flex-row ">
+    <div key={id} className="flex max-w-5xl flex-col gap-6 lg:flex-row ">
       <div className="flex items-center ">
         <img className="rounded-lg" src={images[0]} alt="" />
       </div>
@@ -32,5 +33,13 @@ function PostCard({ title, course, id, images, intro }) {
     </div>
   );
 }
+
+PostCard.propTypes = {
+  title: PropTypes.string.isRequired,
+  course: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
+  images: PropTypes.arrayOf(PropTypes.string).isRequired,
+  intro: PropTypes.string.isRequired,
+};
 
 export default PostCard;
