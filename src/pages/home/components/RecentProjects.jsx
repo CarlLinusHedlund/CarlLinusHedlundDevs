@@ -6,11 +6,10 @@ import { supabase } from '../../../supabase';
 
 function RecentProjects() {
   const [projects, setProjects] = useState([]);
-  // const [ref, inView] = useInView({
-  //   triggerOnce: true,
-  //   rootMargin: '0px 0px',
-  // });
-  console.log(projects);
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    rootMargin: '0px 0px',
+  });
   useEffect(() => {
     // eslint-disable-next-line wrap-iife
     (async function getProjects() {
@@ -27,7 +26,17 @@ function RecentProjects() {
     })();
   }, []);
   return (
-    <>
+    <motion.div
+      className=""
+      ref={ref}
+      initial={{ opacity: 0, y: 90 }}
+      animate={{
+        opacity: inView ? 1 : 0,
+        y: inView ? 0 : 90,
+        transition: { duration: 1 },
+      }}
+      exit={{ opacity: 0, y: 90 }}
+    >
       <div>
         <div className=" relative mx-auto max-w-5xl px-8 pb-5 lg:flex lg:flex-col lg:justify-center ">
           <h3 className=" text-textSM font-semibold text-primaryCoral xs:text-textBASE sm:text-textLG ">
@@ -62,6 +71,7 @@ function RecentProjects() {
                 <Link to={`/projects/${project.id}`}>
                   <button
                     type="button"
+                    // eslint-disable-next-line max-len
                     className="lg:hover:hoverShadow btn group mt-4 flex w-full max-w-[450px] items-center justify-center uppercase duration-300 md:max-w-[350px] lg:hover:scale-105 "
                   >
                     <p className="text-textSM font-semibold text-primaryWhite">
@@ -77,7 +87,7 @@ function RecentProjects() {
           <Link to="/projects">More Projects</Link>
         </div>
       </div>
-    </>
+    </motion.div>
   );
 }
 
