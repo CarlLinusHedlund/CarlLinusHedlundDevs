@@ -6,11 +6,11 @@ import { supabase } from './supabase';
 import { headerContext } from './pages/admin/utils/context';
 import { UserContext } from './pages/admin/utils/userContext';
 import AnimatedRoutes from './components/Router';
+import ScrollToTop from './pages/home/components/ScrollToTop';
 
 function App() {
   const [user, setUser] = useState(null);
   const [activeHeader, setActiveHeader] = useState(true);
-  console.log(activeHeader);
 
   // Calls supabase for session. Either retrives a null or session with token and user details
   const checkLoggedIn = async () => {
@@ -33,6 +33,7 @@ function App() {
     <UserContext.Provider value={{ user, setUser }}>
       <headerContext.Provider value={{ activeHeader, setActiveHeader }}>
         <Router>
+          <ScrollToTop />
           <div className="m-0 flex w-screen flex-col scroll-smooth md:flex-row ">
             <Header />
             <div

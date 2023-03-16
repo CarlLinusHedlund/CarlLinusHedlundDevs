@@ -15,7 +15,14 @@ export default function AnimatedPostCard({ ...project }) {
       animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 60 }}
       transition={{ duration: 1, delay: 0 }}
     >
-      <PostCard {...project} />
+      <PostCard
+        id={project.id}
+        title={project.title}
+        description={project.description}
+        images={project.images}
+        course={project.course}
+        intro={project.intro}
+      />
     </motion.div>
   );
 }

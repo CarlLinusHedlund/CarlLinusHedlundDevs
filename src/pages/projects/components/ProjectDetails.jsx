@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import '../index.css';
 import { useParams } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { supabase } from '../../../supabase';
 import PageNotFound from '../../../components/PageNotFound';
-import { motion } from 'framer-motion';
 
 export default function ProjectDetails() {
   const id = useParams();

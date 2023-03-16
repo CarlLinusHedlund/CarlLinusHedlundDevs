@@ -7,8 +7,6 @@ import { motion } from 'framer-motion';
 
 function ContactPage() {
   const onSubmit = (values, actions) => {
-    console.log('SUBMITTED');
-
     const templateParams = {
       messageName: values.messageName,
       email: values.email,
@@ -25,8 +23,6 @@ function ContactPage() {
       )
       .then(
         (response) => {
-          console.log('SUCCESS!', response.status, response.text);
-
           if (response.status === 200) {
             actions.resetForm();
           }
