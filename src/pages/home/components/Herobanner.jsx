@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom';
 function HeroBanner() {
   return (
     <div className="inner relative flex w-full items-center justify-center pb-40 sm:items-start sm:pt-10 lg:pb-36">
-      <div className="flex h-full w-full flex-col gap-10 md:flex-row-reverse  md:items-center lg:justify-around ">
-        <div className=" relative flex max-h-[450px] w-full justify-center md:h-full md:w-2/5 lg:w-full ">
+      <div className="flex h-full w-full flex-col gap-10 md:items-center  smd:flex-row-reverse lg:justify-around ">
+        <div className=" relative flex h-fit w-full items-center justify-center md:h-full md:w-2/5 smd:max-w-md lg:w-full ">
           <img
-            className="w-full object-contain "
+            className="w-full object-contain md:object-cover "
             src="./carl-portrait.png"
             alt="profile"
           />
@@ -22,9 +22,9 @@ function HeroBanner() {
                 Carl
               </span>
             </h1>
-            <p className="block font-rubik text-[18px] font-normal text-primaryWhite">
-              Here you can find everything about me, my latest works, <br />
-              skills and platforms i work with on a daily basis.
+            <p className="block max-w-sm whitespace-normal font-rubik text-[16px] font-normal text-primaryWhite ">
+              Here you can find everything about me, my latest works, skills and
+              platforms i work with on a daily basis.
             </p>
           </div>
           <div className="flex max-w-[330px] flex-col gap-4  ">
