@@ -7,7 +7,7 @@ function PostCard({ title, course, id, images, intro }) {
   return (
     <div key={id} className="flex max-w-5xl flex-col gap-6 lg:flex-row ">
       <div className="flex items-center ">
-        <img className="rounded-lg" src={images[0]} alt="" />
+        <img className="rounded-lg" src={images[0]} alt={title} />
       </div>
       <div className=" flex min-w-fit flex-col justify-between font-rubik uppercase text-primaryWhite ">
         <div className=" min-w-[300px] whitespace-pre-wrap ">
