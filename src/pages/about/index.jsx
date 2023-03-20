@@ -37,7 +37,6 @@ function AboutPage() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1, transition: { duration: 0.2 } }}
     >
-      <Resume />
       <section className=" h-full w-full scroll-smooth bg-primaryDark ">
         <div className=" relative mx-auto flex h-screen min-h-[640px] max-w-5xl flex-col justify-between px-8 ">
           <div className=" pt-20 ">
@@ -85,6 +84,7 @@ function AboutPage() {
           </div>
         </div>
       </section>
+      <Resume />
     </motion.div>
   );
 }
