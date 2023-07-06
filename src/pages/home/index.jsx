@@ -1,10 +1,10 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import AboutSection from './components/AboutSection';
 import GetInTouch from './components/GetInTouch';
 import HeroBanner from './components/Herobanner';
 import RecentProjects from './components/RecentProjects';
 import SkillSlider from './components/SkillSlider';
-import { motion } from 'framer-motion';
 
 function HomePage() {
   return (
