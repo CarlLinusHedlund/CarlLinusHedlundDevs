@@ -72,7 +72,7 @@ function RecentProjects() {
                     {project.intro}
                   </p>
                 </div>
-                <Link to={`${project.id}`}>
+                <Link to={`/projects/${project.id}`}>
                   <button
                     type="button"
                     className="lg:hover:hoverShadow btn group mt-4 flex w-full max-w-[450px] items-center justify-center uppercase duration-300 md:max-w-[350px] lg:hover:scale-105 "
