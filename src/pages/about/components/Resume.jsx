@@ -121,8 +121,10 @@ export default function Resume() {
                   GITHUB
                 </p>
                 <a
+                  target="_blank"
                   href="https://github.com/CarlLinusHedlund"
                   className=" text-[10px] font-light underline opacity-60 xxs:text-textXS sm:whitespace-nowrap sm:text-[13px] lg:text-[14px] "
+                  rel="noreferrer"
                 >
                   CarlLinusHedlund
                 </a>
@@ -172,14 +174,17 @@ export default function Resume() {
       </div>
       <div className="flex w-full justify-center px-8 font-rubik text-[14px] font-normal ">
         <p className=" max-w-xl text-center ">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam
-          sapiente nihil illum aliquam eveniet harum itaque in neque, ipsum
-          adipisci, voluptate tenetur consequatur, qui quo tempora praesentium
-          nostrum quisquam enim. Lorem ipsum dolor sit amet consectetur
-          adipisicing elit. Itaque ducimus voluptatem consectetur id, alias
-          illum numquam vero ipsa. Quisquam delectus in sit distinctio harum
-          soluta asperiores ea nihil ut corrupti. Lorem, ipsum dolor sit amet
-          consec
+          Hello, I'm Carl Linus Hedlund. 26 year old from Oslo, Norway. A
+          front-end developer with a solid education from Noroff. Experienced
+          with the latest cutting edge development tools and procedures. Good
+          knowledge in HTML, CSS (Tailwind, Sass), React. During my studies, I
+          have developed skills in creating engaging and responsive user
+          interfaces using modern technologies. I have also gained some
+          experience on my own with postgreSQL databases, which has given me a
+          broader understanding of data storage and management. I am passionate
+          about learning and expanding my expertise in front-end development,
+          and I am now seeking opportunities to contribute to exciting projects
+          and further develop as a developer.
         </p>
       </div>
       <div className="flex w-full justify-center py-10 ">
@@ -189,7 +194,7 @@ export default function Resume() {
             aboutSectionVisible ? 'aboutAnimation' : ''
           } `}
           download
-          href="../profile-white.png"
+          href="../cv-carllinushedlund.pdf"
         >
           <p>Download CV</p>
           <img className=" " src="./documentdownload.svg" alt="download cv" />
