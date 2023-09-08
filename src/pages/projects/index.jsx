@@ -12,7 +12,10 @@ function ProjectPage() {
 
   useEffect(() => {
     async function getProjects() {
-      const { data, error } = await supabase.from('projects').select('*').order('id', { ascending: true });
+      const { data, error } = await supabase
+        .from('projects')
+        .select('*')
+        .order('created_at', { ascending: false });
       if (data) {
         setProjects(data);
       }
